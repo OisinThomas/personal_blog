@@ -1,4 +1,4 @@
-const SkillList = [
+const SkillList: Array<string> = [
     "Python",
     "Machine Learning",
     "Flask",
@@ -22,7 +22,7 @@ const SkillList = [
           I love to work with...
         </span>
         <ul className="flex flex-wrap mt-8 justify-center  xs:justify-start">
-          {SkillList.map((item, index) => {
+          {SkillList.map((item: string, index: number) => {
             return (
               <li
                 key={index}

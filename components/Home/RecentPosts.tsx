@@ -12,7 +12,7 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
             </div>
             <div className={`grid grid-cols-3 grid-rows-{${String(Math.ceil(Math.max(3, Math.min(blogs.length, 9)) / 3))} gap-16 mt-16`}>
                 {
-                    blogs.slice(0, 9).map((blog, index) => {
+                    blogs.slice(0, 9).map((blog: any, index:number) => {
                         return <article key={index} className='col-span-1 row-span-1 relative'>
                             <BlogElement blog={blog} />
                         </article>
