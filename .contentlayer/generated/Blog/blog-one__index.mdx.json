@@ -1,0 +1,31 @@
+{
+  "title": "Setting Up Expo Client on MacOS Catalina",
+  "publishedAt": "2020-04-20T00:00:00.000Z",
+  "updatedAt": "2020-04-20T00:00:00.000Z",
+  "description": "A guide to setting up the Expo Client on MacOS Catalina.",
+  "image": "../../public/post-images/setting-up-expo-client-on-macos-catalina.png",
+  "isPublished": true,
+  "author": "Oisín Thomas Morrin",
+  "tags": [
+    "Expo",
+    "MacOS",
+    "Catalina",
+    "Node.js",
+    "Tech",
+    "\r"
+  ],
+  "body": {
+    "raw": "# Setting Up Expo Client on MacOS Catalina\r\n\r\nThings are done differently on Apple, especially with the latest MacOS, Catalina. When I was navigating these steps, I found them scattered across the internet. This guide aims to provide a centralized tutorial for getting the Expo Client up and running on MacOS Catalina.\r\n\r\n## 1. Download a Code Editor\r\n\r\nFirst, you'll want to download your preferred code editor. I personally recommend **Visual Studio Code**, which is:\r\n- Free to use\r\n- Intuitive\r\n- Offers a wide range of add-ons to enhance development\r\n\r\n[Download Visual Studio Code here](https://code.visualstudio.com/).\r\n\r\n## 2. Install Node.js\r\n\r\nThere are primarily two ways to install Node.js on MacOS:\r\n\r\n- [Download Node.js from its official website](https://nodejs.org/).\r\n- Install it using Homebrew from the command line. [Here's a helpful article](URL_OF_THE_ARTICLE) on how to do that.\r\n\r\n**Note**: Due to the security settings of Catalina, you might encounter issues when trying to install applications globally. If you downloaded Node.js from its website, follow these steps to avoid such issues:\r\n\r\n- Create an `npm-global` directory if it doesn't exist:\r\n  ```bash\r\n  mkdir ~/npm-global\r\n  ```\r\n\r\n- Set the npm directory to the one you just created:\r\n  ```bash\r\n  npm config set prefix '~/npm-global'\r\n  ```\r\n\r\n- Create a `.zshrc` file and open it:\r\n  ```bash\r\n  touch .zshrc\r\n  open -e .zshrc\r\n  ```\r\n\r\n- Add the following to the `.zshrc` file:\r\n  ```bash\r\n  npm config set prefix '~/npm-global'\r\n  export PATH=~/npm-global/bin:$PATH\r\n  ```\r\n\r\n- Close the file and restart your terminal.\r\n\r\nFor further insights, [check out this thread](URL_OF_THE_THREAD).\r\n\r\n## 3. Install the Expo Client\r\n\r\nCatalina's security settings can be a challenge for global installations. Instead of the standard installation process, use the following command:\r\n\r\n```bash\r\nsudo npm i -g --unsafe-perm expo-cli\r\n```\r\n\r\n**Important**: Using `sudo` will prompt you for a password. The `--unsafe-perm` flag bypasses Catalina's security settings, allowing you to install the Expo Client globally.\r\n\r\nAnd voila! You've successfully installed the Expo client on your Mac.\r\n\r\n---\r\n\r\nPlease note that placeholders like \"URL_OF_THE_ARTICLE\" and \"URL_OF_THE_THREAD\" are used where URLs should be placed. Make sure to replace them with the actual links.",
+    "html": "<h1>Setting Up Expo Client on MacOS Catalina</h1>\n<p>Things are done differently on Apple, especially with the latest MacOS, Catalina. When I was navigating these steps, I found them scattered across the internet. This guide aims to provide a centralized tutorial for getting the Expo Client up and running on MacOS Catalina.</p>\n<h2>1. Download a Code Editor</h2>\n<p>First, you'll want to download your preferred code editor. I personally recommend <strong>Visual Studio Code</strong>, which is:</p>\n<ul>\n<li>Free to use</li>\n<li>Intuitive</li>\n<li>Offers a wide range of add-ons to enhance development</li>\n</ul>\n<p><a href=\"https://code.visualstudio.com/\">Download Visual Studio Code here</a>.</p>\n<h2>2. Install Node.js</h2>\n<p>There are primarily two ways to install Node.js on MacOS:</p>\n<ul>\n<li><a href=\"https://nodejs.org/\">Download Node.js from its official website</a>.</li>\n<li>Install it using Homebrew from the command line. <a href=\"URL_OF_THE_ARTICLE\">Here's a helpful article</a> on how to do that.</li>\n</ul>\n<p><strong>Note</strong>: Due to the security settings of Catalina, you might encounter issues when trying to install applications globally. If you downloaded Node.js from its website, follow these steps to avoid such issues:</p>\n<ul>\n<li>\n<p>Create an <code>npm-global</code> directory if it doesn't exist:</p>\n<pre><code class=\"language-bash\">mkdir ~/npm-global\n</code></pre>\n</li>\n<li>\n<p>Set the npm directory to the one you just created:</p>\n<pre><code class=\"language-bash\">npm config set prefix '~/npm-global'\n</code></pre>\n</li>\n<li>\n<p>Create a <code>.zshrc</code> file and open it:</p>\n<pre><code class=\"language-bash\">touch .zshrc\r\nopen -e .zshrc\n</code></pre>\n</li>\n<li>\n<p>Add the following to the <code>.zshrc</code> file:</p>\n<pre><code class=\"language-bash\">npm config set prefix '~/npm-global'\r\nexport PATH=~/npm-global/bin:$PATH\n</code></pre>\n</li>\n<li>\n<p>Close the file and restart your terminal.</p>\n</li>\n</ul>\n<p>For further insights, <a href=\"URL_OF_THE_THREAD\">check out this thread</a>.</p>\n<h2>3. Install the Expo Client</h2>\n<p>Catalina's security settings can be a challenge for global installations. Instead of the standard installation process, use the following command:</p>\n<pre><code class=\"language-bash\">sudo npm i -g --unsafe-perm expo-cli\n</code></pre>\n<p><strong>Important</strong>: Using <code>sudo</code> will prompt you for a password. The <code>--unsafe-perm</code> flag bypasses Catalina's security settings, allowing you to install the Expo Client globally.</p>\n<p>And voila! You've successfully installed the Expo client on your Mac.</p>\n<hr>\n<p>Please note that placeholders like \"URL_OF_THE_ARTICLE\" and \"URL_OF_THE_THREAD\" are used where URLs should be placed. Make sure to replace them with the actual links.</p>"
+  },
+  "_id": "blog-one/index.mdx",
+  "_raw": {
+    "sourceFilePath": "blog-one/index.mdx",
+    "sourceFileName": "index.mdx",
+    "sourceFileDir": "blog-one",
+    "contentType": "mdx",
+    "flattenedPath": "blog-one"
+  },
+  "type": "Blog",
+  "url_path": "/blog/blog-one"
+}
