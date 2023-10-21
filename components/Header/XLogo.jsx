@@ -4,7 +4,6 @@ import { cx } from "@/utils"
 const XLogo = ({className, ...rest}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    xmlSpace="preserve"
     width={44} height={46}
     style={{
       enableBackground: "new 0 0 1668.56 1221.19",

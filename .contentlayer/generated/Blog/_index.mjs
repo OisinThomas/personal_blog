@@ -2,11 +2,11 @@
 
 import _3ReasonsToCodeAtAStartup__indexMdx from './_3-reasons-to-code-at-a-startup__index.mdx.json' assert { type: 'json' }
 import anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx from './an-chead-rud-ar-mo-liosta-rudai-ata-le-deanamh__index.mdx.json' assert { type: 'json' }
-import anCoroinvireasIsAnChreidiunacht__indexMdx from './an-coroinvireas-is-an-chreidiunacht__index.mdx.json' assert { type: 'json' }
 import anRioscaFionnachtana__indexMdx from './an-riosca-fionnachtana__index.mdx.json' assert { type: 'json' }
-import cuisNaMeine__indexMdx from './cuis-na-meine__index.mdx.json' assert { type: 'json' }
 import anGaABheithAgLeamh__indexMdx from './an-ga-a-bheith-ag-leamh__index.mdx.json' assert { type: 'json' }
+import anCoroinvireasIsAnChreidiunacht__indexMdx from './an-coroinvireas-is-an-chreidiunacht__index.mdx.json' assert { type: 'json' }
 import anTastailOileain__indexMdx from './an-tastail-oileain__index.mdx.json' assert { type: 'json' }
+import cuisNaMeine__indexMdx from './cuis-na-meine__index.mdx.json' assert { type: 'json' }
 import deaIsDrochMoilleadoir__indexMdx from './dea-is-droch-moilleadoir__index.mdx.json' assert { type: 'json' }
 import deanAithrisIsAnsaLeat__indexMdx from './dean-aithris-is-ansa-leat__index.mdx.json' assert { type: 'json' }
 import fadhbannaNosula__indexMdx from './fadhbanna-nosula__index.mdx.json' assert { type: 'json' }
@@ -18,4 +18,4 @@ import settingUpExpoClientOnMacosCatalina__indexMdx from './setting-up-expo-clie
 import translatingIntoLearnings__indexMdx from './translating-into-learnings__index.mdx.json' assert { type: 'json' }
 import uisce__indexMdx from './uisce__index.mdx.json' assert { type: 'json' }
 
-export const allBlogs = [_3ReasonsToCodeAtAStartup__indexMdx, anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx, anCoroinvireasIsAnChreidiunacht__indexMdx, anRioscaFionnachtana__indexMdx, cuisNaMeine__indexMdx, anGaABheithAgLeamh__indexMdx, anTastailOileain__indexMdx, deaIsDrochMoilleadoir__indexMdx, deanAithrisIsAnsaLeat__indexMdx, fadhbannaNosula__indexMdx, functionalFilteringWithChatgpt__indexMdx, gonta__indexMdx, naRudaiAtaFonnOrtFonnABheithOrtADheanamh__indexMdx, obairNachBhfuilCumaOibreUirthi__indexMdx, settingUpExpoClientOnMacosCatalina__indexMdx, translatingIntoLearnings__indexMdx, uisce__indexMdx]
+export const allBlogs = [_3ReasonsToCodeAtAStartup__indexMdx, anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx, anRioscaFionnachtana__indexMdx, anGaABheithAgLeamh__indexMdx, anCoroinvireasIsAnChreidiunacht__indexMdx, anTastailOileain__indexMdx, cuisNaMeine__indexMdx, deaIsDrochMoilleadoir__indexMdx, deanAithrisIsAnsaLeat__indexMdx, fadhbannaNosula__indexMdx, functionalFilteringWithChatgpt__indexMdx, gonta__indexMdx, naRudaiAtaFonnOrtFonnABheithOrtADheanamh__indexMdx, obairNachBhfuilCumaOibreUirthi__indexMdx, settingUpExpoClientOnMacosCatalina__indexMdx, translatingIntoLearnings__indexMdx, uisce__indexMdx]

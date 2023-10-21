@@ -23,12 +23,18 @@ const config: Config = {
           '0%': { opacity: '0' },
           '50%': { opacity: '1' },
           '100%': { opacity: '0' },
+        },
+        roll: {
+          "0%": { transform: "translateX(-33%)" },
+          "50%": { transform: "translateX(33%)" },
+          "100%": { transform: "translateX(-33%)" },
         }
       },
       animation: {
         fadeInOut: 'fadeInOut 6s infinite',
         fadeInOutDelayed: 'fadeInOut 6s 3s infinite',
-      }
+        roll: "roll 20s linear infinite"
+      },
     },
   },
   plugins: [
