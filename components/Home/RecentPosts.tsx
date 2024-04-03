@@ -60,9 +60,20 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
                                             </div>
                                         </div>
 
-                                        <div className="flex-grow pl-2 text-left overflow-hidden">
+                                        <div
+                                            className="flex-grow pl-2 text-left overflow-hidden"
+                                            style={{
+                                                hyphens: 'auto',
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                WebkitHyphens: 'auto', // For Safari
+                                                msHyphens: 'auto', // For Internet Explorer
+                                            }}
+                                            lang="en" // Specify the language for better hyphenation (if applicable)
+                                        >
                                             {blog.title}
                                         </div>
+
                                     </div>
                                 </Link>
                             ))}
