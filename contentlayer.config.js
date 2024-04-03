@@ -45,6 +45,14 @@ const Doc = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    subTag: {
+      type: "string",
+      required: true,
+    },
+    language: {
+      type: "string",
+      required: true,
+    },
   },
   computedFields: {
     url: {
@@ -117,6 +125,14 @@ const Doc2 = defineDocumentType(() => ({
       },
     },
     majorTag: {
+      type: "string",
+      required: true,
+    },
+    subTag: {
+      type: "string",
+      required: true,
+    },
+    language: {
       type: "string",
       required: true,
     },

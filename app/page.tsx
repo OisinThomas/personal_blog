@@ -15,7 +15,7 @@ export default function Home() {
             brimming with curiosity
           </div>
         </div>
-        <div className="relative h-full w-full md:w-[30ch] flex text-sm md:text-lg italic wrap items-center justify-center">
+        <div className="relative h-full max-w-[75ch] md:w-[30ch] flex text-sm md:text-lg italic wrap items-center justify-center">
           `Curiouser and curiouser!' cried Alice (she was so much surprised, that for the moment she quite forgot how to speak good English)
         </div>
       </div>

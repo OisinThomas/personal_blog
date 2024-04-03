@@ -45,6 +45,14 @@ var Doc = defineDocumentType(() => ({
     majorTag: {
       type: "string",
       required: true
+    },
+    subTag: {
+      type: "string",
+      required: true
+    },
+    language: {
+      type: "string",
+      required: true
     }
   },
   computedFields: {
@@ -155,4 +163,4 @@ var contentlayer_config_default = makeSource({
 export {
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-HZFRL3WY.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-ITBZZZAM.mjs.map

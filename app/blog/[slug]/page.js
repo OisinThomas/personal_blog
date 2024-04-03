@@ -90,25 +90,11 @@ export default function BlogPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <article className="mb-10">
-        <div className="mb-8 text-center relative w-full h-[30vh] bg-dark">
+        <div className="mb-8 text-center relative w-full h-fit bg-dark pt-20 pb-20">
           <div className="w-full z-10 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 className="inline-block mt-6 font-semibold capitalize text-light text-2xl md:text-3xl lg:text-5xl !leading-normal relative w-5/6">
+            <h1 className="inline-block font-semibold capitalize text-light text-2xl md:text-3xl lg:text-5xl !leading-normal relative w-5/6">
               {blog.title}
             </h1>
-            <div className="w-full z-10 mt-2 flex flex-row items-center justify-center flex-wrap">
-              {blog.tags
-                .filter((x) => x !== "\r")
-                .map((tag) => {
-                  return (
-                    <Tag
-                      name={tag}
-                      key={tag}
-                      link={`/categories/${slug(tag)}`}
-                      className="px-6 text-sm py-2 mx-2 my-1"
-                    />
-                  );
-                })}
-            </div>
           </div>
         </div>
         <BlogDetails className="bottom-0" blog={blog} slug={params.slug} />

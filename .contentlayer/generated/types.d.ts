@@ -22,6 +22,8 @@ export type Blog = {
   author: string
   tags?: string[] | undefined
   majorTag: string
+  subTag: string
+  language: string
   /** MDX file body */
   body: MDX
   url: string
