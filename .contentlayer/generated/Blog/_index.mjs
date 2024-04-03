@@ -2,26 +2,26 @@
 
 import _3ReasonsToCodeAtAStartup__indexMdx from './_3-reasons-to-code-at-a-startup__index.mdx.json' assert { type: 'json' }
 import aiShrunkTheLanguageDivide__indexMdx from './ai-shrunk-the-language-divide__index.mdx.json' assert { type: 'json' }
-import anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx from './an-chead-rud-ar-mo-liosta-rudai-ata-le-deanamh__index.mdx.json' assert { type: 'json' }
 import anCoroinvireasIsAnChreidiunacht__indexMdx from './an-coroinvireas-is-an-chreidiunacht__index.mdx.json' assert { type: 'json' }
+import anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx from './an-chead-rud-ar-mo-liosta-rudai-ata-le-deanamh__index.mdx.json' assert { type: 'json' }
+import anGaABheithAgLeamh__indexMdx from './an-ga-a-bheith-ag-leamh__index.mdx.json' assert { type: 'json' }
 import anRioscaFionnachtana__indexMdx from './an-riosca-fionnachtana__index.mdx.json' assert { type: 'json' }
 import anTastailOileain__indexMdx from './an-tastail-oileain__index.mdx.json' assert { type: 'json' }
-import anGaABheithAgLeamh__indexMdx from './an-ga-a-bheith-ag-leamh__index.mdx.json' assert { type: 'json' }
 import cuisNaMeine__indexMdx from './cuis-na-meine__index.mdx.json' assert { type: 'json' }
 import deaIsDrochMoilleadoir__indexMdx from './dea-is-droch-moilleadoir__index.mdx.json' assert { type: 'json' }
-import extensionAuthWithCookies__indexMdx from './extension-auth-with-cookies__index.mdx.json' assert { type: 'json' }
 import deanAithrisIsAnsaLeat__indexMdx from './dean-aithris-is-ansa-leat__index.mdx.json' assert { type: 'json' }
-import functionalFilteringWithChatgpt__indexMdx from './functional-filtering-with-chatgpt__index.mdx.json' assert { type: 'json' }
+import extensionAuthWithCookies__indexMdx from './extension-auth-with-cookies__index.mdx.json' assert { type: 'json' }
 import fadhbannaNosula__indexMdx from './fadhbanna-nosula__index.mdx.json' assert { type: 'json' }
-import humansOnlyAiNeedNotApply__indexMdx from './humans-only-ai-need-not-apply__index.mdx.json' assert { type: 'json' }
+import functionalFilteringWithChatgpt__indexMdx from './functional-filtering-with-chatgpt__index.mdx.json' assert { type: 'json' }
 import gonta__indexMdx from './gonta__index.mdx.json' assert { type: 'json' }
+import humansOnlyAiNeedNotApply__indexMdx from './humans-only-ai-need-not-apply__index.mdx.json' assert { type: 'json' }
 import inNeedOfAssistants__indexMdx from './in-need-of-assistants__index.mdx.json' assert { type: 'json' }
-import languageLearningLikeTiktok__indexMdx from './language-learning-like-tiktok__index.mdx.json' assert { type: 'json' }
 import naRudaiAtaFonnOrtFonnABheithOrtADheanamh__indexMdx from './na-rudai-ata-fonn-ort-fonn-a-bheith-ort-a-dheanamh__index.mdx.json' assert { type: 'json' }
+import languageLearningLikeTiktok__indexMdx from './language-learning-like-tiktok__index.mdx.json' assert { type: 'json' }
 import obairNachBhfuilCumaOibreUirthi__indexMdx from './obair-nach-bhfuil-cuma-oibre-uirthi__index.mdx.json' assert { type: 'json' }
 import settingUpExpoClientOnMacosCatalina__indexMdx from './setting-up-expo-client-on-macos-catalina__index.mdx.json' assert { type: 'json' }
 import translatingIntoLearnings__indexMdx from './translating-into-learnings__index.mdx.json' assert { type: 'json' }
 import whatIsTheDiglotWeaveMethod__indexMdx from './what-is-the-diglot-weave-method__index.mdx.json' assert { type: 'json' }
 import uisce__indexMdx from './uisce__index.mdx.json' assert { type: 'json' }
 
-export const allBlogs = [_3ReasonsToCodeAtAStartup__indexMdx, aiShrunkTheLanguageDivide__indexMdx, anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx, anCoroinvireasIsAnChreidiunacht__indexMdx, anRioscaFionnachtana__indexMdx, anTastailOileain__indexMdx, anGaABheithAgLeamh__indexMdx, cuisNaMeine__indexMdx, deaIsDrochMoilleadoir__indexMdx, extensionAuthWithCookies__indexMdx, deanAithrisIsAnsaLeat__indexMdx, functionalFilteringWithChatgpt__indexMdx, fadhbannaNosula__indexMdx, humansOnlyAiNeedNotApply__indexMdx, gonta__indexMdx, inNeedOfAssistants__indexMdx, languageLearningLikeTiktok__indexMdx, naRudaiAtaFonnOrtFonnABheithOrtADheanamh__indexMdx, obairNachBhfuilCumaOibreUirthi__indexMdx, settingUpExpoClientOnMacosCatalina__indexMdx, translatingIntoLearnings__indexMdx, whatIsTheDiglotWeaveMethod__indexMdx, uisce__indexMdx]
+export const allBlogs = [_3ReasonsToCodeAtAStartup__indexMdx, aiShrunkTheLanguageDivide__indexMdx, anCoroinvireasIsAnChreidiunacht__indexMdx, anCheadRudArMoLiostaRudaiAtaLeDeanamh__indexMdx, anGaABheithAgLeamh__indexMdx, anRioscaFionnachtana__indexMdx, anTastailOileain__indexMdx, cuisNaMeine__indexMdx, deaIsDrochMoilleadoir__indexMdx, deanAithrisIsAnsaLeat__indexMdx, extensionAuthWithCookies__indexMdx, fadhbannaNosula__indexMdx, functionalFilteringWithChatgpt__indexMdx, gonta__indexMdx, humansOnlyAiNeedNotApply__indexMdx, inNeedOfAssistants__indexMdx, naRudaiAtaFonnOrtFonnABheithOrtADheanamh__indexMdx, languageLearningLikeTiktok__indexMdx, obairNachBhfuilCumaOibreUirthi__indexMdx, settingUpExpoClientOnMacosCatalina__indexMdx, translatingIntoLearnings__indexMdx, whatIsTheDiglotWeaveMethod__indexMdx, uisce__indexMdx]
