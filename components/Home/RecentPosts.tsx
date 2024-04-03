@@ -26,7 +26,7 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
         <section className="max-w-[120ch] text-lg px-5 flex flex-col items-center justify-center">
             <h5 className="text-2xl sm:text-2xl md:text-2xl font-bold text-center mb-8">About Me</h5>
             <p className="text-md sm:text-md md:text-md font-semibold text-center mb-8">Co-founder of <a href="https://weeve.ie" className="underline"> Weeve</a>. Full-stack Dev at <a href="https://weeve.ie" className="underline">Examfly</a>. </p>
-            <p className="max-w-[70ch]">
+            <p className="max-w-[70ch] text-center">
                 In my spare time, you can usually find me playing with languages – currently Irish, Italian and Japanese – or reading with a coffee (or tea) in hand. I believe that the intersection of technology and language has the ability to completely change the world.
             </p>
             <br />
