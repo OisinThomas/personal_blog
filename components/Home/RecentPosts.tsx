@@ -60,7 +60,7 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
                                             </div>
                                         </div>
 
-                                        <div className="flex-grow pl-2 text-left">
+                                        <div className="flex-grow pl-2 text-left overflow-hidden">
                                             {blog.title}
                                         </div>
                                     </div>
