@@ -27,7 +27,7 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
             <h5 className="text-2xl sm:text-2xl md:text-2xl font-bold text-center mb-8">About Me</h5>
             <p className="text-md sm:text-md md:text-md font-semibold text-center mb-8">Co-founder of <a href="https://weeve.ie" className="underline"> Weeve</a>. Full-stack Dev at <a href="https://weeve.ie" className="underline">Examfly</a>. </p>
             <p className="max-w-[70ch] text-center">
-                In my spare time, you can usually find me playing with languages – currently Irish, Italian and Japanese – or reading with a coffee (or tea) in hand. I believe that the intersection of technology and language has the ability to completely change the world.
+                In my spare time, you can usually find me playing with languages – currently Irish and Japanese – or reading with a coffee (or tea) in hand. I believe that the intersection of technology and language has the ability to completely change the world.
             </p>
             <br />
             <p>
@@ -35,17 +35,23 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
                     href="https://www.linkedin.com/in/oisin-thomas-morrin">LinkedIn</a> or <a className='underline' href="https://twitter.com/oisin_thomas">X</a>)!
             </p>
             <p>
-                You can also email me: oisin [dot] thomas [dot] morrin [at] gmail [dot] com
+                or email me at:
+            </p>
+            <p>
+                oisin [dot] thomas [dot] morrin [at] gmail [dot] com
             </p>
             <br />
-            <p className="text-md sm:text-md md:text-md font-semibold text-center mb-8">Below are my thoughts, translations and tinkerings</p>
+
+            <p className="text-md sm:text-md md:text-md text-center mb-8">Here are some of the <a className="underline" href="/favourite/content">content</a> and <a className="underline" href="/favourite/words">words</a> I hold dear</p>
+
+            <p className="text-xl sm:text-xl md:text-xl font-semibold text-center">Below are my thoughts, translations and tinkerings</p>
             <br />
             {
                 // list of blogs grouped by majorTag, with the date then language and title of each post
             }
             <div>
                 {Object.keys(groupedBlogs).map(tag => (
-                    <div key={tag} className="mt-8">
+                    <div key={tag} className="mt-2">
                         <h2 className="text-lg sm:text-lg md:text-lg font-bold text-left mb-4">{tag}:</h2>
                         <div className="grid grid-cols-1 gap-4">
                             {groupedBlogs[tag].map((blog: any) => (
