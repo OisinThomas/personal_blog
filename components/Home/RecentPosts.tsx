@@ -52,7 +52,7 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
             <div>
                 {Object.keys(groupedBlogs).map(tag => (
                     <div key={tag} className="mt-2">
-                        <h2 className="text-lg sm:text-lg md:text-lg font-bold text-left mb-4">{tag}:</h2>
+                        <h2 className="text-xl sm:text-xl md:text-xl font-bold text-left mb-4 mt-4">{tag}:</h2>
                         <div className="grid grid-cols-1 gap-4">
                             {groupedBlogs[tag].map((blog: any) => (
                                 <Link key={blog.title} href={blog.url}>
