@@ -42,7 +42,7 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
             </p>
             <br />
 
-            <p className="text-md sm:text-md md:text-md text-center mb-8">Here are some of the <a className="underline" href="/favourite/content">content</a> and <a className="underline" href="/favourite/words">words</a> I hold dear</p>
+            <p className="text-md sm:text-md md:text-md text-center mb-8">Here are some of the <a className="underline" href="/favourite/content">content</a> and <a className="underline" href="/favourite/words">words</a> that have impacted me over the years</p>
 
             <p className="text-xl sm:text-xl md:text-xl font-semibold text-center">Below are my thoughts, translations and tinkerings</p>
             <br />
