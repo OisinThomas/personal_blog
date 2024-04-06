@@ -106,5 +106,11 @@
         "description": "A haunting and beautiful book that explores themes of love and **spoiler**. Genuinely moving.",
         "url": "https://www.goodreads.com/book/show/6334.Never_Let_Me_Go",
         "type": "book"
+    },
+    {
+        "title": "Alice in Wonderland by Lewis Carroll",
+        "description": "A strange book. First read it as a Weeve, then in Irish and finally in English. Hard to belive its a children's book...",
+        "url": "https://www.goodreads.com/book/show/13009.Alice_s_Adventures_in_Wonderland",
+        "type": "book"
     }
 ]
