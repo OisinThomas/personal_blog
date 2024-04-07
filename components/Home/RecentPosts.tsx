@@ -10,7 +10,12 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
         // This assumes each blog entry has exactly one of tag1, tag2, tag3 defined
         const tags = ['Thoughts', 'Translations', 'Tinkering']; // Define the order of tags
         const tag = tags.find(tag => tag === blog.majorTag); // Find which tag this blog has
-
+        acc = tags.reduce((acc: any, tag: string) => {
+            if (!acc[tag]) {
+                acc[tag] = [];
+            }
+            return acc;
+        }, acc); // Initialize each tag as an empty array
         if (tag) {
             const tagName = blog.majorTag; // Get the actual tag name (value of tag1, tag2, or tag3)
             if (!acc[tagName]) {
