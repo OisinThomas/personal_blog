@@ -30,14 +30,14 @@ const RecentPosts = ({ blogs }: { blogs: any }) => {
                 In my spare time, you can usually find me playing with languages – currently Irish and Japanese – or reading with a coffee (or tea) in hand. I believe that the intersection of technology and language has the ability to completely change the world.
             </p>
             <br />
-            <p>
+            <p className="max-w-[70ch] text-center">
                 Reach me on (<a className="underline"
                     href="https://www.linkedin.com/in/oisin-thomas-morrin">LinkedIn</a> or <a className='underline' href="https://twitter.com/oisin_thomas">X</a>)!
             </p>
-            <p>
+            <p className="max-w-[70ch] text-center">
                 or email me at:
             </p>
-            <p>
+            <p className="max-w-[70ch] text-center">
                 oisin [dot] thomas [dot] morrin [at] gmail [dot] com
             </p>
             <br />
