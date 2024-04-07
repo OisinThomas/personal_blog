@@ -112,5 +112,23 @@
         "description": "A strange book. First read it as a Weeve, then in Irish and finally in English. Hard to belive its a children's book...",
         "url": "https://www.goodreads.com/book/show/13009.Alice_s_Adventures_in_Wonderland",
         "type": "book"
+    },
+    {
+        "title": "Poor Charlie's Almanack by Charlie Munger",
+        "description": "A collection of speeches and essays by Charlie Munger. A must-read for anyone interested in mental models.",
+        "url": "https://www.goodreads.com/book/show/219369.Poor_Charlie_s_Almanack",
+        "type": "book"
+    },
+    {
+        "title": "Antifragile by Nassim Nicholas Taleb",
+        "description": "A book about how to thrive in a world of uncertainty. Great for concepts and metaphors. Be prepared for a lot of tangents.",
+        "url": "https://www.goodreads.com/book/show/13530973-antifragile",
+        "type": "book"
+    },
+    {
+        "title": "G.E.B. by Douglas Hofstadter",
+        "description": "A book about the nature of intelligence and consciousness. A challenging tome of logic but highly rewarding when you spend time with it.",
+        "url": "https://www.goodreads.com/book/show/24113.G_del_Escher_Bach",
+        "type": "book"
     }
 ]
