@@ -7,7 +7,7 @@ const siteMetadata = {
   language: "en-gb",
   theme: "system", // system, dark or light
   siteUrl: "https://oisinthomasmorrin.com", // your website URL
-  siteLogo: "../public/profile.png",
+  siteLogo: "../profile.png",
   socialBanner: "../public/socialbanner.png", // add social banner in the public folder
   email: "oisin [at] weeve [dot] ie",
   github: "https://github.com/OisinThomasMorrin",
