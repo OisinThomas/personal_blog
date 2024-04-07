@@ -57,7 +57,6 @@ export default function ContentPage({ params }) {
           {wordJson.length >= 1 &&
             //sort wordJson by type
             wordJson
-              .sort((a, b) => a.type.localeCompare(b.type))
               .map((content) => (
                 // display as content title, then description (there is a link around the title and it is bold and italics)
                 <div
