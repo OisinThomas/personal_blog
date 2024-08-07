@@ -1,0 +1,120 @@
+.markdown {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .markdown p,
+  .markdown ul,
+  .markdown ol,
+  .markdown blockquote {
+    @apply my-2 max-w-[75ch] py-3 text-lg;
+  }
+  
+  .markdown h2 {
+    @apply text-2xl mt-12 mb-4 leading-snug;
+  }
+  
+  .markdown h3 {
+    @apply text-xl mt-8 mb-4 leading-snug;
+  }
+
+  .markdown a {
+    @apply text-blue-500 underline;
+  }
+
+  .markdown a:hover {
+    @apply text-blue-700;
+  }
+
+  .markdown :global([data-callout]) { 
+    @apply my-6 space-y-2 max-w-prose rounded-lg border border-blue-400/20 bg-blue-300/20 p-4 pb-5 dark:border-blue-500/20 dark:bg-blue-400/10; 
+}
+
+.markdown :global([data-callout]) > :global([data-callout-title]) { 
+    @apply flex flex-row items-start gap-2 p-0 font-bold text-blue-500; 
+}
+
+.markdown :global([data-callout]) > :global([data-callout-title]):not(:only-child) { 
+    @apply mb-2; 
+}
+
+.markdown :global([data-callout]) > :global([data-callout-title]):empty::after { 
+    content: "Note"; 
+}
+
+.markdown :global([data-callout]) > :global([data-callout-body]) { 
+    @apply space-y-2; 
+}
+
+.markdown :global([data-callout]) > :global([data-callout-body]) > * { 
+    @apply m-0; 
+}
+
+.markdown :global(details[data-callout]) > :global(summary[data-callout-title]) { 
+    @apply cursor-pointer; 
+}
+
+.markdown :global(details[data-callout]) > :global(summary[data-callout-title])::after { 
+    @apply w-full bg-right bg-no-repeat; 
+    content: ""; 
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4ODg4OCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Im05IDE4bDYtNmwtNi02Ii8+PC9zdmc+"); 
+    background-size: 1.5rem; 
+}
+
+.markdown :global(details[data-callout]) > :global(summary[data-callout-title]):not(:empty)::after { 
+    @apply my-auto ml-auto h-6 w-6; 
+}
+
+.markdown :global(details[data-callout][open]) > :global(summary[data-callout-title])::after { 
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4ODg4OCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Im02IDlsNiA2bDYtNiIvPjwvc3ZnPg=="); 
+}
+
+.markdown :global([data-callout][data-callout-type="info"]) { 
+    @apply border-blue-600/20 bg-blue-400/20 dark:border-blue-800/20 dark:bg-blue-600/10; 
+}
+
+.markdown :global([data-callout][data-callout-type="info"]) > :global([data-callout-title]) { 
+    @apply text-blue-500; 
+}
+
+.markdown :global([data-callout][data-callout-type="info"]) > :global([data-callout-title]):empty::after { 
+    content: "Info"; 
+}
+
+.markdown :global([data-callout][data-callout-type="info"]) > :global([data-callout-title])::before { 
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4ODg4OCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PHBhdGggZD0iTTEyIDE2di00bTAtNGguMDEiLz48L2c+PC9zdmc+"); 
+}
+
+/* Repeat similar structure for other callout types (todo, abstract, summary, tldr, tip, hint, important, success, check, done, question, help, faq, warning, caution, attention, failure, fail, missing, danger, error, bug, example, quote, cite) */
+
+/* Example for 'todo' type */
+.markdown :global([data-callout][data-callout-type="todo"]) { 
+    @apply border-blue-600/20 bg-blue-300/20 dark:border-blue-600/20 dark:bg-blue-600/10; 
+}
+
+.markdown :global([data-callout][data-callout-type="todo"]) > :global([data-callout-title]) { 
+    @apply text-blue-500; 
+}
+
+.markdown :global([data-callout][data-callout-type="todo"]) > :global([data-callout-title]):empty::after { 
+    content: "ToDo"; 
+}
+
+.markdown :global([data-callout][data-callout-type="todo"]) > :global([data-callout-title])::before { 
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4ODg4OCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0yMiAxMS4wOFYxMmExMCAxMCAwIDEgMS01LjkzLTkuMTQiLz48cGF0aCBkPSJtOSAxMWwzIDNMMjIgNCIvPjwvZz48L3N2Zz4="); 
+}
+
+.markdown iframe {
+  @apply justify-center w-full h-80 pl-8 pr-8 mb-4;
+}
+
+.markdown ul {
+  @apply list-disc list-inside;
+}
+
+.markdown ol {
+  @apply list-decimal list-inside;
+}
+
+.markdown li {
+  @apply my-1;
+}

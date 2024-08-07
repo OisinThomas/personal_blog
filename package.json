@@ -1,5 +1,5 @@
 {
-  "name": "blog",
+  "name": "oisin_thomas",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,28 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.5.6",
-    "@tailwindcss/typography": "^0.5.10",
-    "date-fns": "^2.30.0",
-    "github-slugger": "^2.0.0",
-    "next": "13.5.6",
-    "next-contentlayer": "^0.3.4",
+    "@r4ai/remark-callout": "^0.6.0",
+    "@types/rss": "^0.0.32",
+    "class-variance-authority": "^0.7.0",
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.424.0",
+    "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.47.0",
-    "reading-time": "^1.5.0",
-    "rehype-autolink-headings": "^7.0.0",
-    "rehype-pretty-code": "^0.10.1",
-    "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.0"
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.0",
+    "rss": "^1.2.2",
+    "styled-components": "^6.1.12",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
     "postcss": "^8",
-    "tailwindcss": "^3",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }

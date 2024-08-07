@@ -1,27 +1,153 @@
-import { allBlogs } from "@/.contentlayer/generated"
-import RecentPosts from "@/components/Home/RecentPosts"
-import Footer from "@/components/Footer"
-import { sortBlogs } from "@/utils"
-export default function Home() {
-  const sortedBlogs = sortBlogs(allBlogs)
-  return (
-    <main className="flex flex-col items-center justify-center">
-      <div className="flex flex-col md:flex-row justify-around items-center p-4">
-        <div className="relative h-[140px] w-full md:w-auto flex items-center justify-center mb-4 md:mb-0 md:mr-20">
-          <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-lg md:text-xl fadeInOut w-[1ch]">
-            好奇心旺盛
-          </div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-lg md:text-xl text-center fadeInOutDelayed opacity-0">
-            brimming with curiosity
-          </div>
-        </div>
-        <div className="relative h-full max-w-[75ch] md:w-[30ch] flex text-sm md:text-lg italic wrap items-center justify-center">
-          `Curiouser and curiouser!' cried Alice (she was so much surprised, that for the moment she quite forgot how to speak good English)
-        </div>
-      </div>
+import Link from "next/link";
+import { getAllPosts, type PostData } from "@/lib/utils";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-      <RecentPosts blogs={sortedBlogs} />
+export default function Home() {
+  const AllBlogs = getAllPosts();
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+      <Header />
+
+      <main className="container mx-auto px-4 mb-16 w-2/3">
+        <p className="text-xl mb-8">
+          I'm Oisín Thomas!
+          <br />
+          Co-founder of{" "}
+          <Link
+            href={"https://www.weeve.ie"}
+            className="cursor-pointer underline"
+          >
+            Weeve
+          </Link>{" "}
+          and Fullstack Dev at{" "}
+          <Link
+            href={"https://www.examfly.com"}
+            className="cursor-pointer underline"
+          >
+            Examfly
+          </Link>
+          <br />
+          Here is a smorgasbord of{" "}
+          <Link href={"#thoughts"} className="cursor-pointer hover:underline">
+            thoughts
+          </Link>
+          ,{" "}
+          <Link href={"#tinkering"} className="cursor-pointer hover:underline">
+            tinkerings
+          </Link>
+          , and{" "}
+          <Link
+            href={"#translations"}
+            className="cursor-pointer hover:underline"
+          >
+            translations {" "}
+          </Link>
+          — or you can check them all out <Link href="/all" className="cursor-pointer underline">here</Link> :]
+        </p>
+
+        <div className="flex flex-col-reverse gap-8 md:flex-row">
+          {newFunction(AllBlogs)}
+
+          <div className="md:w-1/3">
+            <h2 className="mb-4 text-2xl font-bold">
+              Recent
+              <span className="ml-2 text-base font-normal">
+                <Link href="/all">all</Link> • <Link href="/rss.xml">rss</Link>
+              </span>
+            </h2>
+
+            <div className="gap-4">
+              {AllBlogs.slice(0, 6).map((post) => (
+                <div key={post.slug} className="mb-2 underline">
+                  <Link href={`/blog/${post.slug}`}>
+                    {post.title.split(":")[0]}{" "}
+                    {post.language === "ga"
+                      ? `[${post.language.toUpperCase()}]`
+                      : ""}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+
       <Footer />
-    </main>
-  )
+    </div>
+  );
+}
+function newFunction(AllBlogs: PostData[]) {
+  const Tinkerings = AllBlogs.filter((post) => post.majorTag === "Tinkering");
+  const Translations = AllBlogs.filter(
+    (post) => post.majorTag === "Translations"
+  );
+  const Thoughts = AllBlogs.filter((post) => post.majorTag === "Thoughts");
+
+  return (
+    <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0">
+      <h2 id="thoughts" className="mb-4 text-2xl font-bold">
+        Thoughts
+      </h2>
+      {Thoughts.slice(0, 5).map((post) => (
+        <div key={post.slug} className="mb-8">
+          <Link
+            href={`/blog/${post.slug}`}
+            className="cursor-pointer hover:underline"
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {post.title}{" "}
+              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+            </h3>
+          </Link>
+          <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
+        </div>
+      ))}
+      <h2 id="translations" className="mb-4 text-2xl font-bold">
+        Translations
+      </h2>
+      {Translations.slice(0, 5).map((post) => (
+        <div key={post.slug} className="mb-8">
+          <Link
+            href={`/blog/${post.slug}`}
+            className="cursor-pointer hover:underline"
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {post.title}{" "}
+              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+            </h3>
+          </Link>
+          <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
+        </div>
+      ))}
+      <h2 id="tinkering" className="mb-4 text-2xl font-bold">
+        Tinkerings
+      </h2>
+      {Tinkerings.slice(0, 5).map((post) => (
+        <div key={post.slug} className="mb-8">
+          <Link
+            href={`/blog/${post.slug}`}
+            className="cursor-pointer hover:underline"
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {post.title}{" "}
+              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+            </h3>
+          </Link>
+          <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
+        </div>
+      ))}
+
+      {/**
+       * link to all bogs underneath a white line
+       */}
+      <Link
+        href="/all"
+        className="text-xl text-center mt-12 cursor-pointer hover:underline"
+      >
+        <h2>All Posts</h2>
+      </Link>
+    </div>
+  );
 }

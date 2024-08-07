@@ -1,9 +1,8 @@
-import siteMetadata from "@/utils/siteMetaData"
-import { Montserrat } from 'next/font/google'
-import './globals.css'
-import { cx } from "@/utils"
-import Header from "@/components/Header"
-const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', variable: "--font-ms" })
+import siteMetadata from "@/lib/siteMetaData"
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -17,7 +16,6 @@ export const metadata = {
     description: siteMetadata.description,
     url: siteMetadata.siteUrl,
     siteName: siteMetadata.title,
-    images: [siteMetadata.socialBanner],
     locale: "en_IE",
     type: "website",
   },
@@ -42,12 +40,12 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <head>
+       <head>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA}`}></script>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -57,11 +55,7 @@ export default function RootLayout({
           gtag('config', '${process.env.GA}');`
         }}></script>
       </head>
-      <body
-        className={cx(montserrat.variable, "font-ms bg-light dark:bg-dark")}
-      >
-        <Header />
-        {children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }

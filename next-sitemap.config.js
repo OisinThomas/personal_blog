@@ -1,4 +1,4 @@
-const siteMetadata = require("./utils/siteMetaData");
+const siteMetadata = require("./lib/siteMetaData");
 
 module.exports = {
   siteUrl: siteMetadata.siteUrl,
