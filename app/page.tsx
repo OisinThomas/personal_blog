@@ -7,9 +7,7 @@ export default function Home() {
   const AllBlogs = getAllPosts();
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <Header />
-
+    <div className="min-h-screen">
       <main className="container mx-auto px-4 mb-16 w-2/3">
         <p className="text-xl mb-8">
           I'm Oisín Thomas!

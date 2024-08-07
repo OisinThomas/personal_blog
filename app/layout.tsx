@@ -1,6 +1,8 @@
-import siteMetadata from "@/lib/siteMetaData"
+import siteMetadata from "@/lib/siteMetaData";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,17 +47,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <head>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA}`}></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+      <head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA}`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${process.env.GA}');`
-        }}></script>
+          gtag('config', '${process.env.GA}');`,
+          }}
+        ></script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body
+        className={clsx(
+          inter.className,
+          "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+        )}
+      >
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

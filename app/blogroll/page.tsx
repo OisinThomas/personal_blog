@@ -6,9 +6,7 @@ export default function Home() {
   const AllBlogs = getAllPosts();
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <Header />
-
+    <div className="min-h-screen">
       <main className="container mx-auto px-4 mb-16 w-2/3">
         <div className="flex flex-col md:flex-row justify-around items-center p-4">
           <div className="relative h-[140px] w-full md:w-auto flex items-center justify-center mb-4 md:mb-0 md:mr-20">
@@ -47,6 +45,14 @@ export default function Home() {
                   className="cursor-pointer underline"
                 >
                   Simon Willison's Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"https://www.notboring.co/"}
+                  className="cursor-pointer underline"
+                >
+                  Not Boring (Packy McCormick)
                 </Link>
               </li>
               <li>
@@ -95,6 +101,14 @@ export default function Home() {
                   className="cursor-pointer underline"
                 >
                   The Fitzwilliam
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"https://www.thediff.co/"}
+                  className="cursor-pointer underline"
+                >
+                  The Diff
                 </Link>
               </li>
               <li>

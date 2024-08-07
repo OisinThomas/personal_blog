@@ -30,17 +30,15 @@ export default async function Post({ params }: { params: any }) {
   };
 
   const content = await markdownToHtml(post.content || "");
-  const isIrish = post.language === "ga";
 
   return (
-    <html lang={isIrish ? "ga" : "en"}>
-      <body className="bg-white dark:bg-gray-900">
+      <>
+        <Header/>
+        <main className="container mx-auto px-4 mb-16">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Header/>
-        <main className="container mx-auto px-4 mb-16">
             <h1 className="text-4xl font-bold mb-4 text-center">{post.title}</h1>
           <div className="flex flex-row justify-center items-center mb-8 self-center">
             <time className="text-gray-500 text-sm mr-16" dateTime={post.date}>
@@ -58,8 +56,7 @@ export default async function Post({ params }: { params: any }) {
           </article>
         </main>
          <Footer/>
-      </body>
-    </html>
+      </>
   );
 }
 
