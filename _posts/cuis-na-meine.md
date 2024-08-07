@@ -4,7 +4,7 @@ description:  "A few thoughts on FOMO and the importance of asking yourself the 
 updatedAt: "2021-05-18"
 publishedAt: "2021-05-18"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Thoughts"
 subTag: ""
 language: "ga"

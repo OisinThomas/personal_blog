@@ -4,7 +4,7 @@ description:  "An Irish translation of Paul Graham's Essay on 'Good and Bad Proc
 updatedAt: "2020-03-24"
 publishedAt: "2020-03-24"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Translations"
 subTag: "Paul Graham"
 language: "ga"

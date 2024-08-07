@@ -4,7 +4,7 @@ description:  "You can escape the attention-mining rush and learn faster simply 
 updatedAt: "2023-11-10"
 publishedAt: "2023-11-10"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Thoughts"
 subTag: "Language Learning"
 language: "en"

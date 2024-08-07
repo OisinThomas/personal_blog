@@ -4,7 +4,7 @@ description:  "Translation forces you to think about meaning in a way other medi
 updatedAt: "2022-07-12"
 publishedAt: "2022-07-12"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Thoughts"
 subTag: "Translation"
 language: "en"

@@ -7,22 +7,22 @@ export default function manifest() {
       display: 'standalone',
       icons: [
         {
-          src: '../public/profile.png',
+          src: '/profile.png',
           sizes: '32x32',
           type: 'image/png',
         },
           {
-          src: '../public/profile.png',
+          src: '/profile.png',
           sizes: '16x16',
           type: 'image/png',
         },
             {
-          src: '../public/profile.png',
+          src: '/profile.png',
           sizes: '192x192',
           type: 'image/png',
         },
             {
-          src: '../public/profile.png',
+          src: '/profile.png',
           sizes: '512x512',
           type: 'image/png',
         },

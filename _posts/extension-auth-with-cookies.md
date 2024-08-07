@@ -4,7 +4,7 @@ description: Discover why managing user onboarding, account management, and subs
 publishedAt: "2023-12-04"
 updatedAt: "2023-12-04"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Tinkering"
 subTag: "Tech"
 language: "en"

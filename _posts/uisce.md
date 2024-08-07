@@ -4,7 +4,7 @@ description:  "Adaptability is not just the key to surive, but the key to thrive
 updatedAt: "2020-04-08"
 publishedAt: "2020-04-08"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Thoughts"
 subTag: "Philosophy"
 language: "ga"

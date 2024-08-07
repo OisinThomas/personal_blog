@@ -4,7 +4,7 @@ description:  "An Irish translation of Paul Graham's Essay on 'What Doesn’t Se
 updatedAt: "2020-03-26"
 publishedAt: "2020-03-26"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Translations"
 subTag: "Paul Graham"
 language: "ga"

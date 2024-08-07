@@ -4,7 +4,7 @@ description:  "AI aids development; but, without the human touch, it will never 
 updatedAt: "2023-11-27"
 publishedAt: "2023-11-26"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Thoughts"
 subTag: "Tech"
 language: "en"

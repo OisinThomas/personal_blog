@@ -4,7 +4,7 @@ description:  "An Irish translation of Paul Graham's Essay on 'What You (Want To
 updatedAt: "2022-11-28"
 publishedAt: "2022-11-28"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Translations"
 subTag: "Paul Graham"
 language: "ga"

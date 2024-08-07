@@ -4,7 +4,7 @@ description:  "An Irish translation of Paul Graham's Essay on 'Coronavirus and C
 updatedAt: "2020-04-11"
 publishedAt: "2020-04-11"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Translations"
 subTag: "Paul Graham"
 language: "ga"

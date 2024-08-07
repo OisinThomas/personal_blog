@@ -4,7 +4,7 @@ description: Diglot Weaving involves weaving or mixing two languages together. I
 updatedAt: "2023-11-24"
 publishedAt: "2022-10-22"
 author: "Oisín Thomas"
-image: "../../public/profile.png"
+image: "/profile.png"
 majorTag: "Thoughts"
 subTag: "Language Learning"
 language: "en"
