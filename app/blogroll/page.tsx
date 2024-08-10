@@ -25,7 +25,7 @@ export default function Home() {
         </p>
 
         <p className="text-xl mb-8">
-          Here are a list of some of my favourites blogs!
+          Here is a list of some of my favourites blogs!
         </p>
         <p className="text-xl italic mb-8">
           Also I made a{" "}
