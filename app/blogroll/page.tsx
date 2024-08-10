@@ -1,9 +1,6 @@
 import Link from "next/link";
-import { getAllPosts } from "@/lib/utils";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 export default function Home() {
-  const AllBlogs = getAllPosts();
 
   return (
     <div className="min-h-screen">
@@ -29,7 +26,10 @@ export default function Home() {
         </p>
 
         <p className="text-xl mb-8">
-          Here are a list of some of my favourites blogs!
+          Here are a list of some of my favourites blogs! 
+        </p>
+        <p className="text-xl italic mb-8">
+          Also I made a <Link className="underline" href={'/favourite/words'}>list of my favourite words and terms</Link> that I've come across.
         </p>
         <div className="flex flex-col md:flex-row">
           <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0 text-xl">

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Header from "@/components/Header";
 import Socials from "@/components/Socials";
 
 export default function About() {

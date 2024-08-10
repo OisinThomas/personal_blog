@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug, markdownToHtml } from "@/lib/utils";
 import siteMetadata from "@/lib/siteMetaData";
 import { PostBody } from "@/components/PostBody";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default async function Post({ params }: { params: any }) {
@@ -33,7 +32,6 @@ export default async function Post({ params }: { params: any }) {
 
   return (
       <>
-        <Header/>
         <main className="container mx-auto px-4 mb-16">
         <script
           type="application/ld+json"
