@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 export default function Home() {
-
   return (
     <div className="min-h-screen">
       <main className="container mx-auto px-4 mb-16 w-2/3">
@@ -26,10 +25,14 @@ export default function Home() {
         </p>
 
         <p className="text-xl mb-8">
-          Here are a list of some of my favourites blogs! 
+          Here are a list of some of my favourites blogs!
         </p>
         <p className="text-xl italic mb-8">
-          Also I made a <Link className="underline" href={'/favourite/words'}>list of my favourite words and terms</Link> that I've come across.
+          Also I made a{" "}
+          <Link className="underline" href={"/favourite/words"}>
+            list of my favourite words and terms
+          </Link>{" "}
+          that I've come across.
         </p>
         <div className="flex flex-col md:flex-row">
           <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0 text-xl">

@@ -1,6 +1,6 @@
 import siteMetadata from "@/lib/siteMetaData";
 import wordJson from "@/app/favourite/words/words.json";
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
   return {
     title: "Favorite Words",
     description: "Favorite Words",
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ContentPage({ params }) {
+export default function ContentPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -56,20 +56,16 @@ export default function ContentPage({ params }) {
         <div className="mx-auto mt-2 max-w-[100ch] px-5 leading-relaxed text-lg text-left">
           {wordJson.length >= 1 &&
             //sort wordJson by type
-            wordJson
-              .map((content) => (
-                // display as content title, then description (there is a link around the title and it is bold and italics)
-                <div
-                  key={content.word}
-                  className="grid grid-cols-1 gap-4 mt-4"
-                >
-                  <div className="text-2xl font-bold italic flex justify-between text-left">
-                    {content.word}
-                  </div>
-                  <div className="mb-4">{content.meaning}</div>
-                  <hr />
+            wordJson.map((content) => (
+              // display as content title, then description (there is a link around the title and it is bold and italics)
+              <div key={content.word} className="grid grid-cols-1 gap-4 mt-4">
+                <div className="text-2xl font-bold italic flex justify-between text-left">
+                  {content.word}
                 </div>
-              ))}
+                <div className="mb-4">{content.meaning}</div>
+                <hr />
+              </div>
+            ))}
         </div>
       </article>
     </>
