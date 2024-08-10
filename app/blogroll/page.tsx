@@ -29,7 +29,7 @@ export default function Home() {
         </p>
         <p className="text-xl italic mb-8">
           Also I made a{" "}
-          <Link className="underline" href={"/favourite/words"}>
+          <Link className="underline cursor-pointer" href={"/favourite/words"}>
             list of my favourite words and terms
           </Link>{" "}
           that I've come across.
