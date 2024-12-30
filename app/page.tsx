@@ -19,7 +19,7 @@ export default function Home() {
           >
             Weeve
           </Link>{" "}
-          and Fullstack Dev at{" "}
+          and AI Solutions Architect at{" "}
           <Link
             href={"https://www.examfly.com"}
             className="cursor-pointer underline"
@@ -88,7 +88,7 @@ function newFunction(AllBlogs: PostData[]) {
       <h2 id="thoughts" className="mb-4 text-2xl font-bold">
         Thoughts
       </h2>
-      {Thoughts.slice(0, 5).map((post) => (
+      {Thoughts.map((post) => (
         <div key={post.slug} className="mb-8">
           <Link
             href={`/blog/${post.slug}`}
@@ -105,7 +105,7 @@ function newFunction(AllBlogs: PostData[]) {
       <h2 id="translations" className="mb-4 text-2xl font-bold">
         Translations
       </h2>
-      {Translations.slice(0, 5).map((post) => (
+      {Translations.map((post) => (
         <div key={post.slug} className="mb-8">
           <Link
             href={`/blog/${post.slug}`}
@@ -122,7 +122,7 @@ function newFunction(AllBlogs: PostData[]) {
       <h2 id="tinkering" className="mb-4 text-2xl font-bold">
         Tinkerings
       </h2>
-      {Tinkerings.slice(0, 5).map((post) => (
+      {Tinkerings.map((post) => (
         <div key={post.slug} className="mb-8">
           <Link
             href={`/blog/${post.slug}`}

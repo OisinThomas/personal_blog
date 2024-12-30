@@ -23,7 +23,7 @@ export default function About() {
             >
               Examfly
             </Link>
-            . I primarily focus on RnD development and building the AI engine
+            . I primarily focus on RnD and building the AI engine
             behind the products. Education, language and technology are my
             passions. My central raison d'être is to build tools that make
             greatness default.
