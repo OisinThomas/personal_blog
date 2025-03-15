@@ -6,8 +6,21 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class', // Use class strategy for dark mode
   theme: {
     extend: {
+      colors: {
+        primary: 'rgb(var(--primary-color) / <alpha-value>)',
+        secondary: 'rgb(var(--secondary-color) / <alpha-value>)',
+        tertiary: 'rgb(var(--tertiary-color) / <alpha-value>)',
+        card: {
+          bg: 'rgb(var(--card-bg) / <alpha-value>)',
+          border: 'rgb(var(--card-border) / <alpha-value>)',
+        },
+        hover: {
+          bg: 'rgb(var(--hover-bg) / <alpha-value>)',
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

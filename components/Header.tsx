@@ -5,6 +5,7 @@ import Image from 'next/image'
 import profileImg from '@/public/profile.png'
 import { Menu, X } from 'lucide-react'
 import { trackLinkClick, trackButtonClick } from '@/lib/posthog'
+import ThemeToggle from './ThemeToggle'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,18 +39,23 @@ const Header = () => {
         </Link>
         
         {/* Desktop Menu */}
-        <nav className="hidden md:flex justify-center space-x-8 mb-8 uppercase tracking-wide text-sm ">
-          {menuItems.map((item) => (
-            <Link 
-              key={item.href} 
-              href={item.href} 
-              className='hover:underline'
-              onClick={() => handleNavClick(item.href, item.label)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden md:flex items-center justify-center mb-8">
+          <nav className="flex justify-center space-x-8 uppercase tracking-wide text-sm">
+            {menuItems.map((item) => (
+              <Link 
+                key={item.href} 
+                href={item.href} 
+                className='hover:underline'
+                onClick={() => handleNavClick(item.href, item.label)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="ml-8">
+            <ThemeToggle />
+          </div>
+        </div>
 
         {/* Mobile Menu Button */}
         <button 
@@ -61,18 +67,23 @@ const Header = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <nav className="md:hidden flex flex-col items-center space-y-4 mt-4 uppercase tracking-wide text-sm">
-            {menuItems.map((item) => (
-              <Link 
-                key={item.href} 
-                href={item.href}
-                onClick={() => handleNavClick(item.href, item.label)}
-                className='hover:underline'
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="md:hidden flex flex-col items-center mt-4">
+            <nav className="flex flex-col items-center space-y-4 uppercase tracking-wide text-sm">
+              {menuItems.map((item) => (
+                <Link 
+                  key={item.href} 
+                  href={item.href}
+                  onClick={() => handleNavClick(item.href, item.label)}
+                  className='hover:underline'
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="flex items-center">
+                <ThemeToggle />
+              </div>
+            </nav>
+          </div>
         )}
       </div>
     </header>

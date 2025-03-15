@@ -7,20 +7,82 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --background-rgb: 246, 246, 246;
+  
+  /* Color system */
+  --primary-color: 59, 130, 246; /* blue-500 */
+  --secondary-color: 107, 114, 128; /* gray-500 */
+  --tertiary-color: 249, 115, 22; /* orange-500 */
+  
+  /* UI Colors */
+  --card-bg: 255, 255, 255;
+  --card-border: 229, 231, 235;
+  --hover-bg: 243, 244, 246;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --background-rgb: 31, 41, 55;
-  }
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --background-rgb: 31, 41, 55;
+  
+  /* Color system */
+  --primary-color: 96, 165, 250; /* blue-400 */
+  --secondary-color: 156, 163, 175; /* gray-400 */
+  --tertiary-color: 251, 146, 60; /* orange-400 */
+  
+  /* UI Colors */
+  --card-bg: 31, 41, 55;
+  --card-border: 55, 65, 81;
+  --hover-bg: 55, 65, 81;
+}
+
+/* Apply transition to all elements for smooth theme switching */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+/* Utility classes for the color system */
+.text-primary {
+  color: rgb(var(--primary-color));
+}
+
+.bg-primary {
+  background-color: rgb(var(--primary-color));
+}
+
+.text-secondary {
+  color: rgb(var(--secondary-color));
+}
+
+.bg-secondary {
+  background-color: rgb(var(--secondary-color));
+}
+
+.text-tertiary {
+  color: rgb(var(--tertiary-color));
+}
+
+.bg-tertiary {
+  background-color: rgb(var(--tertiary-color));
+}
+
+.bg-card {
+  background-color: rgb(var(--card-bg));
+}
+
+.border-card {
+  border-color: rgb(var(--card-border));
+}
+
+.hover-bg {
+  background-color: rgb(var(--hover-bg));
 }
 
 @layer utilities {
@@ -45,4 +107,3 @@ body {
 .fadeInOutDelayed {
   animation: fadeInOut 4s 2s infinite ease-out; /* 2s delay before starting */
 }
-

@@ -55,7 +55,7 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+          "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
         )}
       >
         <PostHogProvider>
