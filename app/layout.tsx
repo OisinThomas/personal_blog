@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import Header from "@/components/Header";
+import { PostHogProvider } from "./providers";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,19 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA}`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.GA}');`,
-          }}
-        ></script>
+        {/* PostHog analytics is handled via the PostHogProvider */}
       </head>
       <body
         className={clsx(
@@ -68,8 +58,11 @@ export default function RootLayout({
           "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100"
         )}
       >
-        <Header />
-        {children}
+        <PostHogProvider>
+          <Header />
+          {children}
+          <CookieConsent />
+        </PostHogProvider>
       </body>
     </html>
   );
