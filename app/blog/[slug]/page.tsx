@@ -4,6 +4,7 @@ import { getAllPosts, getPostBySlug, markdownToHtml } from "@/lib/utils";
 import siteMetadata from "@/lib/siteMetaData";
 import { PostBody } from "@/components/PostBody";
 import Footer from "@/components/Footer";
+import PostHogTracker from "@/components/PostHogTracker";
 
 export default async function Post({ params }: { params: any }) {
   const post = getPostBySlug(params.slug);
@@ -32,6 +33,11 @@ export default async function Post({ params }: { params: any }) {
 
   return (
       <>
+        <PostHogTracker 
+          slug={post.slug} 
+          title={post.title} 
+          categories={post.tags || []} 
+        />
         <main className="container mx-auto px-4 mb-16">
         <script
           type="application/ld+json"

@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react'
+import { trackLinkClick } from '@/lib/posthog'
 
 export default function Socials(){
   return (
@@ -6,18 +9,21 @@ export default function Socials(){
         <a
           href="https://x.com/oisin_thomas"
           className="inline-flex items-center justify-center p-2 rounded-full hover:bg-accent hover:text-accent-foreground"
+          onClick={() => trackLinkClick('social', 'https://x.com/oisin_thomas', 'Twitter')}
         >
           <TwitterIcon className="w-5 h-5" />
         </a>
         <a
           href="https://www.linkedin.com/in/oisin-thomas-morrin/"
           className="inline-flex items-center justify-center p-2 rounded-full hover:bg-accent hover:text-accent-foreground"
+          onClick={() => trackLinkClick('social', 'https://www.linkedin.com/in/oisin-thomas-morrin/', 'LinkedIn')}
         >
           <LinkedinIcon className="w-5 h-5" />
         </a>
         <a
           href="https://github.com/OisinThomasMorrin"
           className="inline-flex items-center justify-center p-2 rounded-full hover:bg-accent hover:text-accent-foreground"
+          onClick={() => trackLinkClick('social', 'https://github.com/OisinThomasMorrin', 'GitHub')}
         >
           <GithubIcon className="w-5 h-5" />
         </a>
@@ -86,4 +92,3 @@ function GithubIcon(props: any) {
       </svg>
     );
   }
-  

@@ -4,11 +4,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import profileImg from '@/public/profile.png'
 import { Menu, X } from 'lucide-react'
+import { trackLinkClick, trackButtonClick } from '@/lib/posthog'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+    trackButtonClick('mobile_menu_toggle', 'header')
+  }
 
   const menuItems = [
     { href: '/', label: 'Home' },
@@ -17,17 +21,33 @@ const Header = () => {
     { href: '/all', label: 'All' },
   ]
 
+  const handleNavClick = (href: string, label: string) => {
+    trackLinkClick('navigation', href, label)
+    if (isMenuOpen) setIsMenuOpen(false)
+  }
+
   return (
     <header className="py-8">
       <div className="container mx-auto px-4 flex flex-col items-center">
-        <Link href="/" className='mb-4'>
+        <Link 
+          href="/" 
+          className='mb-4'
+          onClick={() => trackLinkClick('logo', '/', 'Profile Image')}
+        >
           <Image src={profileImg} alt="oisin thomas" className='w-16 h-16 rounded-full'/>
         </Link>
         
         {/* Desktop Menu */}
         <nav className="hidden md:flex justify-center space-x-8 mb-8 uppercase tracking-wide text-sm ">
           {menuItems.map((item) => (
-            <Link key={item.href} href={item.href} className='hover:underline'>{item.label}</Link>
+            <Link 
+              key={item.href} 
+              href={item.href} 
+              className='hover:underline'
+              onClick={() => handleNavClick(item.href, item.label)}
+            >
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -46,7 +66,7 @@ const Header = () => {
               <Link 
                 key={item.href} 
                 href={item.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavClick(item.href, item.label)}
                 className='hover:underline'
               >
                 {item.label}
