@@ -48,7 +48,7 @@ export default function Home() {
         <div className="flex flex-col-reverse gap-8 md:flex-row">
           {newFunction(AllBlogs)}
 
-          <div className="md:w-1/3">
+          <div className="md:w-1/3 md:sticky md:top-4 h-fit">
             <h2 className="mb-4 text-2xl font-bold">
               Recent
               <span className="ml-2 text-base font-normal">
