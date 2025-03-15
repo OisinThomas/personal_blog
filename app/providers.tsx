@@ -15,7 +15,8 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       person_profiles: 'always', // or 'always' to create profiles for anonymous users as well
       capture_pageview: false, // Disable automatic pageview capture, as we capture manually
       respect_dnt: true, // Respect Do Not Track setting
-      opt_out_capturing_by_default: true // Require explicit opt-in for GDPR compliance
+      opt_out_capturing_by_default: true, // Require explicit opt-in for GDPR compliance
+      capture_pageleave: true, // Capture pageleave events
     })
   }, [])
 
