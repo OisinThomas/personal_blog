@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import profileImg from '@/public/profile.png'
 import { Menu, X } from 'lucide-react'
-import { trackLinkClick, trackButtonClick } from '@/lib/posthog'
 import ThemeToggle from './ThemeToggle'
 
 const Header = () => {
@@ -12,7 +11,6 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
-    trackButtonClick('mobile_menu_toggle', 'header')
   }
 
   const menuItems = [
@@ -23,7 +21,6 @@ const Header = () => {
   ]
 
   const handleNavClick = (href: string, label: string) => {
-    trackLinkClick('navigation', href, label)
     if (isMenuOpen) setIsMenuOpen(false)
   }
 
@@ -33,7 +30,6 @@ const Header = () => {
         <Link 
           href="/" 
           className='mb-4'
-          onClick={() => trackLinkClick('logo', '/', 'Profile Image')}
         >
           <Image src={profileImg} alt="oisin thomas" className='w-16 h-16 rounded-full'/>
         </Link>

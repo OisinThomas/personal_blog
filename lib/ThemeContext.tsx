@@ -1,7 +1,6 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { trackButtonClick } from './posthog'
 
 type Theme = 'light' | 'dark'
 
@@ -45,7 +44,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     setTheme(prevTheme => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light'
-      trackButtonClick('theme_toggle', newTheme)
       return newTheme
     })
   }

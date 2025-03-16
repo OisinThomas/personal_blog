@@ -1,48 +1,24 @@
 import Link from "next/link";
 import { getAllPosts, type PostData } from "@/lib/utils";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { 
-  HomeTracking, 
-  TrackedExternalLink, 
-  TrackedAnchorLink, 
-  TrackedInternalLink,
-  TrackedBlogPostLink,
-  TrackedRecentPostLink
-} from "@/components/HomeTracking";
 
 export default function Home() {
   const AllBlogs = getAllPosts();
 
   return (
-    <HomeTracking>
-      <div className="min-h-screen">
-        <main className="container mx-auto px-4 mb-16 w-2/3">
+    <div className="min-h-screen">
+      <main className="container mx-auto px-4 mb-16 w-2/3">
         <p className="text-xl mb-8">
           I'm Oisín Thomas!
           <br />
-          Co-founder of{" "}
-          <TrackedExternalLink href="https://www.weeve.ie">
-            Weeve
-          </TrackedExternalLink>{" "}
-          and AI Solutions Architect at{" "}
-          <TrackedExternalLink href="https://www.examfly.com">
-            Examfly
-          </TrackedExternalLink>
+          Co-founder of <Link className="underline"  href="https://www.weeve.ie">Weeve</Link> and AI
+          Solutions Architect at{" "}
+          <Link className="underline"  href="https://www.examfly.com">Examfly</Link>
           <br />
-          Here is a smorgasbord of{" "}
-          <TrackedAnchorLink href="#thoughts">
-            thoughts
-          </TrackedAnchorLink>
-          ,{" "}
-          <TrackedAnchorLink href="#tinkering">
-            tinkerings
-          </TrackedAnchorLink>
-          , and{" "}
-          <TrackedAnchorLink href="#translations">
-            translations {" "}
-          </TrackedAnchorLink>
-          — or you can check them all out <TrackedInternalLink href="/all">here</TrackedInternalLink> :]
+          Here is a smorgasbord of <Link className="underline"  href="#thoughts">thoughts</Link>,{" "}
+          <Link className="underline"  href="#tinkering">tinkerings</Link>, and{" "}
+          <Link className="underline"  href="#translations">translations </Link>— or you can check them
+          all out <Link className="underline"  href="/all">here</Link> :]
         </p>
 
         <div className="flex flex-col-reverse gap-8 md:flex-row">
@@ -52,23 +28,28 @@ export default function Home() {
             <h2 className="mb-4 text-2xl font-bold">
               Recent
               <span className="ml-2 text-base font-normal">
-                <TrackedInternalLink href="/all">all</TrackedInternalLink> • 
-                <TrackedInternalLink href="/rss.xml">rss</TrackedInternalLink>
+                <Link className="cursor:underline"  href="/all">all</Link> •<Link className="cursor:underline"  href="/rss.xml">rss</Link>
               </span>
             </h2>
 
             <div className="gap-4">
               {AllBlogs.slice(0, 6).map((post) => (
-                <TrackedRecentPostLink key={post.slug} post={post} />
+                <div className="mb-2 underline" key={post.slug}>
+                  <Link className="cursor:underline"  href={`/blog/${post.slug}`}>
+                    {post.title.split(":")[0]}{" "}
+                    {post.language === "ga"
+                      ? `[${post.language.toUpperCase()}]`
+                      : ""}
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
         </div>
-        </main>
+      </main>
 
-        <Footer />
-      </div>
-    </HomeTracking>
+      <Footer />
+    </div>
   );
 }
 function newFunction(AllBlogs: PostData[]) {
@@ -85,7 +66,17 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Thoughts.map((post) => (
         <div key={post.slug} className="mb-8">
-          <TrackedBlogPostLink post={post} />
+          <Link
+            href={`/blog/${post.slug}`}
+            className={"cursor-pointer hover:underline"}
+            key={`${post.slug}`}
+
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {post.title}{" "}
+              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+            </h3>
+          </Link>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
@@ -94,7 +85,17 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Translations.map((post) => (
         <div key={post.slug} className="mb-8">
-          <TrackedBlogPostLink post={post} />
+          <Link
+            href={`/blog/${post.slug}`}
+            className={"cursor-pointer hover:underline"}
+            key={`${post.slug}`}
+
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {post.title}{" "}
+              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+            </h3>
+          </Link>{" "}
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
@@ -103,7 +104,16 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Tinkerings.map((post) => (
         <div key={post.slug} className="mb-8">
-          <TrackedBlogPostLink post={post} />
+          <Link
+            href={`/blog/${post.slug}`}
+            className={"cursor-pointer hover:underline"}
+            key={`${post.slug}`}
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {post.title}{" "}
+              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+            </h3>
+          </Link>{" "}
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
@@ -111,12 +121,12 @@ function newFunction(AllBlogs: PostData[]) {
       {/**
        * link to all bogs underneath a white line
        */}
-      <TrackedInternalLink 
+      <Link
         href="/all"
         className="text-xl text-center mt-12 cursor-pointer hover:underline"
       >
         <h2>All Posts</h2>
-      </TrackedInternalLink>
+      </Link>
     </div>
   );
-}
+} 

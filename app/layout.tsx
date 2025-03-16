@@ -3,8 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import Header from "@/components/Header";
-import { PostHogProvider } from "./providers";
-import CookieConsent from "@/components/CookieConsent";
+import { ThemeProvider } from "@/lib/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,20 +48,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* PostHog analytics is handled via the PostHogProvider */}
-      </head>
+      <head>{/* PostHog analytics is handled via the PostHogProvider */}</head>
       <body
         className={clsx(
           inter.className,
           "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
         )}
       >
-        <PostHogProvider>
+        <ThemeProvider>
           <Header />
           {children}
-          <CookieConsent />
-        </PostHogProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
