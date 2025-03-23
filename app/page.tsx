@@ -28,7 +28,7 @@ export default function Home() {
             <h2 className="mb-4 text-2xl font-bold">
               Recent
               <span className="ml-2 text-base font-normal">
-                <Link className="cursor:underline"  href="/all">all</Link> •<Link className="cursor:underline"  href="/rss.xml">rss</Link>
+                <Link className="cursor:underline"  href="/all">all</Link>
               </span>
             </h2>
 

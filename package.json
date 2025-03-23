@@ -1,12 +1,12 @@
 {
-  "name": "oisin_thomas",
+  "name": "oisin-thomas-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
     "@r4ai/remark-callout": "^0.6.0",
@@ -28,6 +28,8 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
     "rss": "^1.2.2",
+    "sharp": "^0.33.5",
+    "sst": "^3.10.8",
     "styled-components": "^6.1.12",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"

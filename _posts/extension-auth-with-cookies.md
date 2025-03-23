@@ -113,13 +113,13 @@ We can see that the website handles the authentication and stores cookies (JWT t
 To illustrate this point simply, I have set up a project for a website and an extension that uses Supabase as a backend, and simply pass a user-id across from the website to the extension.
 
 
-<iframe
+<video
           width={windowSize.width}
           height={windowSize.height}
-          allow="autoplay"
-          src="/extension_with_cookies.mp4"
-          title="videolabone">
-        </iframe>
+          autoplay
+          controls>
+          <source src="/extension_with_cookies.mp4" type="video/mp4">
+        </video>
 
 [React + Supabase Website](https://github.com/OisinThomasMorrin/react-auth-with-supabase)
 
