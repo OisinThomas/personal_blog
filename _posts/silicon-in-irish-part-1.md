@@ -59,8 +59,6 @@ Notably, I tested these with no context other than giving them the question on e
 
 In a follow-up article, I will work on reasoning models and give their results. But I have excluded reasoning models for this point in time because the general-purpose language models are more suited to simple, single-step tasks, whereas reasoning models have tended to overthink these, leading to a much lower accuracy. In light of the time it takes to get responses and the costs they incur, I have constrained the number of models to just general-purpose LLMs. I will start exploring open-source models at a later date also.
 
-!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
-
 **Where Models Excelled**
 -------------------------
 
@@ -109,8 +107,6 @@ The divergence reveals different "mental models" of Irish grammar. Some models s
 
 **The Irish Report Card: Models Score Better Than Expected**
 ------------------------------------------------------------
-
-!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
 
 Looking at the actual data, the results are quite encouraging:
 
