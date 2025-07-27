@@ -121,9 +121,9 @@ To illustrate this point simply, I have set up a project for a website and an ex
           <source src="/extension_with_cookies.mp4" type="video/mp4">
         </video>
 
-[React + Supabase Website](https://github.com/OisinThomasMorrin/react-auth-with-supabase)
+[React + Supabase Website](https://github.com/OisinThomas/react-auth-with-supabase)
 
-[Plasmo Extension](https://github.com/OisinThomasMorrin/cookie-auth) 
+[Plasmo Extension](https://github.com/OisinThomas/cookie-auth) 
 
 This example is without checking any user data, or validating tokens etc, but is a nice way to consolidate the idea of sharing the data in a secure way that can be seamless. Another point is that if your extension has a backend, it can be best to not house the database client directly in the extension and instead use tokens for validation, rate limiting and calling the data—you can never be too careful with people's data.
 
@@ -137,5 +137,5 @@ I hope this article was useful for some developers in the extension space. Simpl
 - [Chrome Extension Authentication Boilerplate using PropelAuth (plasmo.com)](https://www.plasmo.com/blog/posts/chrome-extension-auth-boilerplate-propelauth)
 - [Remotely-hosted code (google.com)](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/ks--r5hDNQ0)
 - [Overview - PropelAuth](https://docs.propelauth.com/overview)
-- [React + Supabase Website](https://github.com/OisinThomasMorrin/react-auth-with-supabase)
-- [Plasmo Extension](https://github.com/OisinThomasMorrin/cookie-auth)
+- [React + Supabase Website](https://github.com/OisinThomas/react-auth-with-supabase)
+- [Plasmo Extension](https://github.com/OisinThomas/cookie-auth)

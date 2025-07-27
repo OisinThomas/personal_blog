@@ -18,7 +18,7 @@ export default function Socials(){
           <LinkedinIcon className="w-5 h-5" />
         </a>
         <a
-          href="https://github.com/OisinThomasMorrin"
+          href="https://github.com/OisinThomas"
           className="inline-flex items-center justify-center p-2 rounded-full hover:bg-accent hover:text-accent-foreground"
         >
           <GithubIcon className="w-5 h-5" />

@@ -66,10 +66,6 @@ export default function About() {
           <br />
           <p>You can contact me at oisin [dot] thomas99 [at] gmail [dot] com or read my <Link href="https://caideiseach.substack.com/" className="underline inline-flex items-center">Substack <SubstackIcon className="w-5 h-5 ml-1" /></Link>.</p>
           <br />
-          <p className="text-sm">
-            (Articles with the <SubstackIcon className="w-4 h-4 inline-block mx-1" /> icon can be read here or on Substack)
-          </p>
-          <br />
           <p>Or find me below:</p>
           <br />
           <Socials />

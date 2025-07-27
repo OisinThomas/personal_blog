@@ -15,7 +15,7 @@ tags:
 - AI
 ---
 
-In a recent post [Honey, The AI Shrunk the Language Divide](https://oisinthomasmorrin.com/blog/ai-shrunk-the-language-divide), I talked about how AI has the capacity to be the game-changer in shrinking the language divide and bring many languages back from the brink of extinction. And from this, I was asked the question:
+In a recent post [Honey, The AI Shrunk the Language Divide](https://oisinthomas.com/blog/ai-shrunk-the-language-divide), I talked about how AI has the capacity to be the game-changer in shrinking the language divide and bring many languages back from the brink of extinction. And from this, I was asked the question:
 
 > Will the divide be closed through development alone, rather than something to be actively researched and worked on because, as far as anyone could see, GPT-5 would be much better and GPT-6 would blow your proverbial socks off and GPT-10 would be so powerful that it would make the last year of AI hype look like being excited by a bicycle when you now have a motorcycle...?
 
