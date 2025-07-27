@@ -19,13 +19,7 @@ Remember the good old days of professional services? A sturdy pyramid of humans 
 Well, AI just is toppling that pyramid. Say hello to the Diamond.
 
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/fcf2daf6-f03e-402c-933b-e49c04252555_844x583.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!pkE-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffcf2daf6-f03e-402c-933b-e49c04252555_844x583.png)
 
 How We Got Here
 ---------------
@@ -36,12 +30,9 @@ When you hire a Big Four accounting firm or a prestigious law firm, you're payin
 
 The pyramid works because the bottom is wide: you need lots of junior people to handle the volume of routine work. The system has survived for over a century because:
 
-1.  Those grunt tasks require human intelligence
-    
-2.  That intelligence is expensive enough to command professional salaries
-    
-3.  But cheap enough (compared to partners) to make the model profitable
-    
+1. Those grunt tasks require human intelligence 
+2. That intelligence is expensive enough to command professional salaries
+3. But cheap enough (compared to partners) to make the model profitable
 
 Enter generative AI, which is extremely good at the exact kind of work that entry-level professionals used to do. [As Goldman Sachs analysts noted in their research](https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent), AI could expose up to 300 million full-time jobs worldwide to some degree of automation. Routine white-collar tasks are squarely in the crosshairs.
 
@@ -67,14 +58,10 @@ This is what I call the "[AI Slide](https://caideiseach.substack.com/p/stairs-sl
 
 The problem isn't just about losing practice time. It's about losing the cognitive processes that practice enables:
 
-1.  **Weakened fundamentals**: Without wrestling with the basics, the underlying principles and nuances aren't deeply encoded. The "why" behind the "what" remains elusive.
-    
-2.  **Inability to "**_**latch on**_**"**: Learning is hierarchical. Advanced concepts build upon simpler ones. If the foundational steps are missing or merely observed (by reviewing AI output), learners struggle to connect new, complex information to a solid base.
-    
-3.  **The illusion of competence**: Reviewing or lightly editing an AI-generated output feels productive, but it's fundamentally different from creating it from scratch. This can lead to novices (and their managers) overestimating their true understanding.
-    
-4.  **Impaired critical evaluation**: How can someone critically evaluate the output of an AI performing a complex task if they've never performed the underlying steps themselves? Without the ingrained experience of the fundamentals, evaluating sophisticated AI output becomes superficial guesswork.
-    
+1. **Weakened fundamentals**: Without wrestling with the basics, the underlying principles and nuances aren't deeply encoded. The "why" behind the "what" remains elusive.  
+2. **Inability to "**_**latch on**_**"**: Learning is hierarchical. Advanced concepts build upon simpler ones. If the foundational steps are missing or merely observed (by reviewing AI output), learners struggle to connect new, complex information to a solid base.
+3. **The illusion of competence**: Reviewing or lightly editing an AI-generated output feels productive, but it's fundamentally different from creating it from scratch. This can lead to novices (and their managers) overestimating their true understanding.
+4. **Impaired critical evaluation**: How can someone critically evaluate the output of an AI performing a complex task if they've never performed the underlying steps themselves? Without the ingrained experience of the fundamentals, evaluating sophisticated AI output becomes superficial guesswork.
 
 Some firms are responding to this challenge creatively. [Goodwin Procter implemented an intensive 8-week simulation-based training for new associates](https://www.lexfusion.com/post/education-in-the-age-of-gen-ai-the-old-way-of-training-law-firm-associates-just-doesnt-work) (essentially "_flight simulators_" for legal work) since those associates won't get as much practice on routine tasks. These programs use mock transactions and lawsuits so "_associates learn from the highest quality work rather than via volume_" of rote tasks.
 
@@ -87,24 +74,18 @@ That system is now broken. [As Bill Gates recently predicted](https://www.ptechp
 
 The answer seems to be a mix of:
 
-*   **Simulation training**: Like pilots who practice emergencies in flight simulators, young professionals will train in AI-free environments to build core skills, even if they use AI in real practice.
+* **Simulation training**: Like pilots who practice emergencies in flight simulators, young professionals will train in AI-free environments to build core skills, even if they use AI in real practice.
+* **AI literacy as a baseline**: In 2025, proficiency with AI tools is as fundamental for new professionals as spreadsheet skills were in the past. Education is shifting to teach not just the domain but how to effectively prompt, validate, and improve AI outputs.
+* **Higher-order skills from day one**: New hires are expected to bring more advanced critical thinking, client communication, and ethical judgment—skills that used to develop over years of practice. The "AI slide" pushes the baseline higher; what was mid-level work in 2017 might be entry-level work in 2027.
     
-*   **AI literacy as a baseline**: In 2025, proficiency with AI tools is as fundamental for new professionals as spreadsheet skills were in the past. Education is shifting to teach not just the domain but how to effectively prompt, validate, and improve AI outputs.
-    
-*   **Higher-order skills from day one**: New hires are expected to bring more advanced critical thinking, client communication, and ethical judgment—skills that used to develop over years of practice. The "AI slide" pushes the baseline higher; what was mid-level work in 2017 might be entry-level work in 2027.
-    
-
 The New Diamond Organisation
 ----------------------------
 
 So what does the professional services firm of the near future look like? Something more diamond-shaped:
 
-1.  **A narrower base**: Fewer entry-level hires with higher expectations. New associates need to bring more valuable skills from day one since the easy stuff is handled by AI. [Jamie Dimon of JPMorgan predicts](https://www.hindustantimes.com/htcity/jp-morgan-ceo-jamie-dimon-predicts-3-5-day-work-weeks-thanks-to-artificial-intelligence-living-the-ai-dream-101732625573178.html) AI could automate "_60% to 70% of work_" in the coming years. If true, firms simply won't need as many human juniors.
-    
-2.  **A wider middle**: More experienced professionals who focus on judgment, client relationships, and directing AI systems. Instead of managing junior humans, these professionals "_manage machines_" as Anthropic's Dario Amodei put it. They're experts at knowing when to trust AI outputs and when to override them.
-    
-3.  **A still-narrow top**: Partners and senior leaders who set strategy and maintain the most valuable client relationships.
-    
+1. **A narrower base**: Fewer entry-level hires with higher expectations. New associates need to bring more valuable skills from day one since the easy stuff is handled by AI. [Jamie Dimon of JPMorgan predicts](https://www.hindustantimes.com/htcity/jp-morgan-ceo-jamie-dimon-predicts-3-5-day-work-weeks-thanks-to-artificial-intelligence-living-the-ai-dream-101732625573178.html) AI could automate "_60% to 70% of work_" in the coming years. If true, firms simply won't need as many human juniors.
+2. **A wider middle**: More experienced professionals who focus on judgment, client relationships, and directing AI systems. Instead of managing junior humans, these professionals "_manage machines_" as Anthropic's Dario Amodei put it. They're experts at knowing when to trust AI outputs and when to override them.
+3. **A still-narrow top**: Partners and senior leaders who set strategy and maintain the most valuable client relationships.
 
 This structure is decidedly flatter. [Gartner predicts that by 2026](https://www2.deloitte.com/us/en/insights/focus/human-capital-trends/2025/future-of-the-middle-manager.html), "_20% of organizations will use AI to flatten their organizational structure, eliminating more than half of current middle management positions._" With AI handling coordination, oversight, and analysis, fewer layers of management are needed.
 
@@ -132,4 +113,3 @@ Professional services firms face a moment of truth. But, the pyramid, with all i
 For new graduates heading into these fields, the message is clear: the days of paying your dues through grunt work are ending. Instead, you'll need to arrive with higher-level skills and learn to partner with AI from day one. The pyramid that welcomed generations of professionals is crumbling, and in its place stands a diamond— an org chart that is sleek and shiny, and far less accommodating to beginners.
 
 The Pyramid is dead. Long live the Diamond.
-

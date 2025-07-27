@@ -37,14 +37,10 @@ To systematically evaluate how well today's AI models handle Irish, I created a 
 
 The test suite covers everything from basic noun pluralisation to complex verb forms and all in-between:
 
-*   How to form singular and plurals of nouns (turning "baile" (town) into "bailte" (towns)), along with working with different cases (genitive, dative/prepositional, vocative)
-    
-*   How to form statements in all the tenses (past, present and future) and how to deal with the autonomous verb form
-    
-*   How to use the conditional mood with "if" clauses
-    
-*   Along with adjectives, relative pronouns, prepositions and many other features… (see table below in results for major features)
-    
+* How to form singular and plurals of nouns (turning "baile" (town) into "bailte" (towns)), along with working with different cases (genitive, dative/prepositional, vocative)  
+* How to form statements in all the tenses (past, present and future) and how to deal with the autonomous verb form 
+* How to use the conditional mood with "if" clauses
+* Along with adjectives, relative pronouns, prepositions and many other features… (see table below in results for major features)
 
 For each question, the models needed to produce the correct grammatical form. We had a mix of fill in the blanks (single and multiple instances) as well as whole sentence creation/translation.
 
@@ -53,13 +49,10 @@ For each question, the models needed to produce the correct grammatical form. We
 
 I tested seven leading language models from three providers:
 
-*   Anthropic's Claude 3.5 and 3.7
+* Anthropic's Claude 3.5 and 3.7
+* OpenAI's GPT-4.1 and GPT-4o
+* Google's Gemini 2.0 Flash, Gemini 2.5 Flash, and Gemini 2.5 Pro
     
-*   OpenAI's GPT-4.1 and GPT-4o
-    
-*   Google's Gemini 2.0 Flash, Gemini 2.5 Flash, and Gemini 2.5 Pro
-    
-
 These represent the current state-of-the-art in general-purpose language models. None were specifically fine-tuned for Irish, so this test evaluates what they've picked up about the language through their general training.
 
 Notably, I tested these with no context other than giving them the question on each occasion. This is so we can analyse what the baseline competencies are of these models.
@@ -73,15 +66,11 @@ In a follow-up article, I will work on reasoning models and give their results. 
 
 The models showed impressive performance in several grammatical areas (_I will likely write up a more detailed model breakdown comparison in the benchmarking on my blog)_:
 
-1.  **Nominative Case (An Tuiseal Ainmneach )**: This section had an 82.2% accuracy rate across all models. This suggests that models have internalised fundamental patterns of Irish noun pluralisation, such as transforming "_ábhar_" (subject/material) to "_ábhair_" (subjects/materials) or "_cathair_" (city) to "_cathracha_" (cities). Even the weakest overall performer (Gemini 2.5 Flash) handled irregular plurals like "_bean_" (woman) → "mná" (women) correctly.
-    
-2.  **Future Tense (An Aimsir Fháistineach)**: Interestingly, we saw the highest accuracy at 90% here: Claude 3.5, Claude 3.7, and GPT-4o achieving perfect scores. All models correctly formed expressions like "_cuirfidh mé_" (I will put) and "_déanfaidh siad_" (they will do). Even question/negative/dependent future forms like "_an ndéanfaidh tú?_" (will you do?) were handled correctly by all models.
-    
-3.  **Present Tense (An Aimsir Láithreach)**: Similarly, models demonstrated high accuracy: Claude 3.5 reaching 88.6% and Gemini 2.5 Pro at 85.7%. The regular patterns in present tense conjugation appear well-learned across all models.
-    
-4.  **Prepositional Pronouns (Na Forainmneacha Réamhfhoclacha)**: General performance on prepositional pronouns (e.g. for him, to her) achieved 81.8% accuracy rate; with Gemini 2.5 Pro leading at 89.1%. All models correctly produced forms like "_agam_" (at me), "_leis_" (with him), and "_uaithi_" (from her). Even the complex form "_eadrainn_" (between us) was correctly produced by all models except Gemini 2.5 Flash.
-    
-5.  **Verbal Nouns and Verbal Adjectives (An tAinm Briathartha agus an Aidiacht Bhriathartha)**: The average accuracy here was 76.4%—with Claude 3.5 and GPT-4o both exceeding 95%. This suggests models can effectively handle derivational morphology in Irish.
+1. **Nominative Case (An Tuiseal Ainmneach )**: This section had an 82.2% accuracy rate across all models. This suggests that models have internalised fundamental patterns of Irish noun pluralisation, such as transforming "_ábhar_" (subject/material) to "_ábhair_" (subjects/materials) or "_cathair_" (city) to "_cathracha_" (cities). Even the weakest overall performer (Gemini 2.5 Flash) handled irregular plurals like "_bean_" (woman) → "mná" (women) correctly. 
+2. **Future Tense (An Aimsir Fháistineach)**: Interestingly, we saw the highest accuracy at 90% here: Claude 3.5, Claude 3.7, and GPT-4o achieving perfect scores. All models correctly formed expressions like "_cuirfidh mé_" (I will put) and "_déanfaidh siad_" (they will do). Even question/negative/dependent future forms like "_an ndéanfaidh tú?_" (will you do?) were handled correctly by all models.
+3. **Present Tense (An Aimsir Láithreach)**: Similarly, models demonstrated high accuracy: Claude 3.5 reaching 88.6% and Gemini 2.5 Pro at 85.7%. The regular patterns in present tense conjugation appear well-learned across all models.
+4. **Prepositional Pronouns (Na Forainmneacha Réamhfhoclacha)**: General performance on prepositional pronouns (e.g. for him, to her) achieved 81.8% accuracy rate; with Gemini 2.5 Pro leading at 89.1%. All models correctly produced forms like "_agam_" (at me), "_leis_" (with him), and "_uaithi_" (from her). Even the complex form "_eadrainn_" (between us) was correctly produced by all models except Gemini 2.5 Flash.
+5. **Verbal Nouns and Verbal Adjectives (An tAinm Briathartha agus an Aidiacht Bhriathartha)**: The average accuracy here was 76.4%—with Claude 3.5 and GPT-4o both exceeding 95%. This suggests models can effectively handle derivational morphology in Irish.
     
 
 What's striking here is that models performed well on grammatical features with consistent patterns. The future tense in Irish follows relatively regular rules, as do basic noun plurals in many cases. This suggests that models can pick up and apply regular patterns even in languages they weren't extensively trained on.
@@ -91,14 +80,10 @@ What's striking here is that models performed well on grammatical features with 
 
 The three weakest areas across all models revealed significant challenges:
 
-1.  **The Autonomous Verb Form (An Briathar Saor)**: Unsurprisingly, we had the lowest accuracy here at just 38.3%. This unique verb form, which allows expressing an action without specifying who performed it, confused all models. For example, in one question, all models failed to correctly form "_an ndéantar?_" (is it done?), with most producing "_an ndéanann sé?_" (does he do?) instead. This makes sense when you consider that it is often translated as "_sí_" (she) or "_sé_" (he) in Irish since all nouns have gender, even there references like ‘it’. Even the best performer (Claude 3.5) only reached 45.5% accuracy. This suggests models struggle with grammatical constructions that don't have clear parallels in more common languages. The autonomous form isn't quite passive voice, but it's not active either—it's its own distinctive feature of Irish grammar.
-    
-2.  **Personal Numbers (Na hUimhreacha Pearsanta)**: These special number forms used with people (e.g., "_beirt_" for "two people" instead of "_dhá_") appear to be challenging for models to master, with the average accuracy being that of a coin-toss.
-    
-3.  **Past Tense (An Aimsir Chaite)**: Accuracy on past tense questions was less than 50%. This is surprising given that past tense is fundamental in most languages. All models struggled with the negative past form "_níor ith sé_" (he did not eat), often producing "_ní d'ith sé_" (incorrect form). The difficulty likely stems from Irish's irregular past tense forms and initial mutations, which follow patterns that are less predictable than other tenses.
-    
-4.  **Ordinal Dates (Dátaí na hOrduimhreacha)**: This area had 51.5% accuracy. The specialised forms for expressing dates in Irish appear to be challenging for models to consistently produce correctly. One striking example where almost all models failed was the expression "_an dara hoíche_" (the second night), where most failed to apply h-prefixation to the vowel-initial noun "_oíche_" after "_an dara_".
-    
+1. **The Autonomous Verb Form (An Briathar Saor)**: Unsurprisingly, we had the lowest accuracy here at just 38.3%. This unique verb form, which allows expressing an action without specifying who performed it, confused all models. For example, in one question, all models failed to correctly form "_an ndéantar?_" (is it done?), with most producing "_an ndéanann sé?_" (does he do?) instead. This makes sense when you consider that it is often translated as "_sí_" (she) or "_sé_" (he) in Irish since all nouns have gender, even there references like ‘it’. Even the best performer (Claude 3.5) only reached 45.5% accuracy. This suggests models struggle with grammatical constructions that don't have clear parallels in more common languages. The autonomous form isn't quite passive voice, but it's not active either—it's its own distinctive feature of Irish grammar.
+2. **Personal Numbers (Na hUimhreacha Pearsanta)**: These special number forms used with people (e.g., "_beirt_" for "two people" instead of "_dhá_") appear to be challenging for models to master, with the average accuracy being that of a coin-toss.
+3. **Past Tense (An Aimsir Chaite)**: Accuracy on past tense questions was less than 50%. This is surprising given that past tense is fundamental in most languages. All models struggled with the negative past form "_níor ith sé_" (he did not eat), often producing "_ní d'ith sé_" (incorrect form). The difficulty likely stems from Irish's irregular past tense forms and initial mutations, which follow patterns that are less predictable than other tenses.
+4. **Ordinal Dates (Dátaí na hOrduimhreacha)**: This area had 51.5% accuracy. The specialised forms for expressing dates in Irish appear to be challenging for models to consistently produce correctly. One striking example where almost all models failed was the expression "_an dara hoíche_" (the second night), where most failed to apply h-prefixation to the vowel-initial noun "_oíche_" after "_an dara_".    
 
 The areas where models struggle most tend to be grammatical features that are uniquely Irish or have complex, interacting rules. The autonomous verb form, for instance, is a distinctive feature without a direct English equivalent. Similarly, personal numbers represent a grammatical concept that doesn't map neatly to English or other major languages—It makes me wonder how it handles more complex and idiosyncratic counting systems like Japanese.
 
@@ -107,14 +92,10 @@ The areas where models struggle most tend to be grammatical features that are un
 
 The most striking divergence between models appears in these grammatical features:
 
-1.  **The Genitive Case with Adjectives (An Aidiacht sa Tuiseal Ginideach)**: Claude 3.5 achieved 76.9% while Gemini 2.5 Flash managed only 30.8%. This 46-point gap suggests fundamental differences in how models learned this complex case system. For "cochall an chóta deirg" (the hood of the red coat), Claude 3.5 correctly applied lenition to "dearg" → "deirg", while Gemini 2.5 Flash left it unchanged.
-    
-2.  **Comparative Adjectives (Céimeanna Comparáide na hAidiachta)**: GPT-4.1 scored 79.3% while Gemini 2.5 Flash scored only 34.5%—a 45-point difference. The rules for forming comparatives in Irish (which involve both suffixes and initial mutations) appear to be better captured by some model architectures than others.
-    
-3.  **The Genitive Case (An Tuiseal Ginideach)**: GPT-4.1 performed at a solid 78.9% while Gemini 2.5 Flash scored only 37.7%—a 41-point gap. The genitive case, which indicates possession or association, requires complex noun modifications that some models handle much better than others.
-    
-4.  **Ordinal Dates (Dátaí Na hOrduimhreacha)**: The initial mutations and articles were an issue here. For "_an t-ochtú lá déag_" (the eighteenth day), Claude models maintained the correct form while Gemini models often dropped the article. In another question about "_an chéad bhliain_" (the first year), GPT models correctly applied lenition while Gemini models didn't.
-    
+1. **The Genitive Case with Adjectives (An Aidiacht sa Tuiseal Ginideach)**: Claude 3.5 achieved 76.9% while Gemini 2.5 Flash managed only 30.8%. This 46-point gap suggests fundamental differences in how models learned this complex case system. For "cochall an chóta deirg" (the hood of the red coat), Claude 3.5 correctly applied lenition to "dearg" → "deirg", while Gemini 2.5 Flash left it unchanged.
+2. **Comparative Adjectives (Céimeanna Comparáide na hAidiachta)**: GPT-4.1 scored 79.3% while Gemini 2.5 Flash scored only 34.5%—a 45-point difference. The rules for forming comparatives in Irish (which involve both suffixes and initial mutations) appear to be better captured by some model architectures than others.
+3. **The Genitive Case (An Tuiseal Ginideach)**: GPT-4.1 performed at a solid 78.9% while Gemini 2.5 Flash scored only 37.7%—a 41-point gap. The genitive case, which indicates possession or association, requires complex noun modifications that some models handle much better than others.
+4. **Ordinal Dates (Dátaí Na hOrduimhreacha)**: The initial mutations and articles were an issue here. For "_an t-ochtú lá déag_" (the eighteenth day), Claude models maintained the correct form while Gemini models often dropped the article. In another question about "_an chéad bhliain_" (the first year), GPT models correctly applied lenition while Gemini models didn't.
 
 Divergences tend to occur in grammatical features that involve multiple transformations—where a word undergoes both a suffix change and an initial mutation. Models that excel at these tasks likely have better representations of hierarchical linguistic rules, while those that struggle may be relying more on memorised patterns without fully capturing the underlying grammar.
 
@@ -133,19 +114,13 @@ The divergence reveals different "mental models" of Irish grammar. Some models s
 
 Looking at the actual data, the results are quite encouraging:
 
-*   Claude 3.5: 73.08%
-    
-*   GPT-4.1: 71.81%
-    
-*   GPT-4o: 70.44%
-    
-*   Gemini 2.5 Pro: 67.04%
-    
-*   Claude 3.7: 66.18%
-    
-*   Gemini 2.0 Flash: 64.31%
-    
-*   Gemini 2.5 Flash: 51.70%
+* Claude 3.5: 73.08%
+* GPT-4.1: 71.81%
+* GPT-4o: 70.44%
+* Gemini 2.5 Pro: 67.04%
+* Claude 3.7: 66.18%
+* Gemini 2.0 Flash: 64.31%
+* Gemini 2.5 Flash: 51.70%
     
 
 These numbers tell a story that's significantly more positive than I initially expected. Getting 51-73% accuracy on a grammatically complex, low-resource language like Irish without specific fine-tuning is genuinely impressive. For context, these scores would earn a solid passing grade in most Irish language classrooms—they may not mean fluent by any means, but they are demonstrating real competence with the fundamentals.
@@ -170,14 +145,10 @@ There's a delightful parallel here with how humans learn languages. We tend to p
 
 The ability of AI to handle minority languages like Irish has implications beyond academic interest:
 
-1.  **Language Preservation**: Better AI support for Irish could help maintain its relevance in the digital age, making it easier for speakers to use their language in modern contexts.
-    
-2.  **Educational Tools**: AI that understands Irish grammar could power more effective language learning applications, potentially helping reverse the language's decline.
-    
-3.  **Linguistic Insights**: The patterns of AI success and failure might reveal something about language acquisition more broadly, including which grammatical features are inherently more complex.
-    
-4.  **AI Development**: Understanding how models handle grammatically distant languages could inform better training methods for future AI systems.
-    
+1. **Language Preservation**: Better AI support for Irish could help maintain its relevance in the digital age, making it easier for speakers to use their language in modern contexts.
+2. **Educational Tools**: AI that understands Irish grammar could power more effective language learning applications, potentially helping reverse the language's decline.
+3. **Linguistic Insights**: The patterns of AI success and failure might reveal something about language acquisition more broadly, including which grammatical features are inherently more complex.
+4. **AI Development**: Understanding how models handle grammatically distant languages could inform better training methods for future AI systems.
 
 There's another dimension here that's worth mentioning again: the performance gap. If AI can handle English with near-human proficiency but struggles with Irish, it creates an incentive structure that subtly rewards using the dominant language. This is the digital equivalent of linguistic hegemony—a process where technology inadvertently reinforces the dominance of major languages. The surprisingly good performance of these models on Irish grammar (51-73% accuracy) offers hope that this gap might be narrower than feared. With targeted improvements, AI could become a tool for language preservation rather than extinction. I'm particularly excited about what can be done moving forward with reasoning models and tooling around AI in order to close this gap.
 
@@ -205,11 +176,4 @@ Read [Part Two](https://open.substack.com/pub/caideiseach/p/irish-in-silicon-par
 
 _I would like to thank Suhani Chawla for proofreading._
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/b152018d-c329-429c-9fea-1bd6e8fa6330_1024x1536.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!OCN3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb152018d-c329-429c-9fea-1bd6e8fa6330_1024x1536.png)
-

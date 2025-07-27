@@ -7,8 +7,9 @@ import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
 import Link from "next/link";
 
-export default async function Post({ params }: { params: any }) {
-  const post = getPostBySlug(params.slug);
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return notFound();
@@ -67,8 +68,9 @@ export default async function Post({ params }: { params: any }) {
   );
 }
 
-export function generateMetadata({ params }: {params: any}) {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) {
     return notFound();
   }

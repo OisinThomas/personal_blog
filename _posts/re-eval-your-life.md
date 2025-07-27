@@ -26,13 +26,7 @@ In the world of artificial intelligence, researchers use evaluations (evals) to 
 
 Let’s take a simple example from the world of AI. Imagine we’re testing how well different models can answer the question, _“How many ‘r’s are in the word ‘strawberry’?”_ This might seem trivial, but it highlights key differences in performance. Here’s how a toy eval could play out:
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/bb91da8a-c61b-42ec-8479-0cca310feada_1342x394.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!uo5G!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb91da8a-c61b-42ec-8479-0cca310feada_1342x394.png)
 
 _An aside: It is crazy to think this has only been solved in the last few months—imagine what other things the model may or may not be able to do! This is not to say the models are silly or stupid, but it is saying that you wouldn’t have come across this question unless you had to test for it. What are your personal use cases that aren’t yet answerable by AI and what are the things you do constantly that are easily replicable by AI?_
 
@@ -43,19 +37,14 @@ Creating Your Personal Eval Framework
 
 Start by mapping out three key areas:
 
-1\. What you know works well now
-
-2\. What you'd like to automate or improve
-
-3\. What seems just out of reach
-
+1. What you know works well now
+2. What you'd like to automate or improve
+3. What seems just out of reach
 For example, if you're a writer, your eval might look like this:
 
-\- Current capability: "Can AI help me brainstorm article topics?"
-
-\- Automation goal: "Can it create a first draft that captures my voice?"
-
-\- Stretch goal: "Can it engage in meaningful editorial dialogue about my work?"
+- Current capability: "Can AI help me brainstorm article topics?"
+- Automation goal: "Can it create a first draft that captures my voice?"
+- Stretch goal: "Can it engage in meaningful editorial dialogue about my work?"
 
 The beauty of having your own eval framework is that it grounds you. When a new AI model comes out, instead of wondering if you're missing out, you can run it through your personal tests. If it still can't pass the evals that matter to you, then perhaps that "breakthrough" isn't so revolutionary for your needs.
 
@@ -64,64 +53,38 @@ The Art of Better Questions
 
 Creating effective personal evals requires asking the right questions:
 
-1\. Start With Clarity
-
-\- What specific task am I trying to improve?
-
-\- What does success look like in measurable terms?
-
-\- How will I know if an AI tool is actually helping?
-
-2\. Build in Measurement
-
-\- Track concrete outcomes, not just impressions
-
-\- Document both successes and failures
-
-\- Review and adjust your metrics regularly
-
-3\. Stay Focused
-
-\- Choose a small set of crucial capabilities to track
-
-\- Don't try to evaluate everything at once
-
-\- Keep your tests relevant to your actual needs
-
-4\. Look for Patterns
-
-\- What consistently works or doesn't work?
-
-\- Where do you find yourself making the same evaluations?
-
-\- What surprises you about the results?
+1. Start With Clarity
+    - What specific task am I trying to improve?
+    - What does success look like in measurable terms?
+    - How will I know if an AI tool is actually helping?
+2. Build in Measurement
+    - Track concrete outcomes, not just impressions
+    - Document both successes and failures
+    - Review and adjust your metrics regularly
+3. Stay Focused
+    - Choose a small set of crucial capabilities to track
+    - Don't try to evaluate everything at once
+    - Keep your tests relevant to your actual needs
+4. Look for Patterns
+    - What consistently works or doesn't work?
+    - Where do you find yourself making the same evaluations?
+    - What surprises you about the results?
 
 Making It Work: Practical Steps
 -------------------------------
 
-1\. Create Your Baseline
-
-\- List the tasks you do regularly
-
-\- Note which ones you think AI might help with
-
-\- Document your current process and pain points
-
-2\. Design Simple Tests
-
-\- For each task, create a clear "can it or can't it" test
-
-\- Include edge cases you commonly encounter
-
-\- Make sure the test reflects your real-world needs
-
-3\. Keep Track
-
-\- Document your test results
-
-\- Note which AI tools you've tried
-
-\- Record both successes and failures
+1. Create Your Baseline
+    - List the tasks you do regularly
+    - Note which ones you think AI might help with
+    - Document your current process and pain points
+2. Design Simple Tests
+    - For each task, create a clear "can it or can't it" test
+    - Include edge cases you commonly encounter
+    - Make sure the test reflects your real-world needs
+3. Keep Track
+    - Document your test results
+    - Note which AI tools you've tried
+    - Record both successes and failures
 
 A Different Kind of Holiday Reflection
 --------------------------------------

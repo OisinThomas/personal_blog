@@ -21,13 +21,8 @@ AI is not a replacement for thought, but is a tool for thinking more, faster. We
 
 AI should be used to amplify our intelligence. In many cases, the latency of our current paradigms of writing are X times slower than our thinking. AI offers some tools that will allow us to close that gap, often significantly. Now let’s look at the process that it is to elevate.
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/6604b5a0-c0dd-46d8-a999-f08f41d571a8_742x694.png)
 
-
-
-](https://substackcdn.com/image/fetch/$s_!Bqbg!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6604b5a0-c0dd-46d8-a999-f08f41d571a8_742x694.png)
 
 The creative process can be boiled down to an input-output cycle: We create some content (output), revise it (input), think some more and edit (output) and revise it again (input), …. until we finish it - or, should I say, abandon it like all art is.
 

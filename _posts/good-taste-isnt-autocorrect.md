@@ -40,13 +40,7 @@ LLM-generated content follows patterns perfectly. It knows that blog posts shoul
 
 And isn’t this the real danger? The pernicious, insidious and terrible danger of AI slop: it is text that passes every surface test while saying nothing meaningful. It's grammatically perfect, stylistically appropriate, but _completely_ _hollow_. It's written to satisfy algorithms and approval processes rather than to communicate genuine insight or solve real problems.
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/24e1b453-27ff-40fd-91aa-1ea965c0800c_972x870.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!pI2E!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F24e1b453-27ff-40fd-91aa-1ea965c0800c_972x870.png)
 
 You can’t Autocorrect, Predictive Text or Tokenise Your Way from Zero to One
 ----------------------------------------------------------------------------

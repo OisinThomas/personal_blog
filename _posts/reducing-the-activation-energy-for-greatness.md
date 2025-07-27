@@ -14,13 +14,7 @@ substackUrl: "https://caideiseach.substack.com/p/reducing-the-activation-energy-
 tags: []
 ---
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/ecd3d3d3-aa77-408b-94df-7adcee39abc0_1394x464.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!bhDc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fecd3d3d3-aa77-408b-94df-7adcee39abc0_1394x464.png)
 
 We are only at the starting line of scaling—what David Deutsch calls _the Beginning of Infinity_. On a scale from 0 to 1, many of our processes are still at zero. Everything feels like hard graft: manual, labor-intensive, and frustrating at the ground level. While this may be infuriating for many, it should also excite the techno-optimists among us—and maybe even provide some relief for the [9.5% of developers who prefer to do as little as possible](https://threadreaderapp.com/thread/1859290734257635439.html).
 

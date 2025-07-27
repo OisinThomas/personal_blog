@@ -14,13 +14,7 @@ substackUrl: "https://caideiseach.substack.com/p/leaky-abstractions-redux"
 tags: []
 ---
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/19e34fd1-6cfc-4820-b6c7-034fc7e55595_368x489.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!n4Lw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F19e34fd1-6cfc-4820-b6c7-034fc7e55595_368x489.png)
 
 AI is no bucket; it is just another leaky abstraction.
 

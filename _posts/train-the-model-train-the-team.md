@@ -35,27 +35,18 @@ AI's entry flips this script dramatically. By requiring us to articulate process
 
 This parallel benefit transforms the economics of documentation. AI-driven knowledge capture reduces costs to near zero. The barrier to creating comprehensive, precise guides has never been lower.
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/34acc707-f39e-416b-9432-d5026909bc7a_1005x773.png)
 
-
-
-](https://substackcdn.com/image/fetch/$s_!dnVU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34acc707-f39e-416b-9432-d5026909bc7a_1005x773.png)
 
 The New Shape of Critical Thinking
 ----------------------------------
 
 As "[The Great Cognitive Outsourcing](https://open.substack.com/pub/caideiseach/p/the-great-cognitive-outsourcing?r=3v9fhz&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true)" suggests, valuable thinking is evolving beyond traditional critical analysis. We're spending more time at "the top end of higher order thinking" as we:
 
-*   Define problems in ways AI can approach
-    
-*   Synthesise insights across disparate AI outputs
-    
-*   Apply ethical frameworks and real-world context
-    
-*   Take ultimate responsibility for final outputs
-    
+* Define problems in ways AI can approach
+* Synthesise insights across disparate AI outputs
+* Apply ethical frameworks and real-world context
+* Take ultimate responsibility for final outputs
 
 The documentation we create for AI becomes the map for navigating this new cognitive landscape—benefiting both our machines and our colleagues.
 
@@ -74,4 +65,3 @@ Documentation as Competitive Advantage
 So let's reframe our understanding: AI isn't deskilling workers; it is catalysing unprecedented knowledge sharing. Good documentation hygiene isn't about accommodating machines; it's about cultivating clarity, efficiency, and precision that benefits everyone.
 
 Every minute spent refining systems for AI simultaneously sharpens our collective human capability. The organisations that recognise this hidden benefit will discover that in documenting for machines, they've inadvertently created their most valuable asset: a comprehensive, accessible repository of organisational wisdom that transforms tacit expertise into shared knowledge at scale.
-

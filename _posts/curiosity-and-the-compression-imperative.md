@@ -35,24 +35,14 @@ Think about what happens when you finally "get" a difficult concept. You're not 
 
 This explains why the greatest insights often feel obvious in retrospect. They are obvious—once you have the right compression algorithm.
 
-[
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/d05f85b0-cf00-4522-b89a-1ff79625e7f5_648x439.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!FBA-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd05f85b0-cf00-4522-b89a-1ff79625e7f5_648x439.png)
 
 The Hitchhiker's Problem
 ------------------------
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/38383177-b3d2-43a1-8746-a4311ec62e94_587x391.png)
 
-
-
-](https://substackcdn.com/image/fetch/$s_!IwGY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F38383177-b3d2-43a1-8746-a4311ec62e94_587x391.png)
 
 But it doesn't help if you learn a better compression but don't know the steps to get to it. Let me tell you about the most elegant joke ever told about compression. In "The Hitchhiker's Guide to the Galaxy," a supercomputer named Deep Thought spends 7.5 million years calculating the Answer to Life, the Universe, and Everything. The answer, famously, is "42."
 
@@ -117,15 +107,9 @@ Scientists invent experiments to discover previously unknown laws that compress 
 
 Consider E = mc². Three symbols that compress volumes of physical observations. Or Picasso's bull—a few essential lines that capture the essence of "bullness" more powerfully than photographic detail. Both Picasso's bull and Einstein's equation compress rich complexity into powerful metaphors—patterns we can readily grasp and apply.
 
-[
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/deab5383-9914-4197-9356-f131ae82529f_813x602.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!YH6z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdeab5383-9914-4197-9356-f131ae82529f_813x602.png)
-
-Yours truly’s attempt at [Picasso’s Bull](https://drawpaintacademy.com/the-bull/)
+Yours truly’s attempt at [Picasso’s Bull](https://drawpaintacademy.com/the-bull/).
 
 The distinction between creators and observers blurs too. When you focus attention on artwork that exhibits previously unknown regularities, you're getting the same fundamental reward as the artist who created it. Both execute sequences that expose new compressibility.
 

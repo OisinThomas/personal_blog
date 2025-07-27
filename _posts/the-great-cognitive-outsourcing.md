@@ -20,24 +20,14 @@ Ethan Mollick calls AI's uneven capabilities the "[Jagged Frontier](https://www.
 
 Every AI interaction becomes a test of our ability to ask fundamental questions:
 
-*   Is this output correct?
-    
-*   Is this output relevant to the actual, nuanced problem rather than just the superficial prompt?
-    
-*   What isn't this AI telling me? What are its inherent biases, data limitations, or the _unknown unknowns_ that require human tacit knowledge?
-    
-*   If this output is wrong, _why_? Is it a simple data error, a misinterpretation, or a fundamental limitation in its _understanding_ - perhaps mistaking correlation for causation with unwarranted confidence, or lacking common-sense grounding?
-    
+* Is this output correct?
+* Is this output relevant to the actual, nuanced problem rather than just the superficial prompt?
+* What isn't this AI telling me? What are its inherent biases, data limitations, or the _unknown unknowns_ that require human tacit knowledge?
+* If this output is wrong, _why_? Is it a simple data error, a misinterpretation, or a fundamental limitation in its _understanding_ - perhaps mistaking correlation for causation with unwarranted confidence, or lacking common-sense grounding?
 
 This cognitive work is expensive. It's tempting to accept AI's fluent output and simply outsource all cognitive effort, especially when wrapped in well-structured prose that appears authoritative. But the cost for uncritical AI adoption is a gradual erosion of genuine understanding, potentially leading to significant errors downstream. Think of it as cognitive leverage: AI amplifies production capacity but also amplifies risk if the underlying reasoning is flawed.
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/3f5a8b11-c2ec-4fca-8130-f663bbd70a81_493x490.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!Zu8W!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f5a8b11-c2ec-4fca-8130-f663bbd70a81_493x490.png)
 
 The New Shape of Thinking
 -------------------------
@@ -45,12 +35,9 @@ The New Shape of Thinking
 Traditional critical thinking often involved solitary contemplation, deep research, and careful argument construction from first principles. We may be outsourcing much of the application of the work, but not in the curation of the work. This makes valuable thinking more expensive, precisely because the volume of plausible-sounding AI-generated content makes genuinely insightful human contributions harder to identify and more crucial to cultivate. While AI commoditises the _grunt work_ of idea generation and drafting, the premium shifts to uniquely human abilities. We find ourselves spending more time at the top end of higher order thinking as we:
 
 *   Define novel problems in ways AI can approach, or recognise when problems fall outside AI's current capabilities
-    
-*   Synthesise insights across disparate AI outputs, identifying connections or contradictions that siloed AI processing might miss
-    
-*   Apply ethical frameworks and real-world context that AI inherently lacks
-    
-*   Take ultimate responsibility for final outputs - AI won't face boards, regulators, or clients when decisions go wrong!
+* Synthesise insights across disparate AI outputs, identifying connections or contradictions that siloed AI processing might miss
+* Apply ethical frameworks and real-world context that AI inherently lacks
+* Take ultimate responsibility for final outputs - AI won't face boards, regulators, or clients when decisions go wrong!
     
 
 Understanding Tacit Knowledge
@@ -65,25 +52,18 @@ As a quick refresher, I've borrowed from [José Luis Ricón Fernández de la Pue
 
 #### Explicit Knowledge
 
-1.  Public: Facts readily available in textbooks and online
-    
-2.  Private: Information restricted by NDAs or competitive advantage but theoretically shareable
+1. Public: Facts readily available in textbooks and online
+2. Private: Information restricted by NDAs or competitive advantage but theoretically shareable
     
 
 #### Tacit Knowledge
 
-1.  Public: Skills acquirable through publicly available resources (like learning guitar from videos)
-    
-    1.  Motor skills: Physical capabilities like bike riding
-        
-    2.  Intellectual skills: Pattern recognition like judging when food is properly cooked
-        
-2.  Private: Knowledge requiring apprenticeship or community embedding
-    
-    1.  Individual: Skills gained through one-on-one teaching
-        
-    2.  Social: Knowledge embodied in networks rather than individuals
-        
+1. Public: Skills acquirable through publicly available resources (like learning guitar from videos)
+    1. Motor skills: Physical capabilities like bike riding.
+    2. Intellectual skills: Pattern recognition like judging when food is properly cooked.
+2. Private: Knowledge requiring apprenticeship or community embedding
+    1. Individual: Skills gained through one-on-one teaching.
+    2. Social: Knowledge embodied in networks rather than individuals.
 
 The Tacit Knowledge Problem in Practice
 ---------------------------------------
@@ -94,14 +74,10 @@ There are priors even as humans to scaling tacit knowledge. For example, languag
 
 Does this mean AI can replace us simply by having better resources? I don't believe so (_for now)_. As José notes, the path forward to scaling tacit knowledge combines these approaches:
 
-*   Libraries of expert performances with commentary
-    
-*   Rich simulations for experiential learning
-    
-*   Documentation of difficulty and failure patterns
-    
-*   Online communities providing field immersion benefits
-    
+* Libraries of expert performances with commentary
+* Rich simulations for experiential learning
+* Documentation of difficulty and failure patterns
+* Online communities providing field immersion benefits
 
 This is a gargantuan task. For both AI and humans it is a noble goal: we want to reduce expertise development from decades to years. Even partial success in transmitting tacit knowledge offers significant value in our increasingly automated world.
 

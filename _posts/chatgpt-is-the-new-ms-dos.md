@@ -63,11 +63,9 @@ As these interfaces evolve, regulation must become sophisticated—more akin to 
 
 What might thoughtful regulation look like?
 
-*   **Data sovereignty laws** that define clearly which personal signals (eye-tracking, emotional cues, biometric data) can leave your device.
-    
-*   **Contextual boundaries** where separate life contexts (professional, medical, personal) are protected from crossing streams inadvertently.
-    
-*   **LLM building codes**, mandating transparency, secure logging, revocation protocols, and rigorous auditability.
+- **Data sovereignty laws** that define clearly which personal signals (eye-tracking, emotional cues, biometric data) can leave your device.
+- **Contextual boundaries** where separate life contexts (professional, medical, personal) are protected from crossing streams inadvertently.
+- **LLM building codes**, mandating transparency, secure logging, revocation protocols, and rigorous auditability.
     
 
 Regulation can’t merely guard gates. It will design how we live safely within these new AI-infused environments.
@@ -77,35 +75,23 @@ Preparing for the Post-Prompt Reality
 
 So how should businesses and developers prepare?
 
-*   **Proactive Copilots**: Develop interfaces that respond instantly (sub-150ms latency) to inferred user intent, rather than waiting for explicit commands.
-    
-*   **Context Instrumentation**: Track non-verbal interactions (mouse movements, gaze, interactions with UI elements) to predictively understand intent.
-    
-*   **User Trust Loops**: Allow users easy veto and correction mechanisms, feeding that feedback directly into nightly retraining and refinement loops.
-    
-*   **Structured Contracts**: Treat tasks as well-defined JSON-style objects containing goals, constraints, and success metrics, rather than arbitrary text strings.
-    
+- **Proactive Copilots**: Develop interfaces that respond instantly (sub-150ms latency) to inferred user intent, rather than waiting for explicit commands.
+- **Context Instrumentation**: Track non-verbal interactions (mouse movements, gaze, interactions with UI elements) to predictively understand intent.
+- **User Trust Loops**: Allow users easy veto and correction mechanisms, feeding that feedback directly into nightly retraining and refinement loops.
+- **Structured Contracts**: Treat tasks as well-defined JSON-style objects containing goals, constraints, and success metrics, rather than arbitrary text strings.
 
 This isn’t just feature development; it’s shifting from reactive UI to predictive UX, paving the way for genuine human-AI collaboration.
 
 What Comes Next
 ---------------
 
-[
-
 ![](https://substack-post-media.s3.amazonaws.com/public/images/5eec40c3-6153-43d5-a553-8d37aae4f788_897x277.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!AkLG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5eec40c3-6153-43d5-a553-8d37aae4f788_897x277.png)
 
 In my mind the timeline looks something like this:
 
-*   **2025–2026**: Prompt-based interfaces dominate, the era of manual Copilots peaks.
-    
-*   **2027**: First mainstream proactive, multimodal interfaces debut.
-    
-*   **2029**: Explicit prompting becomes obsolete for most practical use-cases—typing commands feels as quaint as opening the DOS prompt today.
+- **2025–2026**: Prompt-based interfaces dominate, the era of manual Copilots peaks.
+- **2027**: First mainstream proactive, multimodal interfaces debut.
+- **2029**: Explicit prompting becomes obsolete for most practical use-cases—typing commands feels as quaint as opening the DOS prompt today.
     
 
 When explicit prompting is forgotten, replaced by fluid interaction, Licklider’s dream of man-computer symbiosis will finally arrive.

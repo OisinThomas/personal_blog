@@ -18,7 +18,6 @@ The blinking cursor—steady, insistent, (im)patient(?)—has always been a symb
 
 As [The Who Cares Era](https://dansinker.com/posts/2025-05-23-who-cares/) laments, we are living through a time when the machinery of content production now not just aided but created by AI churns out disposable, “good enough” simulacra at scale. The cursor blinks, but too often what follows is not the product of genuine engagement or care, but of expedience. Supplements in major newspapers, job applications, even creative writing assignments are increasingly filled by AI-generated text that is plausible, but hollow. The tragedy is not just in the output, but in the process: at every step, from writer to editor to reader, nobody cared enough to notice or intervene.
 
-
 Yet, as the article concludes, the most radical act in the Who Cares Era is to care. To sit with the blinking cursor, to wrestle with the blankness, to make something imperfect and human. Typing is now an act of resistance.
 
 **AI should suggest, not decide.**
@@ -26,4 +25,3 @@ Yet, as the article concludes, the most radical act in the Who Cares Era is to c
 Let it surface connections, patterns, and possibilities—inspiration as a service—but maintain humans in the loop for quality, intention, and originality. Aim higher than mere automation: Don’t settle for pressing a button to generate an essay. Use AI to augment memory, ignite inspiration, and scaffold deeper thinking, but never allow it to supplant the authentic creative act itself.
 
 Remember: the goal isn't efficiency for its own sake; it's about creating something wonderful. As Ed Catmull of Pixar wisely reminds us, “Making the process better, easier, and cheaper is an important aspiration… but it is not the goal. Making something great is the goal.” The blinking cursor waits: it waits not just for content, but it waits for courage, creativity, and genuine care.
-
