@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllPosts, type PostData } from "@/lib/utils";
 import Footer from "@/components/Footer";
+import SubstackIcon from "@/components/icons/SubstackIcon";
 
 export default function Home() {
   const AllBlogs = getAllPosts();
@@ -66,17 +67,21 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Thoughts.map((post) => (
         <div key={post.slug} className="mb-8">
-          <Link
-            href={`/blog/${post.slug}`}
-            className={"cursor-pointer hover:underline"}
-            key={`${post.slug}`}
-
-          >
-            <h3 className="text-xl font-semibold mb-2">
+          <h3 className="text-xl font-semibold mb-2 flex items-center">
+            <Link
+              href={`/blog/${post.slug}`}
+              className={"cursor-pointer hover:underline"}
+              key={`${post.slug}`}
+            >
               {post.title}{" "}
               {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
-            </h3>
-          </Link>
+            </Link>
+            {post.source === "Substack" && (
+              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
+                <SubstackIcon className="w-5 h-5" />
+              </Link>
+            )}
+          </h3>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
@@ -85,17 +90,21 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Translations.map((post) => (
         <div key={post.slug} className="mb-8">
-          <Link
-            href={`/blog/${post.slug}`}
-            className={"cursor-pointer hover:underline"}
-            key={`${post.slug}`}
-
-          >
-            <h3 className="text-xl font-semibold mb-2">
+          <h3 className="text-xl font-semibold mb-2 flex items-center">
+            <Link
+              href={`/blog/${post.slug}`}
+              className={"cursor-pointer hover:underline"}
+              key={`${post.slug}`}
+            >
               {post.title}{" "}
               {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
-            </h3>
-          </Link>{" "}
+            </Link>
+            {post.source === "Substack" && (
+              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
+                <SubstackIcon className="w-5 h-5" />
+              </Link>
+            )}
+          </h3>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
@@ -104,16 +113,21 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Tinkerings.map((post) => (
         <div key={post.slug} className="mb-8">
-          <Link
-            href={`/blog/${post.slug}`}
-            className={"cursor-pointer hover:underline"}
-            key={`${post.slug}`}
-          >
-            <h3 className="text-xl font-semibold mb-2">
+          <h3 className="text-xl font-semibold mb-2 flex items-center">
+            <Link
+              href={`/blog/${post.slug}`}
+              className={"cursor-pointer hover:underline"}
+              key={`${post.slug}`}
+            >
               {post.title}{" "}
               {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
-            </h3>
-          </Link>{" "}
+            </Link>
+            {post.source === "Substack" && (
+              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
+                <SubstackIcon className="w-5 h-5" />
+              </Link>
+            )}
+          </h3>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
@@ -129,4 +143,4 @@ function newFunction(AllBlogs: PostData[]) {
       </Link>
     </div>
   );
-} 
+}

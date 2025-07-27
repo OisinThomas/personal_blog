@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/utils";
 import Footer from "@/components/Footer";
+import SubstackIcon from "@/components/icons/SubstackIcon";
 
 export default function Home() {
   const AllBlogs = getAllPosts();
@@ -37,29 +38,34 @@ export default function Home() {
                 </h2>
                 <div className="grid grid-cols-1 gap-4">
                   {groupedBlogs[tag].map((blog: any) => (
-                    <Link key={blog.title} href={`/blog/${blog.slug}`}>
+                    <div key={blog.title}>
                       <div
-                        className="flex-grow pl-2 text-left "
+                        className="flex-grow pl-2 text-left flex items-center"
                         style={{
                           hyphens: "auto",
                           wordWrap: "break-word",
                           overflowWrap: "break-word",
                           WebkitHyphens: "auto", // For Safari
                           msHyphens: "auto", // For Internet Explorer
-                          cursor: "pointer",
-                          textDecoration: "underline",
                         }}
                         lang={blog.language} // Specify the language for better hyphenation (if applicable)
                       >
-                        {blog.title}{" "}
-                        {blog.language === "ga"
-                          ? `[${blog.language.toUpperCase()}]`
-                          : ""}
+                        <Link href={`/blog/${blog.slug}`} className="cursor:pointer hover:underline">
+                          {blog.title}{" "}
+                          {blog.language === "ga"
+                            ? `[${blog.language.toUpperCase()}]`
+                            : ""}
+                        </Link>
+                        {blog.source === "Substack" && (
+                          <Link href={blog.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
+                            <SubstackIcon className="w-5 h-5" />
+                          </Link>
+                        )}
                       </div>
                       <p>
                         {blog.tags.map((tag: string) => `• ${tag}`).join(" ")}
                       </p>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>

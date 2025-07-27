@@ -1,13 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    async rewrites() {
-        return [
-          {
-            source: '/rss.xml',
-            destination: '/rss',
-          },
-        ];
-      },
-};
+const nextConfig = {};
 
 export default nextConfig;

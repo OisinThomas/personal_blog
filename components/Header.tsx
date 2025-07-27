@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import profileImg from '@/public/profile.png'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
@@ -31,7 +30,7 @@ const Header = () => {
           href="/" 
           className='mb-4'
         >
-          <Image src={profileImg} alt="oisin thomas" className='w-16 h-16 rounded-full'/>
+          <Image src="/profile.png" alt="oisin thomas" width={64} height={64} className='w-16 h-16 rounded-full'/>
         </Link>
         
         {/* Desktop Menu */}
