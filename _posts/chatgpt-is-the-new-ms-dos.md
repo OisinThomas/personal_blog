@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/chatgpt-is-the-new-ms-dos"
-tags: []
+tags: ["AI", "UI/UX", "History"]
 ---
 
 In the future, people will say: _Imagine celebrating ChatGPT in 2025_. Sure, It's impressive (paradigm-changing even), but it's also a bit like applauding MS-DOS in 1981: the system is powerful beneath the surface, but the whole thing hinges on a blinking cursor and cryptic commands of the _prompt engineer_. We haven't yet encountered our Windows 95 moment, the kind of intuitive, user-friendly leap that moves technology from niche fascination to essential infrastructure.
@@ -95,4 +95,3 @@ In my mind the timeline looks something like this:
     
 
 When explicit prompting is forgotten, replaced by fluid interaction, Licklider’s dream of man-computer symbiosis will finally arrive.
-

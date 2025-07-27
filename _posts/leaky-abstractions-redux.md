@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/leaky-abstractions-redux"
-tags: []
+tags: ["AI", "Software Development", "Abstractions"]
 ---
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/19e34fd1-6cfc-4820-b6c7-034fc7e55595_368x489.png)

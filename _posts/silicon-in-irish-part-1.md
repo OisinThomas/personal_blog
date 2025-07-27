@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/silicon-in-irish-part-1"
-tags: []
+tags: ["AI", "NLP", "Irish Language"]
 ---
 
 One of the persistent questions about large language models like GPT-4 and Claude is how well they handle languages beyond English. We know they're trained predominantly on English text from the internet, with healthy doses of major world languages like Spanish, French, and Chinese. But what about languages with fewer speakers and less online presence?

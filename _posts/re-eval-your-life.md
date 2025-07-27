@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/re-eval-your-life"
-tags: []
+tags: ["Productivity", "AI", "Self-improvement"]
 ---
 
 Christmas is in the air, the lights twinkle to ward away the darkness of winter and we sip mulled wine and laugh condensed laughs outside the packed pubs. It is a time that is deeply nostalgic, full of traditions. Many people get wistful and start making resolutions and plans for better next year. I propose in this short essay you need to make one new resolution coming into this festive period and 2025: **write evals for everything.**
@@ -98,4 +98,3 @@ Your evals become your compass, helping you navigate the flood of new tools and 
 As we head into 2025, give yourself this gift: the clarity to know what matters to you, the tools to test what works, and the confidence to stay focused on your own path forward.
 
 Happy evaluating, and happy holidays.
-

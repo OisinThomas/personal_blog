@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/thinking-more-faster"
-tags: []
+tags: ["AI", "Creativity", "Productivity"]
 ---
 
 _“Thinking is cheap, so you should do more thinking, not less.” — Shreyas Doshi, [Lenny’s Podcast](https://www.youtube.com/watch?v=atS060bNpE0)_
@@ -35,4 +35,3 @@ While speech is my go-to for getting thoughts down quickly or interacting with A
 When it comes to the read speed, for most people reading will still be much faster than listening. Personally, I’m much more partial to reading as I can jump between where I am in the output which avoids the linearity entrapment of audio—yes, it makes you focus, but you are constantly frustrated by the awkward and imprecise controls. If you want to see how fast you can really read, check out something like [SwiftRead](https://swiftread.com/); but, for detailed revision (which tends to involve taking notes and sense-checking sentences or fragments multiple times), it will be hard to beat reading.
 
 Great speaking and great writing requires the same thing: more time for thinking and iteration. It isn't about perfect; it is about giving you more time to think if you need it. By bringing the inputting and outputting times closer to the speed of thought using artificial intelligence, we buy ourselves more time to create pieces that are truly and authentically ours.
-

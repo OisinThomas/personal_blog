@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/stairs-slides-and-ladders"
-tags: []
+tags: ["AI", "Education", "Future of Work"]
 ---
 
 [

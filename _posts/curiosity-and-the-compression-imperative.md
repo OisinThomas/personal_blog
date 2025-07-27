@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/curiosity-and-the-compression-imperative"
-tags: []
+tags: ["Cognitive Science", "Learning", "AI"]
 ---
 
 Have you ever felt that rush when a concept suddenly makes sense? That moment when the fog clears and you think, "Of course! Why didn't I see that before?"
@@ -150,4 +150,3 @@ Perhaps the search for meaning itself is just a search for an "ultimate metaphor
 Yet, while metaphors are vital, relying solely on them risks oversimplification. True understanding sometimes requires stepping beyond metaphor to grapple directly with complexity. The best thinkers know when to use an existing metaphor as a tool and when to set them aside and seek a new one.
 
 After all, the joy isn't in having compressed. It's in compressing.
-

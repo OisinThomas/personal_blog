@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/luxury-as-the-anti-algorithm"
-tags: []
+tags: ["Luxury", "Branding", "AI"]
 ---
 
 The tech industry has spent the last decade optimising everything. We A/B test button colours, streamline user flows, and personalise experiences down to the individual pixel. The goal is always the same: reduce friction, increase conversion, scale infinitely.
@@ -91,4 +91,3 @@ It is true that many luxury brands operate on different timescales than tech com
 This suggests a fundamental question for product builders: are we prioritising for next quarter's metrics or next decade's relevance? The brands that endure will be those that balance algorithmic efficiency with human meaning.
 
 The anti-algorithm is an acknowledgement that all taste isn’t binary encoded. It's about preserving space for the irreplaceable human elements that create lasting value: judgment, craftsmanship, and the wisdom to know what shouldn't be optimised away.
-

@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/the-cognitive-collapse"
-tags: []
+tags: ["Cognitive Science", "AI", "Education"]
 ---
 
 For most of the 20th century, humanity grew smarter on paper. Average IQ scores steadily climbed—an observation known as the **Flynn Effect**, reflecting gains of roughly 3 to 5 IQ points per decade across many countries ([Trahan et al., 2014](https://pmc.ncbi.nlm.nih.gov/articles/PMC4152423/)). Better nutrition, education, and healthcare were often credited as drivers of this long-term rise in cognitive performance.
@@ -151,4 +151,3 @@ Sparrow, B., Liu, J., & Wegner, D. M. (2011). Google effects on memory: Cognitiv
 [Teasdale, T. W., & Owen, D. R. (2008). Secular declines in cognitive test scores: A reversal of the Flynn Effect.](https://www.researchgate.net/publication/222434470_Secular_declines_in_cognitive_test_scores_A_reversal_of_the_Flynn_Effect) _[Intelligence](https://www.researchgate.net/publication/222434470_Secular_declines_in_cognitive_test_scores_A_reversal_of_the_Flynn_Effect)_[, 36(2), 121-126.](https://www.researchgate.net/publication/222434470_Secular_declines_in_cognitive_test_scores_A_reversal_of_the_Flynn_Effect)
 
 [Trahan, L. H., Stuebing, K. K., Fletcher, J. M., & Hiscock, M. (2014). The Flynn effect: A meta-analysis.](https://pmc.ncbi.nlm.nih.gov/articles/PMC4152423/) _[Psychological Bulletin](https://pmc.ncbi.nlm.nih.gov/articles/PMC4152423/)_[, 140(5), 1332-1360.](https://pmc.ncbi.nlm.nih.gov/articles/PMC4152423/)
-

@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/the-pyramid-is-dead-long-live-the-diamond"
-tags: []
+tags: ["AI", "Future of Work", "Organizational Design"]
 ---
 
 Remember the good old days of professional services? A sturdy pyramid of humans arranged in a beautifully rational hierarchy: armies of fresh-faced graduates at the bottom doing the grunt work, a sensible middle layer of managers telling them what to do, and a select few partners at the pointy end taking client calls and collecting the profits. This model has defined legal, accounting, and consulting firms for generations. It was simple, effective, and made everyone money.

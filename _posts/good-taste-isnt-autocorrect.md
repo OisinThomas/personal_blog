@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/good-taste-isnt-autocorrect"
-tags: []
+tags: ["AI", "Creativity", "Taste"]
 ---
 
 We've built increasingly sophisticated tools to help us get things _right_—from autocorrect to predictive text to AI that can write entire articles. But each level of sophistication reveals a deeper problem: being technically correct isn't the same as being actually right. There's a hierarchy to getting things right, and most people stop climbing too early.

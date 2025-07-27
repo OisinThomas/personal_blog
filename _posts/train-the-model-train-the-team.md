@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/train-the-model-train-the-team"
-tags: []
+tags: ["AI", "Knowledge Management", "Future of Work"]
 ---
 
 > "Every prompt you polish is a mini-tutorial for the intern who replaces you."

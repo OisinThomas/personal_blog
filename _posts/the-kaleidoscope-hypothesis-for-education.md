@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/the-kaleidoscope-hypothesis-for-education"
-tags: []
+tags: ["AI", "Education", "Cognitive Science"]
 ---
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/00985744-3a55-4f52-8ee9-0d17aec82320_1150x579.png)
@@ -98,4 +98,3 @@ As AI continues to advance, it will indeed continue to improve at interpolation 
 The challenge for educators and learners is clear: How can we stay engaged and find meaning in a world increasingly driven by AI-generated content? The answer lies in mastering the patterns and abstractions that machines cannot. By deeply understanding the building blocks of our world, we can navigate complexity, create new paradigms, and ensure that humanity’s unique cognitive strengths remain at the forefront.
 
 _This essay is based off the recent [Machine Learning Street Talk Podcast featuring François Chollet](https://youtu.be/JTU8Ha4Jyfc?si=o_qSCnBMJlxcb_L1)._
-

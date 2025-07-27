@@ -11,7 +11,7 @@ language: "en"
 available: true
 source: "Substack"
 substackUrl: "https://caideiseach.substack.com/p/an-ode-to-code"
-tags: []
+tags: ["Code", "LLMs", "AI"]
 ---
 
 <a href="https://x.com/simonw/status/1861563015394664498">
@@ -43,4 +43,3 @@ I think one of the primary limiting factors in why usage is not more pervasive i
 I mentioned in a previous article about how [LLMs infamously struggled to add or count the number of r’s in strawberry](https://caideiseach.substack.com/p/the-kaleidoscope-hypothesis-for-education?r=3v9fhz). François Chollet put this down to a lack of abstraction ability in the models to be able to come up with generalisable functions for counting etc.. But we _can_ shortcut this using code. Simply asking any LLM to create a function in Python or your favourite programming language to add two numbers or take a string and find the number of r’s in it is trivial. It has the general mental models encoded in a different language — in this case programming languages — because humans have had to work hard to encapsulate abstractions like this in a formal language. This is not to say that LLMs are intelligent or can generalise, but it an attempt to point out that sometimes the approach is what matters most.
 
 The problem of being able to synthesise and abstract is still an issue — [LLMs won’t be writing math proofs just yet](https://www.scientificamerican.com/article/ai-will-become-mathematicians-co-pilot); but, if you try translate your problem that seems intractable in natural language to code, we might be able to get some more problems unstuck.
-
