@@ -4,6 +4,7 @@ import "./globals.css";
 import clsx from "clsx";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/lib/ThemeContext";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           {children}
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>
