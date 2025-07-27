@@ -65,10 +65,10 @@ function newFunction(AllBlogs: PostData[]) {
 
   return (
     <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0">
-      <h2 id="thoughts" className="mb-4 text-2xl font-bold">
-        Thoughts
+      <h2 id="tinkerings" className="mb-4 text-2xl font-bold">
+        Tinkerings
       </h2>
-      {Thoughts.map((post) => (
+      {Tinkerings.map((post) => (
         <div key={post.slug} className="mb-8">
           <h3 className="text-xl font-semibold mb-2 flex items-center">
             <Link
@@ -111,10 +111,10 @@ function newFunction(AllBlogs: PostData[]) {
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
       ))}
-      <h2 id="tinkering" className="mb-4 text-2xl font-bold">
-        Tinkerings
+      <h2 id="thoughts" className="mb-4 text-2xl font-bold">
+        Thoughts
       </h2>
-      {Tinkerings.map((post) => (
+      {Thoughts.map((post) => (
         <div key={post.slug} className="mb-8">
           <h3 className="text-xl font-semibold mb-2 flex items-center">
             <Link
