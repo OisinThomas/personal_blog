@@ -18,7 +18,6 @@ One of the persistent questions about large language models like GPT-4 and Claud
 
 This question matters because language technology that only works for dominant languages risks further marginalising minority languages and accelerating their decline. If AI can only help you write emails in English but not in Irish, it subtly pushes Irish speakers toward using English in more contexts.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 Irish (Gaeilge) makes for a particularly interesting test case. It's a national language with official status, taught in schools across Ireland, yet has only about 72,000 daily speakers. It's also grammatically distant from English, with features that don't map neatly to more common languages.
 
@@ -214,4 +213,3 @@ _I would like to thank Suhani Chawla for proofreading._
 
 ](https://substackcdn.com/image/fetch/$s_!OCN3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb152018d-c329-429c-9fea-1bd6e8fa6330_1024x1536.png)
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

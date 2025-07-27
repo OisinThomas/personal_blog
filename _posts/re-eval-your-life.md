@@ -18,7 +18,6 @@ Christmas is in the air, the lights twinkle to ward away the darkness of winter 
 
 "Hark!" the Herald Angel sings, "Not another tech evangelist!" But yes, this needs to be said. This year has seen so much tech development—some would say not fast enough, others would say anxiety-inducingly fast. Some people are living so far in the future they spend most of their time talking about artificial general intelligence, yet others say that the models aren't even intelligent and that it is a bubble. And all the average person knows is that the media is finally fully on the AI bandwagon for better or worse and it can be rather terrifying between projected job losses and that sense that you don't really know what it means for something to know everything that is on the internet...
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 Understanding Evals: Your Personal Benchmark
 --------------------------------------------
@@ -137,4 +136,3 @@ As we head into 2025, give yourself this gift: the clarity to know what matters 
 
 Happy evaluating, and happy holidays.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

@@ -20,7 +20,6 @@ In the emerging landscape of human-AI collaboration, we face a fascinating coinc
 
 We're entering a new terrain of critical thinking. The challenge is no longer just finding the right answer, but "[understanding the topography of AI's thinking landscape—identifying peaks of superhuman competence and valleys where systems confidently generate plausible-sounding errors.](https://open.substack.com/pub/caideiseach/p/the-great-cognitive-outsourcing?r=3v9fhz&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true)" This makes our documentation efforts not just operational necessities but strategic advantages.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 The Tacit Knowledge Problem
 ---------------------------
@@ -76,4 +75,3 @@ So let's reframe our understanding: AI isn't deskilling workers; it is catalysin
 
 Every minute spent refining systems for AI simultaneously sharpens our collective human capability. The organisations that recognise this hidden benefit will discover that in documenting for machines, they've inadvertently created their most valuable asset: a comprehensive, accessible repository of organisational wisdom that transforms tacit expertise into shared knowledge at scale.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

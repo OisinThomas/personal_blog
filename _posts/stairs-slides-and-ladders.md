@@ -41,7 +41,6 @@ The path to professional competence in the age of AI. It's so difficult for earl
 
 This traditional model is being fundamentally disrupted. Generative AI (GenAI) and other automation tools are increasingly capable of executing many of the entry-level tasks that once occupied the crucial early stages of a professional's journey: drafting initial memos, summarising research, performing basic data analysis, writing simple code snippets – tasks that required grappling with fundamentals – can now be largely automated.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 For organisations, the allure is obvious: efficiency gains, cost savings, and the ability for existing staff to focus on higher-value activities. However, this automation creates a perilous "**AI Slide**" in the staircase of competence. By removing the need for novices to perform these foundational tasks, we inadvertently remove the natural environment for essential, hands-on practice.
 
@@ -93,4 +92,3 @@ Ignoring this gap is shortsighted. Organisations that rely on AI to replace entr
 
 Education and robust, evidence-based training are no longer just prerequisites for entry; they are the essential ladders required to bridge the AI-induced gap in foundational practice and enable the next generation of professionals to reach the top floor. The time to invest in building these ladders is now.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

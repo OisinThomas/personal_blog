@@ -38,7 +38,6 @@ The other counterintuitive insight: luxury brands are deliberately bad at person
 
 While we obsess over 1:1 customisation and dynamic content, Hermès has essentially the same product line they had decades ago. Their creative directors make aesthetic decisions based on their own vision, not user research or behavioural data. Customers either appreciate their taste or they don't.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 While most of us want personalised experiences, we are deeply concerned about data privacy, and few of us trust companies to use our information responsibly. We've created a personalisation arms race that's making users increasingly uncomfortable.
 
@@ -93,4 +92,3 @@ This suggests a fundamental question for product builders: are we prioritising f
 
 The anti-algorithm is an acknowledgement that all taste isn’t binary encoded. It's about preserving space for the irreplaceable human elements that create lasting value: judgment, craftsmanship, and the wisdom to know what shouldn't be optimised away.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

@@ -20,7 +20,6 @@ In Part 2, we will continue analysing large language models' ability to handle t
 
 Anthropic's Claude 3.5 and OpenAI's GPT-4.1 scored top with 73.08% and 71.81% respectively. Their scores showed how even traditional models can excel at grammar tasks thanks to better representations of hierarchical linguistic rules, but there is still so much room for growth: all models struggled on more complex features and suggest that they may be relying more on memorised patterns without fully capturing the underlying grammar.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 Now that we're caught up, let's look at what a reasoning model is.
 
@@ -235,4 +234,3 @@ Overall, the findings suggest that reasoning models represent a significant step
 
 Building on the insights gained from evaluating both non-reasoning and reasoning models, the next phase of this research will explore methods to further enhance LLM performance on Irish grammar. The next step will be adding more context now that we have ascertained the baseline. A key area of investigation is the impact of providing models with explicit grammatical rules. For example, we will test whether explaining complex features like the autonomous verb form before prompting the models leads to improved accuracy. Additionally, we plan to experiment with using tools and external data sources to enrich the models' knowledge and understanding of Irish, aiming to close the performance gap on challenging grammatical features. This iterative approach seeks to identify effective strategies for leveraging AI to support and preserve lower-resource languages.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

@@ -18,7 +18,6 @@ Have you ever felt that rush when a concept suddenly makes sense? That moment wh
 
 That's information compression happening in real time. And there is a reason we need to compress: your brain is tiny (mine too!). _Not in size, but in capacity_. George Miller's "magical number seven, plus or minus two" isn't academic trivia—it's the hard limit on your working memory. Seven chunks. That's it. That's all you get to play with at once.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 Yet here you are, navigating staggering complexity. How? By hunting for better metaphors—more efficient ways to compress reality into something that fits in your head. I want to explore the nature of information compression in metaphors and what metaphors mean to us in this essay.
 
@@ -168,4 +167,3 @@ Yet, while metaphors are vital, relying solely on them risks oversimplification.
 
 After all, the joy isn't in having compressed. It's in compressing.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

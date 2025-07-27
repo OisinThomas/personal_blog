@@ -24,7 +24,6 @@ tags: []
 
 Have you ever looked through a kaleidoscope? Inside its narrow tube, tiny fragments of glass and mirrors reflect light, creating dazzling patterns that seem endlessly unique. Yet, beneath this apparent complexity lies a simple truth: all these intricate designs are constructed from just a few fundamental elements, rearranged and recombined. François Chollet’s _kaleidoscope hypothesis_ applies this principle to the world itself. Beneath the surface complexity of any domain, there exists a finite set of “atoms of meaning,” simple building blocks that can be abstracted and recombined to navigate new challenges.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 This kaleidoscope hypothesis was originally posed as a way to understand intelligence but I believe it can be used as a framework for rethinking education in the age of artificial intelligence (AI). AI systems like large language models (LLMs) excel at synthesising known elements, but they falter when faced with tasks that are truly novel; additionally, they are great at breaking concepts down — [explain it to me like I am a five year old](https://deepgram.com/ai-apps/explain-like-i'm-five) — but again, when asked to truly abstract to generalisable patterns (see below for addition) it still fails miserably. As AI continues to transform rote and repetitive tasks, humans must focus on what sets us apart: our capacity for abstraction, for identifying and manipulating the fundamental patterns of the world. Education must shift toward teaching these deeper principles, emphasising understanding over memorisation, more so than ever before—and not just because rote learning is boring.
 
@@ -121,4 +120,3 @@ The challenge for educators and learners is clear: How can we stay engaged and f
 
 _This essay is based off the recent [Machine Learning Street Talk Podcast featuring François Chollet](https://youtu.be/JTU8Ha4Jyfc?si=o_qSCnBMJlxcb_L1)._
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

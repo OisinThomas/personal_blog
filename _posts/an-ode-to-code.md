@@ -26,7 +26,6 @@ The more you can convert to code the better right now. Code is the language that
 
 The increments in accuracy can be subtle, but they are compounding quickly. You can see that code-completions are becoming more and more accurate across time, and reports have come out that [over 25% of Google’s code is now written by AI](https://fortune.com/2024/10/30/googles-code-ai-sundar-pichai/). Yes, at one of the smartest organisations in the world, 25% of their code can be written using generative AI. It makes me wonder how much progress could be made in other fields where code is not traditionally used?
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 [
 
@@ -52,4 +51,3 @@ I mentioned in a previous article about how [LLMs infamously struggled to add or
 
 The problem of being able to synthesise and abstract is still an issue — [LLMs won’t be writing math proofs just yet](https://www.scientificamerican.com/article/ai-will-become-mathematicians-co-pilot); but, if you try translate your problem that seems intractable in natural language to code, we might be able to get some more problems unstuck.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

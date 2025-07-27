@@ -18,7 +18,6 @@ _“Thinking is cheap, so you should do more thinking, not less.” — Shreyas 
 
 AI is not a replacement for thought, but is a tool for thinking more, faster. We have seen more and more AI-generated content — often referred to as _slop_ — on the internet to a saturation point that is beyond grotesque. This is to be expected as the cost of content creation has hit zero, but where does that leave the aspirational content creators? For some content creators, it has led to an anti-AI movement. But that doesn’t lead to progress; there is good to be found in the tools; one just needs to know how to use them.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 AI should be used to amplify our intelligence. In many cases, the latency of our current paradigms of writing are X times slower than our thinking. AI offers some tools that will allow us to close that gap, often significantly. Now let’s look at the process that it is to elevate.
 
@@ -42,4 +41,3 @@ When it comes to the read speed, for most people reading will still be much fast
 
 Great speaking and great writing requires the same thing: more time for thinking and iteration. It isn't about perfect; it is about giving you more time to think if you need it. By bringing the inputting and outputting times closer to the speed of thought using artificial intelligence, we buy ourselves more time to create pieces that are truly and authentically ours.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

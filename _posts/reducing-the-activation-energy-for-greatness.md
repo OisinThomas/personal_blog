@@ -30,4 +30,3 @@ Our goal is not to churn out mediocre tools—it’s to make greatness possible 
 
 At the heart of this challenge is the need for time and mental bandwidth—both of which align naturally with streamlining processes. So the question is not, “What flashy new thing can you build?” but rather, “What mundane, repetitive process can you automate?” By eliminating drudgery, we make room to think, explore, and innovate.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

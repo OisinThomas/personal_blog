@@ -21,7 +21,6 @@ Why Interfaces Lag Behind Compute
 
 Historically, computational breakthroughs race far ahead of interfaces. In the '70s, mainframes easily had enough horsepower for graphical interaction, but it took the Macintosh GUI in 1984 to make computing human-friendly. Multitouch screens were prototyped as early as 2002 at NYU, yet it wasn't until Apple's iPhone in 2007 that the average consumer finally experienced this revolutionary interface. The pattern is predictable: technology unlocks possibilities first; then interface designers figure out how to actually put it into human hands.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 So today, we're in that same gap. Transformers changed the world in 2017, and ChatGPT debuted in 2022—yet our current AI interface remains stubbornly command-line/chat window: a sophisticated digital assistant controlled by typing short messages, back and forth, like a Unix terminal from the 1970s, but a lot prettier.
 
@@ -111,4 +110,3 @@ In my mind the timeline looks something like this:
 
 When explicit prompting is forgotten, replaced by fluid interaction, Licklider’s dream of man-computer symbiosis will finally arrive.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.

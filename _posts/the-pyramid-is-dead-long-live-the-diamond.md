@@ -18,7 +18,6 @@ Remember the good old days of professional services? A sturdy pyramid of humans 
 
 Well, AI just is toppling that pyramid. Say hello to the Diamond.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
 
 [
 
@@ -134,4 +133,3 @@ For new graduates heading into these fields, the message is clear: the days of p
 
 The Pyramid is dead. Long live the Diamond.
 
-Thanks for reading Caideiseach’s Substack! Subscribe for free to receive new posts and support my work.
