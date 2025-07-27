@@ -18,7 +18,7 @@ export default function Home() {
           <br />
           Here is a smorgasbord of <Link className="underline"  href="#thoughts">thoughts</Link>,{" "}
           <Link className="underline"  href="#tinkering">tinkerings</Link>, and{" "}
-          <Link className="underline"  href="#translations">translations </Link>— or you can check them
+          <Link className="underline"  href="#translations">translations</Link>— or you can check them
           all out <Link className="underline"  href="/all">here</Link>. <br/> You can also read my <Link className="underline inline-flex items-center" href="https://caideiseach.substack.com/">Substack <SubstackIcon className="w-5 h-5 ml-1" /></Link> :]
         </p>
         <p className="text-sm mb-8">
