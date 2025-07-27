@@ -48,18 +48,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full overflow-hidden">
       <head>{/* PostHog analytics is handled via the PostHogProvider */}</head>
       <body
         className={clsx(
           inter.className,
-          "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
+          "bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 h-full overflow-hidden flex flex-col"
         )}
       >
         <ThemeProvider>
-          <Header />
-          {children}
-          <CookieConsent />
+          <div className="flex flex-col h-full overflow-y-auto overscroll-none">
+            <Header />
+            <div className="flex-1">
+              {children}
+            </div>
+            <CookieConsent />
+          </div>
         </ThemeProvider>
       </body>
     </html>

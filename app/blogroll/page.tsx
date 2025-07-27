@@ -2,7 +2,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div>
       <main className="container mx-auto px-4 mb-16 w-2/3">
         <div className="flex flex-col md:flex-row justify-around items-center p-4">
           <div className="relative h-[140px] w-full md:w-auto flex items-center justify-center mb-4 md:mb-0 md:mr-20">

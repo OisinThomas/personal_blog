@@ -7,7 +7,7 @@ export default function Home() {
   const AllBlogs = getAllPosts();
 
   return (
-    <div className="min-h-screen">
+    <>
       <main className="container mx-auto px-4 mb-16 w-2/3">
         <p className="text-xl mb-8">
           I'm Oisín Thomas!
@@ -53,7 +53,7 @@ export default function Home() {
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 }
 function newFunction(AllBlogs: PostData[]) {
