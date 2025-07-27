@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           <h2 className="text-2xl font-semibold mb-4">Contact</h2>
           <p>
             If you have any questions about this privacy policy, please feel free to 
-            reach out through any of the social links in the website header.
+            reach out through any of the social links in the <Link href="/about">about</Link> page.
           </p>
         </section>
 
