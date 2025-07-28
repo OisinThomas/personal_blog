@@ -59,6 +59,9 @@ Notably, I tested these with no context other than giving them the question on e
 
 In a follow-up article, I will work on reasoning models and give their results. But I have excluded reasoning models for this point in time because the general-purpose language models are more suited to simple, single-step tasks, whereas reasoning models have tended to overthink these, leading to a much lower accuracy. In light of the time it takes to get responses and the costs they incur, I have constrained the number of models to just general-purpose LLMs. I will start exploring open-source models at a later date also.
 
+![](/feature-results.png)
+
+
 **Where Models Excelled**
 -------------------------
 
@@ -107,6 +110,8 @@ The divergence reveals different "mental models" of Irish grammar. Some models s
 
 **The Irish Report Card: Models Score Better Than Expected**
 ------------------------------------------------------------
+
+![](/ai-provider-accuracy.png)
 
 Looking at the actual data, the results are quite encouraging:
 
