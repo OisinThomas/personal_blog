@@ -1,4 +1,4 @@
-–-
+---
 title: "Anyone in Need of Assistants?"
 description:  "DevDay for OpenAI brings AI agents to the masses"
 updatedAt: "2023-11-07"
@@ -8,12 +8,12 @@ image: "/profile.png"
 majorTag: "Thoughts"
 subTag: "Tech"
 language: "en"
-tags: 
-- Tech
-- ChatGPT
-- OpenAI
-- AI
-–-
+tags:
+    - tech
+    - chatgpt
+    - openai
+    - ai
+---
 
 OpenAI have had a year to remember, with GPT-3, GPT4, vision, text-to-speech, automated speech... and surely they couldn't have more to offer other than minor tweaks of pricing and performance, right? But, they do; and, in many ways I think the latest developments released on their DevDay today are probably the most impactful so far.
 
