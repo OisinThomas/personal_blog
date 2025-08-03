@@ -1,17 +1,20 @@
 ---
-title: "Irish in Silicon (Part 2)"
-description: "Un-reason-LLM-bly good?"
-publishedAt: "2025-05-22T08:30:31.317Z"
-updatedAt: "2025-05-22T08:30:31.317Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Tinkering"
-subTag: "Tech"
-language: "en"
+title: Irish in Silicon (Part 2)
+description: Un-reason-LLM-bly good?
+publishedAt: '2025-05-22T08:30:31.317Z'
+updatedAt: '2025-05-22T08:30:31.317Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Tinkering
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/irish-in-silicon-part-2"
-tags: ["AI", "NLP", "Irish Language"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/irish-in-silicon-part-2'
+tags:
+  - ai
+  - nlp
+  - irish-language
 ---
 
 In Part 2, we will continue analysing large language models' ability to handle the Irish language using over 1100 grammar questions. You can check out [Part 1](https://open.substack.com/pub/caideiseach/p/silicon-in-irish?r=3v9fhz&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false) or read the recap below, before we dive into the performance of Reasoning Models.

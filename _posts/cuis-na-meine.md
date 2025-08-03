@@ -1,20 +1,22 @@
 ---
-title: "Cúis na Méine"
-description:  "A few thoughts on FOMO and the importance of asking yourself the right questions."
-updatedAt: "2021-05-18"
-publishedAt: "2021-05-18"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: ""
-language: "ga"
+title: Cúis na Méine
+description: >-
+  A few thoughts on FOMO and the importance of asking yourself the right
+  questions.
+updatedAt: '2021-05-18'
+publishedAt: '2021-05-18'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: ''
+language: ga
 available: true
-source: ""
-tags: 
-- Thoughts
-- Irish
-- Gaeilge
-- Reflection
+source: ''
+tags:
+  - thoughts
+  - irish
+  - gaeilge
+  - reflection
 ---
 
 Nuair a smaoiníonn tú ar cad a dhéanfá dá gcaillfí duine agus dá dtabharfá faoi deara go n-athrófá rud nó cuid de do shaol ó bhonn, tá tú ag déanamh rud mícheart; ní chaitheann tú do shaol is fearr mar a deirtear sa lá atá inniu. Tá rud as alt agus caithfidh tú machnamh a dhéanamh ar chúis na méine.

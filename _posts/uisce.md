@@ -1,19 +1,19 @@
 ---
-title: "Uisce"
-description:  "Adaptability is not just the key to surive, but the key to thrive."
-updatedAt: "2020-04-08"
-publishedAt: "2020-04-08"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Philosophy"
-language: "ga"
-tags: 
-- Thoughts
-- Irish
-- Gaeilge
-- Reflection
-- Bruce Lee
+title: Uisce
+description: 'Adaptability is not just the key to surive, but the key to thrive.'
+updatedAt: '2020-04-08'
+publishedAt: '2020-04-08'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Philosophy
+language: ga
+tags:
+  - thoughts
+  - irish
+  - gaeilge
+  - reflection
+  - bruce-lee
 ---
 
 Is faoi bhuntáistí uisce a scríobhann formhór na ndaoine: deir siad gur bunriachtanas é an t-uisce agus go mbaineann iliomad feidhmeanna leis agus… Ach, ní chuirtear aon rud úrnua in iúl dúinn sa tslí seo. Ba mhaith liom ceist eile a scrúdú: an féidir linn aon rud a fhoghlaim ón uisce?

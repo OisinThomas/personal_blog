@@ -1,18 +1,18 @@
 ---
-title: "Cad Í An Obair Nach Bhfuil Cuma Oibre Uirthi?"
-description:  "An Irish translation of Paul Graham's Essay on 'What Doesn’t Seem Like Work?'"
-updatedAt: "2020-03-26"
-publishedAt: "2020-03-26"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+title: Cad Í An Obair Nach Bhfuil Cuma Oibre Uirthi?
+description: An Irish translation of Paul Graham's Essay on 'What Doesn’t Seem Like Work?'
+updatedAt: '2020-03-26'
+publishedAt: '2020-03-26'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Tá an leagan Béarla ar fáil ar [What Doesn’t Seem Like Work?](http://www.paulgraham.com/work.html).

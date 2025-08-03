@@ -1,19 +1,21 @@
 ---
-title: "Does Language Learning have to be like Tiktok?"
-description:  "You can escape the attention-mining rush and learn faster simply by reading what you like."
-updatedAt: "2023-11-10"
-publishedAt: "2023-11-10"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Language Learning"
-language: "en"
-tags: 
-- Language Learning
-- Irish
-- AI
-- Weeve
-- Duolingo
+title: Does Language Learning have to be like Tiktok?
+description: >-
+  You can escape the attention-mining rush and learn faster simply by reading
+  what you like.
+updatedAt: '2023-11-10'
+publishedAt: '2023-11-10'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Language Learning
+language: en
+tags:
+  - language-learning
+  - irish
+  - ai
+  - weeve
+  - duolingo
 ---
 
 Everyone is fighting for your primary resource nowadays, and supposedly that resource is in decline: your attention. Have we gotten to the point where to learn a new language, we have to have Subway Surfer playing in the bottom of our view? *I hope not.* 

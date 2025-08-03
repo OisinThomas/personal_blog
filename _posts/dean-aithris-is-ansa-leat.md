@@ -1,20 +1,20 @@
 ---
-title: "Déan Aithris Ar Na Rudaí Is Ansa Leat"
-description:  "An Irish translation of Paul Graham's Essay on 'Copy What You Like'"
-updatedAt: "2020-03-26"
-publishedAt: "2020-03-26"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
+title: Déan Aithris Ar Na Rudaí Is Ansa Leat
+description: An Irish translation of Paul Graham's Essay on 'Copy What You Like'
+updatedAt: '2020-03-26'
+publishedAt: '2020-03-26'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+source: ''
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Tá an leagan Béarla ar fáil ar [Copy What You Like](http://www.paulgraham.com/copy.html).

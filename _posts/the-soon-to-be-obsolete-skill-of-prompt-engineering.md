@@ -1,17 +1,21 @@
 ---
-title: "The Soon-to-be Obsolete Skill of Prompt Engineering"
-description: "300k -> 0k"
-publishedAt: "2025-06-25T10:45:48.376Z"
-updatedAt: "2025-06-25T10:45:48.376Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: The Soon-to-be Obsolete Skill of Prompt Engineering
+description: 300k -> 0k
+publishedAt: '2025-06-25T10:45:48.376Z'
+updatedAt: '2025-06-25T10:45:48.376Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/the-soon-to-be-obsolete-skill-of-prompt-engineering"
-tags: ["AI", "Future of Work", "Prompt Engineering"]
+source: Substack
+substackUrl: >-
+  https://caideiseach.substack.com/p/the-soon-to-be-obsolete-skill-of-prompt-engineering
+tags:
+  - ai
+  - future-of-work
+  - prompt-engineering
 ---
 
 Prompt engineering arose because current large language models (LLMs) present us with a primitive interface: text goes in, text comes out. In software architecture, we call this "_incidental coupling_": a fragile dependency created by an immature interface. These couplings are always temporary, eventually refactored away into more robust, intuitive systems.

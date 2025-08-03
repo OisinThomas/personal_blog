@@ -1,20 +1,20 @@
 ---
-title: "An Tástáil Oileáin"
-description:  "An Irish translation of Paul Graham's Essay on 'The Island Test'"
-updatedAt: "2020-03-26"
-publishedAt: "2020-03-26"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
+title: An Tástáil Oileáin
+description: An Irish translation of Paul Graham's Essay on 'The Island Test'
+updatedAt: '2020-03-26'
+publishedAt: '2020-03-26'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+source: ''
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Tá an leagan Béarla ar fáil ar [The Island Test](http://www.paulgraham.com/island.html).

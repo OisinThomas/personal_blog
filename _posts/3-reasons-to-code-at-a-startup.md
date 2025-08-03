@@ -1,22 +1,22 @@
 ---
-title: "3 Reasons to Code at a Startup"
-description:  "A reflection on a year at Weeve (formally Diglot)"
-updatedAt: "2022-01-07"
-publishedAt: "2022-01-07"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: 3 Reasons to Code at a Startup
+description: A reflection on a year at Weeve (formally Diglot)
+updatedAt: '2022-01-07'
+publishedAt: '2022-01-07'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Thoughts
-- Startups
-- Weeve
-- Diglot
-- Learnings
+source: ''
+tags:
+  - paul-graham
+  - thoughts
+  - startups
+  - weeve
+  - diglot
+  - learnings
 ---
 I am closing in on a year working with the EdTech startup, [Diglot](https://weeve.ie), and to say I am still loving it a year on is an understatement. Technology is a great field to work in right now and there are so many options out there for programmers now. With this abundance of opportunity also being entangled with prestige and monetary incentives, it becomes more difficult to find what really works for you – to find what aligns with your needs, values and desires. For me, [Paul Graham’s essays](http://www.paulgraham.com/articles.html) provided ample reasons to want to work at a startup and after nearly a year, all those reasons that got me into it still hold very true. I hope by sharing a few of them with you, you can see if your polestar also lies within the ever-growing constellation of tech startups.
 

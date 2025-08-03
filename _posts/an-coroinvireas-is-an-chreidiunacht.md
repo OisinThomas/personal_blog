@@ -1,20 +1,20 @@
 ---
-title: "An Coróinvíreas Agus An Chreidiúnacht"
-description:  "An Irish translation of Paul Graham's Essay on 'Coronavirus and Credibility'"
-updatedAt: "2020-04-11"
-publishedAt: "2020-04-11"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
+title: An Coróinvíreas Agus An Chreidiúnacht
+description: An Irish translation of Paul Graham's Essay on 'Coronavirus and Credibility'
+updatedAt: '2020-04-11'
+publishedAt: '2020-04-11'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+source: ''
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Is aistriúchán é seo agus tá an bunleagan Béarla ar fáil ar [Coronavirus and Credibility](http://paulgraham.com/cred.html).

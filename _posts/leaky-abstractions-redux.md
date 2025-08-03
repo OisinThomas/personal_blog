@@ -1,17 +1,20 @@
 ---
-title: "Leaky Abstractions Redux"
-description: "Your AI Coding Assistant Keeps You Dry—Until It Doesn't"
-publishedAt: "2025-04-28T11:19:21.679Z"
-updatedAt: "2025-04-28T11:19:21.679Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: Leaky Abstractions Redux
+description: Your AI Coding Assistant Keeps You Dry—Until It Doesn't
+publishedAt: '2025-04-28T11:19:21.679Z'
+updatedAt: '2025-04-28T11:19:21.679Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/leaky-abstractions-redux"
-tags: ["AI", "Software Development", "Abstractions"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/leaky-abstractions-redux'
+tags:
+  - ai
+  - software-development
+  - abstractions
 ---
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/19e34fd1-6cfc-4820-b6c7-034fc7e55595_368x489.png)

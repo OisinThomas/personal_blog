@@ -1,17 +1,20 @@
 ---
-title: "Train the Model, Train the Team"
-description: "Why Documentation is the New Superpower"
-publishedAt: "2025-06-25T10:44:59.644Z"
-updatedAt: "2025-06-25T10:44:59.644Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: 'Train the Model, Train the Team'
+description: Why Documentation is the New Superpower
+publishedAt: '2025-06-25T10:44:59.644Z'
+updatedAt: '2025-06-25T10:44:59.644Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/train-the-model-train-the-team"
-tags: ["AI", "Knowledge Management", "Future of Work"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/train-the-model-train-the-team'
+tags:
+  - ai
+  - knowledge-management
+  - future-of-work
 ---
 
 > "Every prompt you polish is a mini-tutorial for the intern who replaces you."

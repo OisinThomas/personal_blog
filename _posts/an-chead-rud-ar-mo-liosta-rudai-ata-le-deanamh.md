@@ -1,20 +1,20 @@
 ---
-title: "An Chéad Rud Ar Mo Liosta Rudaí Atá Le Déanamh"
-description:  "An Irish translation of Paul Graham's Essay on 'The Top Of My Todo List'"
-updatedAt: "2020-03-29"
-publishedAt: "2020-03-29"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
+title: An Chéad Rud Ar Mo Liosta Rudaí Atá Le Déanamh
+description: An Irish translation of Paul Graham's Essay on 'The Top Of My Todo List'
+updatedAt: '2020-03-29'
+publishedAt: '2020-03-29'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+source: ''
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Tá an leagan Béarla ar fáil ar [The Top Of My Todo List](http://paulgraham.com/todo.html).

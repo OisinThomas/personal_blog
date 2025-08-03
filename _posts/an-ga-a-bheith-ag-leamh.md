@@ -1,20 +1,20 @@
 ---
-title: "An Gá a Bheith ag Léamh"
-description:  "An Irish translation of Paul Graham's Essay on 'The Need to Read'"
-updatedAt: "2022-12-07"
-publishedAt: "2022-12-07"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
+title: An Gá a Bheith ag Léamh
+description: An Irish translation of Paul Graham's Essay on 'The Need to Read'
+updatedAt: '2022-12-07'
+publishedAt: '2022-12-07'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+source: ''
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Is aistriúchán é seo agus tá an bunleagan Béarla ar fáil ar [The Need To Read](http://www.paulgraham.com/read.html).

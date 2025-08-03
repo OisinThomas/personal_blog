@@ -1,17 +1,21 @@
 ---
-title: "Reducing the Activation Energy for Greatness"
-description: "Making Greatness Default"
-publishedAt: "2024-11-27T00:05:55.278Z"
-updatedAt: "2024-11-27T00:05:55.278Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: Reducing the Activation Energy for Greatness
+description: Making Greatness Default
+publishedAt: '2024-11-27T00:05:55.278Z'
+updatedAt: '2024-11-27T00:05:55.278Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/reducing-the-activation-energy-for-greatness"
-tags: ["Productivity", "Automation", "Creativity"]
+source: Substack
+substackUrl: >-
+  https://caideiseach.substack.com/p/reducing-the-activation-energy-for-greatness
+tags:
+  - productivity
+  - automation
+  - creativity
 ---
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/ecd3d3d3-aa77-408b-94df-7adcee39abc0_1394x464.png)

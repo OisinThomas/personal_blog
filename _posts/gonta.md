@@ -1,18 +1,18 @@
 ---
-title: "Ag Scríobh Go Gonta"
-description:  "An Irish translation of Paul Graham's Essay on 'Writing, Briefly'"
-updatedAt: "2020-03-29"
-publishedAt: "2020-03-29"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+title: Ag Scríobh Go Gonta
+description: 'An Irish translation of Paul Graham''s Essay on ''Writing, Briefly'''
+updatedAt: '2020-03-29'
+publishedAt: '2020-03-29'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Tá an bunleagan Béarla ar fáil ar [Writing, Briefly](http://www.paulgraham.com/writing44.html).

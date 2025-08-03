@@ -1,17 +1,20 @@
 ---
-title: "The Blinking Cursor"
-description: "Friend or Foe? Neither: Frenemy."
-publishedAt: "2025-06-16T06:00:23.318Z"
-updatedAt: "2025-06-16T06:00:23.318Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: The Blinking Cursor
+description: 'Friend or Foe? Neither: Frenemy.'
+publishedAt: '2025-06-16T06:00:23.318Z'
+updatedAt: '2025-06-16T06:00:23.318Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/the-blinking-cursor"
-tags: ["Creativity", "AI", "Writing"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/the-blinking-cursor'
+tags:
+  - creativity
+  - ai
+  - writing
 ---
 
 The blinking cursor—steady, insistent, (im)patient(?)—has always been a symbol of creative possibility and, equally, of creative anxiety. It marks the threshold between intention and action, between the infinite potential of an unwritten page and the messy, imperfect reality of what we actually produce. In the digital age, and especially in the era of AI, the blinking cursor has become more than a metaphor: it is a site of negotiation between human creativity and machine automation, between care and indifference, between depth and mediocrity.

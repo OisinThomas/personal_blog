@@ -1,17 +1,20 @@
 ---
-title: "Luxury as the Anti-Algorithm"
-description: "Harnessing Human Imperfection and Bold Vision in an AI-Driven World"
-publishedAt: "2025-07-02T22:22:31.155Z"
-updatedAt: "2025-07-02T22:22:31.155Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: Luxury as the Anti-Algorithm
+description: Harnessing Human Imperfection and Bold Vision in an AI-Driven World
+publishedAt: '2025-07-02T22:22:31.155Z'
+updatedAt: '2025-07-02T22:22:31.155Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/luxury-as-the-anti-algorithm"
-tags: ["Luxury", "Branding", "AI"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/luxury-as-the-anti-algorithm'
+tags:
+  - luxury
+  - branding
+  - ai
 ---
 
 The tech industry has spent the last decade optimising everything. We A/B test button colours, streamline user flows, and personalise experiences down to the individual pixel. The goal is always the same: reduce friction, increase conversion, scale infinitely.

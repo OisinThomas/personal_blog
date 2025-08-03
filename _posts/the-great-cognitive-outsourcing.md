@@ -1,17 +1,20 @@
 ---
-title: "The Great Cognitive Outsourcing"
-description: "The New Terrain of Critical Thinking"
-publishedAt: "2025-05-26T08:30:28.516Z"
-updatedAt: "2025-05-26T08:30:28.516Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: The Great Cognitive Outsourcing
+description: The New Terrain of Critical Thinking
+publishedAt: '2025-05-26T08:30:28.516Z'
+updatedAt: '2025-05-26T08:30:28.516Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/the-great-cognitive-outsourcing"
-tags: ["AI", "Critical Thinking", "Future of Work"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/the-great-cognitive-outsourcing'
+tags:
+  - ai
+  - critical-thinking
+  - future-of-work
 ---
 
 With the use of LLMs, we enter a new terrain of critical thinking. The challenge is no longer just having the right answer, but understanding the topography of AI's thinking landscape—identifying peaks of superhuman competence and valleys where systems confidently generate plausible-sounding errors. This makes critical thinking more about knowing the fundamentals and even more about interrogating proposed answers.

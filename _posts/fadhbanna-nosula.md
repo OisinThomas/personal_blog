@@ -1,18 +1,18 @@
 ---
-title: "Fashionable Problems"
-description:  "An Irish translation of Paul Graham's Essay on 'Fashionable Problems'"
-updatedAt: "2020-03-26"
-publishedAt: "2020-03-26"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+title: Fashionable Problems
+description: An Irish translation of Paul Graham's Essay on 'Fashionable Problems'
+updatedAt: '2020-03-26'
+publishedAt: '2020-03-26'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Tá an leagan Béarla ar fáil ar [Fashionable Problems](http://www.paulgraham.com/fp.html).

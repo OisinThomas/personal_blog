@@ -1,20 +1,20 @@
 ---
-title: "Dea- agus Drochmhoilleadóireacht"
-description:  "An Irish translation of Paul Graham's Essay on 'Good and Bad Procrastination'"
-updatedAt: "2020-03-24"
-publishedAt: "2020-03-24"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
+title: Dea- agus Drochmhoilleadóireacht
+description: An Irish translation of Paul Graham's Essay on 'Good and Bad Procrastination'
+updatedAt: '2020-03-24'
+publishedAt: '2020-03-24'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
 available: true
-source: ""
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+source: ''
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 Is aistriúchán é seo agus tá an leagan Béarla ar fáil ar [Good and Bad Procrastination](http://www.paulgraham.com/procrastination.html). Ba mhaith liom mo bhuíochas a chur in iúl do Eimear Connick as an dréacht a léamh agus a cheartú.

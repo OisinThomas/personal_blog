@@ -1,18 +1,18 @@
 ---
-title: "Na rudaí atá fonn ort (fonn a bheith ort)* a dhéanamh"
-description:  "An Irish translation of Paul Graham's Essay on 'What You (Want To)* Want'"
-updatedAt: "2022-11-28"
-publishedAt: "2022-11-28"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Translations"
-subTag: "Paul Graham"
-language: "ga"
-tags: 
-- Paul Graham
-- Irish
-- Gaeilge
-- Translation
+title: Na rudaí atá fonn ort (fonn a bheith ort)* a dhéanamh
+description: An Irish translation of Paul Graham's Essay on 'What You (Want To)* Want'
+updatedAt: '2022-11-28'
+publishedAt: '2022-11-28'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Translations
+subTag: Paul Graham
+language: ga
+tags:
+  - paul-graham
+  - irish
+  - gaeilge
+  - translation
 ---
 
 The original essay by Paul Graham can be found at [What You (Want To)* Want](http://www.paulgraham.com/want.html).

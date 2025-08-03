@@ -1,18 +1,20 @@
 ---
-title: "Humans Only; AI Need Not Apply"
-description:  "AI aids development; but, without the human touch, it will never be accessible to all."
-updatedAt: "2023-11-27"
-publishedAt: "2023-11-26"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
-tags: 
-- Tech
-- Language
-- Gaeilge
-- AI
+title: Humans Only; AI Need Not Apply
+description: >-
+  AI aids development; but, without the human touch, it will never be accessible
+  to all.
+updatedAt: '2023-11-27'
+publishedAt: '2023-11-26'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
+tags:
+  - tech
+  - language
+  - gaeilge
+  - ai
 ---
 
 In a recent post [Honey, The AI Shrunk the Language Divide](https://oisinthomas.com/blog/ai-shrunk-the-language-divide), I talked about how AI has the capacity to be the game-changer in shrinking the language divide and bring many languages back from the brink of extinction. And from this, I was asked the question:

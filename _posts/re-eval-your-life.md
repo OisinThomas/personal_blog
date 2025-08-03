@@ -1,17 +1,20 @@
 ---
-title: "Re-Eval Your Life"
-description: "A Holiday Guide to Better Questions"
-publishedAt: "2024-12-31T14:51:53.470Z"
-updatedAt: "2024-12-31T14:51:53.470Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: Re-Eval Your Life
+description: A Holiday Guide to Better Questions
+publishedAt: '2024-12-31T14:51:53.470Z'
+updatedAt: '2024-12-31T14:51:53.470Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/re-eval-your-life"
-tags: ["Productivity", "AI", "Self-improvement"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/re-eval-your-life'
+tags:
+  - productivity
+  - ai
+  - self-improvement
 ---
 
 Christmas is in the air, the lights twinkle to ward away the darkness of winter and we sip mulled wine and laugh condensed laughs outside the packed pubs. It is a time that is deeply nostalgic, full of traditions. Many people get wistful and start making resolutions and plans for better next year. I propose in this short essay you need to make one new resolution coming into this festive period and 2025: **write evals for everything.**

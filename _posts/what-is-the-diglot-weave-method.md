@@ -1,17 +1,20 @@
 ---
-title: "What is the Diglot Weave Method?"
-description: Diglot Weaving involves weaving or mixing two languages together. In the case of language learning, it is where sentences written in the learner’s native language have words from the language they want to learn mixed in.
-updatedAt: "2023-11-24"
-publishedAt: "2022-10-22"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Language Learning"
-language: "en"
-tags: 
-- Language Learning
-- Weeve
-- Diglot Weave Method
+title: What is the Diglot Weave Method?
+description: >-
+  Diglot Weaving involves weaving or mixing two languages together. In the case
+  of language learning, it is where sentences written in the learner’s native
+  language have words from the language they want to learn mixed in.
+updatedAt: '2023-11-24'
+publishedAt: '2022-10-22'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Language Learning
+language: en
+tags:
+  - language-learning
+  - weeve
+  - diglot-weave-method
 ---
 
 In this article, we will discuss what is the diglot weave, where it can be used, what are its benefits and why it will be the cornerstone of language-learning into the future. 

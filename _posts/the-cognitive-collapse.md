@@ -1,17 +1,20 @@
 ---
-title: "The Cognitive Collapse"
-description: "How the Memory Paradox and AI Slide Are Undermining Human Intelligence"
-publishedAt: "2025-06-02T17:11:54.857Z"
-updatedAt: "2025-06-02T17:11:54.857Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: The Cognitive Collapse
+description: How the Memory Paradox and AI Slide Are Undermining Human Intelligence
+publishedAt: '2025-06-02T17:11:54.857Z'
+updatedAt: '2025-06-02T17:11:54.857Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/the-cognitive-collapse"
-tags: ["Cognitive Science", "AI", "Education"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/the-cognitive-collapse'
+tags:
+  - cognitive-science
+  - ai
+  - education
 ---
 
 For most of the 20th century, humanity grew smarter on paper. Average IQ scores steadily climbed—an observation known as the **Flynn Effect**, reflecting gains of roughly 3 to 5 IQ points per decade across many countries ([Trahan et al., 2014](https://pmc.ncbi.nlm.nih.gov/articles/PMC4152423/)). Better nutrition, education, and healthcare were often credited as drivers of this long-term rise in cognitive performance.

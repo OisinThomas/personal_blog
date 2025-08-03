@@ -1,19 +1,19 @@
 ---
-title: "Setting Up Expo Client on MacOS Catalina"
-description: "A guide to setting up the Expo Client on MacOS Catalina."
-updatedAt: "2020-04-20"
-publishedAt: "2020-04-20"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Tinkering"
-subTag: "Tech"
-language: "en"
-tags: 
-- Expo
-- MacOS
-- Catalina
-- Node.js
-- Tech
+title: Setting Up Expo Client on MacOS Catalina
+description: A guide to setting up the Expo Client on MacOS Catalina.
+updatedAt: '2020-04-20'
+publishedAt: '2020-04-20'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Tinkering
+subTag: Tech
+language: en
+tags:
+  - expo
+  - macos
+  - catalina
+  - node.js
+  - tech
 ---
 
 Things are done differently on Apple, especially with the latest MacOS, Catalina. When I was navigating these steps, I found them scattered across the internet. This guide aims to provide a centralized tutorial for getting the Expo Client up and running on MacOS Catalina.

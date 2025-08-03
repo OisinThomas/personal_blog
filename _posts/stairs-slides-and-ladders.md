@@ -1,17 +1,20 @@
 ---
-title: "Stairs, Slides, and Ladders"
-description: "Navigating the AI Training Gap"
-publishedAt: "2025-04-22T13:02:00.761Z"
-updatedAt: "2025-04-22T13:02:00.761Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: 'Stairs, Slides, and Ladders'
+description: Navigating the AI Training Gap
+publishedAt: '2025-04-22T13:02:00.761Z'
+updatedAt: '2025-04-22T13:02:00.761Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/stairs-slides-and-ladders"
-tags: ["AI", "Education", "Future of Work"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/stairs-slides-and-ladders'
+tags:
+  - ai
+  - education
+  - future-of-work
 ---
 
 [

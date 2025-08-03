@@ -1,18 +1,18 @@
 ---
-title: "Honey, The AI Shrunk the Language Divide"
-description:  "AI can be the great variance amplifier for minority languages"
-updatedAt: "2023-11-16"
-publishedAt: "2023-11-16"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
-tags: 
-- Tech
-- Language
-- Gaeilge
-- AI
+title: 'Honey, The AI Shrunk the Language Divide'
+description: AI can be the great variance amplifier for minority languages
+updatedAt: '2023-11-16'
+publishedAt: '2023-11-16'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
+tags:
+  - tech
+  - language
+  - gaeilge
+  - ai
 ---
 
 Our world is becoming more digital by the day. The pandemic normalised much of it, and now nearly everything we consume is online. But like the physical world, it is still very unequal online.

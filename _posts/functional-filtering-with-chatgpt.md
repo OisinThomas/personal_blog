@@ -1,18 +1,18 @@
 ---
-title: "Functional Filtering with ChatGPT"
-description:  "LLMs still going brrr thanks to timesaving with JSON outputs"
-updatedAt: "2023-06-16"
-publishedAt: "2023-06-16"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
-tags: 
-- Tech
-- ChatGPT
-- OpenAI
-- AI
+title: Functional Filtering with ChatGPT
+description: LLMs still going brrr thanks to timesaving with JSON outputs
+updatedAt: '2023-06-16'
+publishedAt: '2023-06-16'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
+tags:
+  - tech
+  - chatgpt
+  - openai
+  - ai
 ---
 
 Another week, another slew of AI updates. In particular, this week has seen a very exciting new development from OpenAI: function calling. Their post about it was [rather uninspiring](https://platform.openai.com/docs/guides/gpt/function-calling), so I wanted to give it a closer look and show you why it came about, why it matters, and how it is really useful.

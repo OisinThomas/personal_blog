@@ -1,20 +1,25 @@
 ---
-title: "Enhancing Security and User Experience: Why Browser Extensions Should Have an Associated Website"
-description: Discover why managing user onboarding, account management, and subscriptions from a separate website can enhance the security and user experience of your browser extension.
-publishedAt: "2023-12-04"
-updatedAt: "2023-12-04"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Tinkering"
-subTag: "Tech"
-language: "en"
+title: >-
+  Enhancing Security and User Experience: Why Browser Extensions Should Have an
+  Associated Website
+description: >-
+  Discover why managing user onboarding, account management, and subscriptions
+  from a separate website can enhance the security and user experience of your
+  browser extension.
+publishedAt: '2023-12-04'
+updatedAt: '2023-12-04'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Tinkering
+subTag: Tech
+language: en
 available: true
-source: ""
+source: ''
 tags:
-  - Web Development
-  - React
-  - Browser Extension
-  - Plasmo
+  - web-development
+  - react
+  - browser-extension
+  - plasmo
 ---
 
 Browser extensions have a bad reputation for security and safety, from both the users' and developer's perspective. There are critical aspects of a user experience—particularly account management and payments—that you can do on an extension, but if you really care about the experience and safety of your end user, you won't. Instead, you should do it using a separate webpage. In this article, I will discuss why and how you should manage your user onboarding, account management and subscriptions from a website associated with your extension.

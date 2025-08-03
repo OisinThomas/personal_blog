@@ -1,17 +1,20 @@
 ---
-title: "Good Taste Isn't Autocorrect"
-description: ""
-publishedAt: "2025-05-30T10:15:25.985Z"
-updatedAt: "2025-05-30T10:15:25.985Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: Good Taste Isn't Autocorrect
+description: ''
+publishedAt: '2025-05-30T10:15:25.985Z'
+updatedAt: '2025-05-30T10:15:25.985Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/good-taste-isnt-autocorrect"
-tags: ["AI", "Creativity", "Taste"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/good-taste-isnt-autocorrect'
+tags:
+  - ai
+  - creativity
+  - taste
 ---
 
 We've built increasingly sophisticated tools to help us get things _right_—from autocorrect to predictive text to AI that can write entire articles. But each level of sophistication reveals a deeper problem: being technically correct isn't the same as being actually right. There's a hierarchy to getting things right, and most people stop climbing too early.

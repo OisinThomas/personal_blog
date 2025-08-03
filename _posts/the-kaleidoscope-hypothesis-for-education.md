@@ -1,17 +1,20 @@
 ---
-title: "The Kaleidoscope Hypothesis for Education"
-description: "Abstracting and synthesising our way in and out of novel problems"
-publishedAt: "2024-11-25T22:58:59.828Z"
-updatedAt: "2024-11-25T22:58:59.828Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: The Kaleidoscope Hypothesis for Education
+description: Abstracting and synthesising our way in and out of novel problems
+publishedAt: '2024-11-25T22:58:59.828Z'
+updatedAt: '2024-11-25T22:58:59.828Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/the-kaleidoscope-hypothesis-for-education"
-tags: ["AI", "Education", "Cognitive Science"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/the-kaleidoscope-hypothesis-for-education'
+tags:
+  - ai
+  - education
+  - cognitive-science
 ---
 
 ![](https://substack-post-media.s3.amazonaws.com/public/images/00985744-3a55-4f52-8ee9-0d17aec82320_1150x579.png)

@@ -1,17 +1,20 @@
 ---
-title: "an ode to code"
-description: "programming languages >> natural languages "
-publishedAt: "2024-11-27T23:04:44.529Z"
-updatedAt: "2024-11-27T23:04:44.529Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: an ode to code
+description: 'programming languages >> natural languages '
+publishedAt: '2024-11-27T23:04:44.529Z'
+updatedAt: '2024-11-27T23:04:44.529Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/an-ode-to-code"
-tags: ["Code", "LLMs", "AI"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/an-ode-to-code'
+tags:
+  - code
+  - llms
+  - ai
 ---
 
 <a href="https://x.com/simonw/status/1861563015394664498">

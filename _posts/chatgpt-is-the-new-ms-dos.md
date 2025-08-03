@@ -1,17 +1,20 @@
 ---
-title: "ChatGPT Is the New MS-DOS"
-description: "We Haven’t had the Windows 95 Moment Yet"
-publishedAt: "2025-06-09T07:01:15.603Z"
-updatedAt: "2025-06-09T07:01:15.603Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: ChatGPT Is the New MS-DOS
+description: We Haven’t had the Windows 95 Moment Yet
+publishedAt: '2025-06-09T07:01:15.603Z'
+updatedAt: '2025-06-09T07:01:15.603Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/chatgpt-is-the-new-ms-dos"
-tags: ["AI", "UI/UX", "History"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/chatgpt-is-the-new-ms-dos'
+tags:
+  - ai
+  - ui/ux
+  - history
 ---
 
 In the future, people will say: _Imagine celebrating ChatGPT in 2025_. Sure, It's impressive (paradigm-changing even), but it's also a bit like applauding MS-DOS in 1981: the system is powerful beneath the surface, but the whole thing hinges on a blinking cursor and cryptic commands of the _prompt engineer_. We haven't yet encountered our Windows 95 moment, the kind of intuitive, user-friendly leap that moves technology from niche fascination to essential infrastructure.

@@ -1,17 +1,20 @@
 ---
-title: "Thinking More, Faster"
-description: "Approaching the Speed of Thought for Content Creation"
-publishedAt: "2024-11-24T16:11:24.807Z"
-updatedAt: "2024-11-24T16:11:24.807Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: 'Thinking More, Faster'
+description: Approaching the Speed of Thought for Content Creation
+publishedAt: '2024-11-24T16:11:24.807Z'
+updatedAt: '2024-11-24T16:11:24.807Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/thinking-more-faster"
-tags: ["AI", "Creativity", "Productivity"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/thinking-more-faster'
+tags:
+  - ai
+  - creativity
+  - productivity
 ---
 
 _“Thinking is cheap, so you should do more thinking, not less.” — Shreyas Doshi, [Lenny’s Podcast](https://www.youtube.com/watch?v=atS060bNpE0)_

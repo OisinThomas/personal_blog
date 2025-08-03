@@ -1,17 +1,20 @@
 ---
-title: "Silicon in Irish (Part 1)"
-description: "AI's Unexpected Fluency in Irish"
-publishedAt: "2025-05-06T13:02:46.907Z"
-updatedAt: "2025-05-06T13:02:46.907Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Tinkering"
-subTag: "Tech"
-language: "en"
+title: Silicon in Irish (Part 1)
+description: AI's Unexpected Fluency in Irish
+publishedAt: '2025-05-06T13:02:46.907Z'
+updatedAt: '2025-05-06T13:02:46.907Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Tinkering
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/silicon-in-irish-part-1"
-tags: ["AI", "NLP", "Irish Language"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/silicon-in-irish-part-1'
+tags:
+  - ai
+  - nlp
+  - irish-language
 ---
 
 One of the persistent questions about large language models like GPT-4 and Claude is how well they handle languages beyond English. We know they're trained predominantly on English text from the internet, with healthy doses of major world languages like Spanish, French, and Chinese. But what about languages with fewer speakers and less online presence?

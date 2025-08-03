@@ -1,17 +1,20 @@
 ---
-title: "Curiosity and The Compression Imperative"
-description: "Why We Hunt for Better Metaphors"
-publishedAt: "2025-05-13T13:02:58.807Z"
-updatedAt: "2025-05-13T13:02:58.807Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: Curiosity and The Compression Imperative
+description: Why We Hunt for Better Metaphors
+publishedAt: '2025-05-13T13:02:58.807Z'
+updatedAt: '2025-05-13T13:02:58.807Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/curiosity-and-the-compression-imperative"
-tags: ["Cognitive Science", "Learning", "AI"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/curiosity-and-the-compression-imperative'
+tags:
+  - cognitive-science
+  - learning
+  - ai
 ---
 
 Have you ever felt that rush when a concept suddenly makes sense? That moment when the fog clears and you think, "Of course! Why didn't I see that before?"

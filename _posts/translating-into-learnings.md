@@ -1,18 +1,20 @@
 ---
-title: "Translating into Learnings"
-description:  "Translation forces you to think about meaning in a way other meditatative practices on a text don't."
-updatedAt: "2022-07-12"
-publishedAt: "2022-07-12"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Translation"
-language: "en"
-tags: 
-- Paul Graham
-- Translation
-- Thoughts
-- Language
+title: Translating into Learnings
+description: >-
+  Translation forces you to think about meaning in a way other meditatative
+  practices on a text don't.
+updatedAt: '2022-07-12'
+publishedAt: '2022-07-12'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Translation
+language: en
+tags:
+  - paul-graham
+  - translation
+  - thoughts
+  - language
 ---
 
 When I find an interesting piece of writing or a powerful passage, my first inclination tends to be to translate. Perhaps it’s the part-language degree (an Ghaeilge abu!) or my fascination with Japanese, but when I see a perfect distillation of knowledge, I just can’t help myself but think: what would that look like in…? And I doubt I’m the only person who feels this way; though, perhaps stranger is how I tend to follow through more often than not. So much so, it is now part of how I learn new ideas.

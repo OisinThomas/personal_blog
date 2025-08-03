@@ -1,17 +1,20 @@
 ---
-title: "The Pyramid is Dead. Long Live the Diamond."
-description: "The Traditional Org Chart is Being Toppled by AI "
-publishedAt: "2025-05-19T08:30:23.371Z"
-updatedAt: "2025-05-19T08:30:23.371Z"
-author: "Oisín Thomas"
-image: "/profile.png"
-majorTag: "Thoughts"
-subTag: "Tech"
-language: "en"
+title: The Pyramid is Dead. Long Live the Diamond.
+description: 'The Traditional Org Chart is Being Toppled by AI '
+publishedAt: '2025-05-19T08:30:23.371Z'
+updatedAt: '2025-05-19T08:30:23.371Z'
+author: Oisín Thomas
+image: /profile.png
+majorTag: Thoughts
+subTag: Tech
+language: en
 available: true
-source: "Substack"
-substackUrl: "https://caideiseach.substack.com/p/the-pyramid-is-dead-long-live-the-diamond"
-tags: ["AI", "Future of Work", "Organizational Design"]
+source: Substack
+substackUrl: 'https://caideiseach.substack.com/p/the-pyramid-is-dead-long-live-the-diamond'
+tags:
+  - ai
+  - future-of-work
+  - organizational-design
 ---
 
 Remember the good old days of professional services? A sturdy pyramid of humans arranged in a beautifully rational hierarchy: armies of fresh-faced graduates at the bottom doing the grunt work, a sensible middle layer of managers telling them what to do, and a select few partners at the pointy end taking client calls and collecting the profits. This model has defined legal, accounting, and consulting firms for generations. It was simple, effective, and made everyone money.
