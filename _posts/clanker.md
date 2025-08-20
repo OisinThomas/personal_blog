@@ -4,7 +4,7 @@ description: 'The word of the year. Focail na mbliana.'
 updatedAt: '2025-08-20'
 publishedAt: '2025-08-20'
 author: Oisín Thomas
-image: /profile.png
+image: /dia-duit-robot.png
 majorTag: Thoughts
 subTag: Philosophy
 language: ga
