@@ -23,4 +23,4 @@ Is leor nod don eolach, nó sa chas seo, insíonn fuaim scéal. Is fuaim iarann 
 
 Dealraíonn Tiktok mar seo agus an feiniméan is atá sé an streachailt atá againn le Ré na hIntleachta Saorga. Caithfimid ceisteanna deacra a chur orainn féin faoin saol, faoin obair agus faoi bhrí an tsaoil. Táimid ag iarraidh déileáil leis chomh maith agus is féidir, agus tagann *clanker* as ar gcuid eagla roimhe. Is catairsis é *clanker*—focal nó paidir chun doras a dhúnadh ar bhorradh agus fás na teicneolaíochta ar feadh nóiméid.
 
-Ach cén Ghaeilge ar *clanker*? B'fhéidir, cleaingire—as cleaing, ach ceapaim nach bhfuil sé coimhthíoch go leor. Is focal cráite, mínádurtha é clanker. Ceapaim gurb é an freagra ceart ná é a fhágáil mar atá sé—*clanker*: eachtrán nach bhfuil nadúrtha fós inár saol ná inár dteanga.
+Ach cén Ghaeilge ar *clanker*? B'fhéidir, cleaingire—as cleaing, ach ceapaim nach bhfuil sé coimhthíoch go leor. Is focal cráite, garbh mínádurtha é clanker. Ceapaim gurb é an freagra ceart ná é a fhágáil mar atá sé—*clanker*: eachtrán nach bhfuil nadúrtha fós inár saol ná inár dteanga.
