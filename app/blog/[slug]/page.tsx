@@ -20,7 +20,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
     "@type": "NewsArticle",
     headline: post.title,
     description: post.excerpt,
-    image: [post.ogImage?.url],
+    image: [post.image],
     datePublished: post.publishedAt ? new Date(post.publishedAt).toISOString() : "",
     dateModified: new Date(post.updatedAt || "").toISOString(),
     author: [
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return notFound();
   }
 
-  const ogImages = [{ url: siteMetadata.siteUrl + post?.ogImage?.url }];
+  const ogImages = [{ url: siteMetadata.siteUrl + post?.image }];
 
   const publishedAt = new Date(post.publishedAt ?? "").toISOString();
   const authors = post?.author ? [post.author] : siteMetadata.author;
@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: publishedAt,
       modifiedTime: publishedAt,
       type: "article",
-      images: [post.ogImage?.url || ''],
+      images: [post.image || ''],
       authors: authors.length > 0 ? authors : [siteMetadata.author],
     },
     twitter: {
