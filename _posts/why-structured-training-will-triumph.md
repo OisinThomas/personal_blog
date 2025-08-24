@@ -10,7 +10,7 @@ subTag: Tech
 language: en
 available: true
 source: Substack
-substackUrl: 'https://caideiseach.substack.com/p/thinking-more-faster'
+substackUrl: 'https://caideiseach.substack.com/p/why-structured-training-will-triumph'
 tags:
   - ai
   - learning
