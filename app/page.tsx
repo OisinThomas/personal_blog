@@ -70,20 +70,22 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Tinkerings.map((post) => (
         <div key={post.slug} className="mb-8">
-          <h3 className="text-xl font-semibold mb-2 flex items-center">
+          <h3 className="text-xl font-semibold mb-2">
+            {post.language === "ga" && (
+              <span className="text-sm font-normal mr-2">[GA]</span>
+            )}
+            {post.source === "Substack" && (
+              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="mr-2">
+                <SubstackIcon className="w-4 h-4 inline-block" />
+              </Link>
+            )}
             <Link
               href={`/blog/${post.slug}`}
               className={"cursor-pointer hover:underline"}
               key={`${post.slug}`}
             >
-              {post.title}{" "}
-              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+              {post.title}
             </Link>
-            {post.source === "Substack" && (
-              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
-                <SubstackIcon className="w-5 h-5" />
-              </Link>
-            )}
           </h3>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
@@ -93,20 +95,22 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Translations.map((post) => (
         <div key={post.slug} className="mb-8">
-          <h3 className="text-xl font-semibold mb-2 flex items-center">
+          <h3 className="text-xl font-semibold mb-2">
+            {post.language === "ga" && (
+              <span className="text-sm font-normal mr-2">[GA]</span>
+            )}
+            {post.source === "Substack" && (
+              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="mr-2">
+                <SubstackIcon className="w-4 h-4 inline-block" />
+              </Link>
+            )}
             <Link
               href={`/blog/${post.slug}`}
               className={"cursor-pointer hover:underline"}
               key={`${post.slug}`}
             >
-              {post.title}{" "}
-              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+              {post.title}
             </Link>
-            {post.source === "Substack" && (
-              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
-                <SubstackIcon className="w-5 h-5" />
-              </Link>
-            )}
           </h3>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>
@@ -116,20 +120,22 @@ function newFunction(AllBlogs: PostData[]) {
       </h2>
       {Thoughts.map((post) => (
         <div key={post.slug} className="mb-8">
-          <h3 className="text-xl font-semibold mb-2 flex items-center">
+          <h3 className="text-xl font-semibold mb-2">
+            {post.language === "ga" && (
+              <span className="text-sm font-normal mr-2">[GA]</span>
+            )}
+            {post.source === "Substack" && (
+              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="mr-2">
+                <SubstackIcon className="w-4 h-4 inline-block" />
+              </Link>
+            )}
             <Link
               href={`/blog/${post.slug}`}
               className={"cursor-pointer hover:underline"}
               key={`${post.slug}`}
             >
-              {post.title}{" "}
-              {post.language === "ga" ? `[${post.language.toUpperCase()}]` : ""}
+              {post.title}
             </Link>
-            {post.source === "Substack" && (
-              <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
-                <SubstackIcon className="w-5 h-5" />
-              </Link>
-            )}
           </h3>
           <p>{post.tags.map((tag: string) => `• ${tag}`).join(" ")}</p>
         </div>

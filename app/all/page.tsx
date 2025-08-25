@@ -40,7 +40,7 @@ export default function Home() {
                   {groupedBlogs[tag].map((blog: any) => (
                     <div key={blog.title}>
                       <div
-                        className="flex-grow pl-2 text-left flex items-center"
+                        className="flex-grow pl-2 text-left"
                         style={{
                           hyphens: "auto",
                           wordWrap: "break-word",
@@ -50,17 +50,17 @@ export default function Home() {
                         }}
                         lang={blog.language} // Specify the language for better hyphenation (if applicable)
                       >
-                        <Link href={`/blog/${blog.slug}`} className="cursor:pointer hover:underline">
-                          {blog.title}{" "}
-                          {blog.language === "ga"
-                            ? `[${blog.language.toUpperCase()}]`
-                            : ""}
-                        </Link>
+                        {blog.language === "ga" && (
+                          <span className="text-sm font-normal mr-2">[GA]</span>
+                        )}
                         {blog.source === "Substack" && (
-                          <Link href={blog.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-2">
-                            <SubstackIcon className="w-5 h-5" />
+                          <Link href={blog.substackUrl} target="_blank" rel="noopener noreferrer" className="mr-2">
+                            <SubstackIcon className="w-4 h-4 inline-block" />
                           </Link>
                         )}
+                        <Link href={`/blog/${blog.slug}`} className="cursor:pointer hover:underline">
+                          {blog.title}
+                        </Link>
                       </div>
                       <p>
                         {blog.tags.map((tag: string) => `• ${tag}`).join(" ")}
