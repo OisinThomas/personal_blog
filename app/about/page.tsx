@@ -26,8 +26,10 @@ export default function About() {
             </Link>
             . I primarily focus on RnD and building the AI engine
             behind the products. Education, language and technology are my
-            passions. My central raison d'être is to build tools that make
-            greatness default.
+            passions. My central raison d'être is to build tools that <Link href={"/blog/reducing-the-activation-energy-for-greatness"} 
+            className="underline cursor-pointer"
+            >make
+            greatness default</Link>.
           </p>
           <br />
           <p>
