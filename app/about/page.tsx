@@ -17,7 +17,7 @@ export default function About() {
             >
               Weeve
             </Link>{" "}
-            and Fullstack Dev at{" "}
+            and AI Solutions Architect at{" "}
             <Link
               href={"https://www.examfly.com"}
               className="cursor-pointer underline"
