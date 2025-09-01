@@ -10,6 +10,8 @@ majorTag: Thoughts
 subTag: Tech
 language: en
 available: true
+source: Substack
+substackUrl: "https://oisinthomas.com/blog/ai-and-mental-masturbation"
 tags:
   - ai
   - writing
