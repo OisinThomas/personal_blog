@@ -11,7 +11,7 @@ subTag: Tech
 language: en
 available: true
 source: Substack
-substackUrl: "https://oisinthomas.com/blog/ai-and-mental-masturbation"
+substackUrl: "https://caideiseach.substack.com/p/ai-and-mental-masturbation"
 tags:
   - ai
   - writing
