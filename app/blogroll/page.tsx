@@ -29,7 +29,7 @@ export default function Home() {
         </p>
         <p className="text-xl italic mb-8">
           Also I made a{" "}
-          <Link className="underline cursor-pointer" href={"/favourite/words"}>
+          <Link className="text-blue-600 dark:text-blue-400 hover:underline" href={"/favourite/words"}>
             list of my favourite words and terms
           </Link>{" "}
           that I've come across.
@@ -45,7 +45,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://simonwillison.net/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Simon Willison's Blog
                 </Link>
@@ -53,7 +53,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://www.notboring.co/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Not Boring (Packy McCormick)
                 </Link>
@@ -61,7 +61,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://www.swyx.io/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Swyx's Blog
                 </Link>
@@ -69,7 +69,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://alexdanco.com/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Alex Danco's Blog
                 </Link>
@@ -77,7 +77,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://overreacted.io/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Dan Abramov's Blog
                 </Link>
@@ -85,7 +85,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://jamesclear.com/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   James Clear's Blog
                 </Link>
@@ -93,7 +93,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://www.benkuhn.net/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Ben Kuhn's Blog
                 </Link>
@@ -101,7 +101,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://www.thefitzwilliam.com/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   The Fitzwilliam
                 </Link>
@@ -109,7 +109,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://www.thediff.co/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   The Diff
                 </Link>
@@ -117,7 +117,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://www.gwern.net/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Gwern Branwen's Blog
                 </Link>
@@ -125,7 +125,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://paulgraham.com/articles.html"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Paul Graham's Essays
                 </Link>
@@ -133,7 +133,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://michaelnielsen.org/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Michael Nielson's Blog
                 </Link>
@@ -141,7 +141,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://danielmiessler.com/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Daniel Miessler's Blog
                 </Link>
@@ -149,7 +149,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://jalammar.github.io/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Jay Alammar's Blog
                 </Link>
@@ -157,7 +157,7 @@ export default function Home() {
               <li>
                 <Link
                   href={"https://marginalrevolution.com/"}
-                  className="cursor-pointer underline"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   Marginal Revolution
                 </Link>

@@ -76,6 +76,7 @@ export interface VideoNodeMetadata extends BaseNodeMetadata {
   videoId?: string;
   autoplay?: boolean;
   loop?: boolean;
+  caption?: string;
 }
 
 export interface EmbedNodeMetadata extends BaseNodeMetadata {

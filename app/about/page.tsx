@@ -10,24 +10,24 @@ export default function About() {
           <p>I'm Oisín Thomas!</p>
           <br />
           <p>
-            Co-founder of{" "}
-            <Link
-              href={"https://www.weeve.ie"}
-              className="cursor-pointer underline"
-            >
-              Weeve
-            </Link>{" "}
-            and AI Solutions Architect at{" "}
+            Head of AI at{" "}
             <Link
               href={"https://www.examfly.com"}
-              className="cursor-pointer underline"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               Examfly
+            </Link>{" "}
+            and co-founder and CTO at{" "}
+            <Link
+              href={"https://www.weeve.ie"}
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Weeve
             </Link>
             . I primarily focus on RnD and building the AI engine
             behind the products. Education, language and technology are my
-            passions. My central raison d'être is to build tools that <Link href={"/blog/reducing-the-activation-energy-for-greatness"} 
-            className="underline cursor-pointer"
+            passions. My central raison d'être is to build tools that <Link href={"/blog/reducing-the-activation-energy-for-greatness"}
+            className="text-blue-600 dark:text-blue-400 hover:underline"
             >make
             greatness default</Link>.
           </p>
@@ -38,7 +38,7 @@ export default function About() {
             childrens' early learning applications for the Irish Language with{" "}
             <Link
               href={"https://www.abair.ie"}
-              className="underline cursor-pointer"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               ABAIR
             </Link>{" "}
@@ -46,7 +46,7 @@ export default function About() {
             a co-founder of the NDRC backed ed-tech startup,{" "}
             <Link
               href={"https://www.weeve.ie"}
-              className="cursor-pointer underline"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               Weeve
             </Link>
@@ -57,7 +57,7 @@ export default function About() {
             In my free time I like to translate, recently translating and publishing{" "}
             <Link
               href={"https://www.amazon.co.uk/dp/1068608714/"}
-              className="cursor-pointer underline"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               Winnie-the-Pooh
             </Link>{" "}
@@ -66,7 +66,7 @@ export default function About() {
             more entertaining.
           </p>
           <br />
-          <p>You can contact me at oisin [dot] thomas99 [at] gmail [dot] com or read my <Link href="https://caideiseach.substack.com/" className="underline inline-flex items-center">Substack <SubstackIcon className="w-5 h-5 ml-1" /></Link>.</p>
+          <p>You can contact me at oisin [dot] thomas99 [at] gmail [dot] com or read my <Link href="https://caideiseach.substack.com/" className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">Substack <SubstackIcon className="w-5 h-5 ml-1" /></Link>.</p>
           <br />
           <p>Or find me below:</p>
           <br />
