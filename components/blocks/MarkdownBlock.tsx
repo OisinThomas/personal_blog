@@ -25,7 +25,9 @@ export default async function MarkdownBlock({ content }: MarkdownBlockProps) {
         prose-blockquote:border-l-blue-500
         prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-blue-900/20
         prose-blockquote:py-1 prose-blockquote:px-4
-        prose-blockquote:not-italic`}
+        prose-blockquote:not-italic
+        [&_blockquote_p:first-of-type]:before:content-none
+        [&_blockquote_p:last-of-type]:after:content-none`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
