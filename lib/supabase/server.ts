@@ -30,6 +30,23 @@ export async function createClient() {
   );
 }
 
+// For static/ISR pages that don't need cookie access
+// This avoids the DYNAMIC_SERVER_USAGE error for pages that fetch public data
+export function createStaticClient() {
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return [];
+        },
+        setAll() {},
+      },
+    }
+  );
+}
+
 // For API routes and server actions that need service role access
 export function createServiceClient() {
   return createServerClient(

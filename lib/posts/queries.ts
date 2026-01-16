@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/server';
 import type { Post, PostWithAsset, Node, NodeWithAsset, MajorTag } from '@/lib/supabase/types';
 
 export async function getAllPosts(options?: {
@@ -6,7 +6,7 @@ export async function getAllPosts(options?: {
   majorTag?: MajorTag;
   limit?: number;
 }): Promise<PostWithAsset[]> {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   let query = supabase
     .from('posts')
@@ -46,7 +46,7 @@ export async function getPublishedPosts(options?: {
 }
 
 export async function getPostBySlug(slug: string): Promise<PostWithAsset | null> {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   const { data, error } = await supabase
     .from('posts')
@@ -72,7 +72,7 @@ export async function getPostWithNodes(slug: string): Promise<{
   post: PostWithAsset;
   nodes: NodeWithAsset[];
 } | null> {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   // Fetch post
   const { data: post, error: postError } = await supabase
@@ -112,7 +112,7 @@ export async function getPostWithNodes(slug: string): Promise<{
 }
 
 export async function getPostSlugs(): Promise<string[]> {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   const { data, error } = await supabase
     .from('posts')
@@ -146,7 +146,7 @@ export async function getPostsByMajorTag(): Promise<Record<MajorTag, PostWithAss
 }
 
 export async function searchPosts(query: string): Promise<PostWithAsset[]> {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   const { data, error } = await supabase
     .from('posts')
@@ -167,7 +167,7 @@ export async function searchPosts(query: string): Promise<PostWithAsset[]> {
 }
 
 export async function getPublishedPostsByTag(tag: string): Promise<PostWithAsset[]> {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   const { data, error } = await supabase
     .from('posts')
