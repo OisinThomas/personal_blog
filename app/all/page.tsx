@@ -1,76 +1,146 @@
 import Link from "next/link";
-import { getAllPosts } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
+import TagLink from "@/components/TagLink";
+import ClickableCard from "@/components/ClickableCard";
+import { getPostsByMajorTag, getPublishedPostsByTag } from "@/lib/posts/queries";
+import type { PostWithAsset, MajorTag } from "@/lib/supabase/types";
+import { X } from "lucide-react";
 
-export default function Home() {
-  const AllBlogs = getAllPosts();
+export const revalidate = 60; // Revalidate every 60 seconds
 
-  const groupedBlogs = AllBlogs.reduce((acc: any, blog: any) => {
-    // This assumes each blog entry has exactly one of tag1, tag2, tag3 defined
-    const tags = ["Thoughts", "Translations", "Tinkering"]; // Define the order of tags
-    const tag = tags.find((tag) => tag === blog.majorTag); // Find which tag this blog has
-    acc = tags.reduce((acc: any, tag: string) => {
-      if (!acc[tag]) {
-        acc[tag] = [];
-      }
-      return acc;
-    }, acc); // Initialize each tag as an empty array
-    if (tag) {
-      const tagName = blog.majorTag; // Get the actual tag name (value of tag1, tag2, or tag3)
-      if (!acc[tagName]) {
-        acc[tagName] = [];
-      }
-      acc[tagName].push(blog); // Group blog names by their tag
-    }
-    return acc;
-  }, {});
+export default async function AllPosts({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const params = await searchParams;
+  const selectedTag = params.tag;
+
+  // If filtering by tag, fetch filtered posts
+  if (selectedTag) {
+    const filteredPosts = await getPublishedPostsByTag(selectedTag);
+
+    return (
+      <>
+        <main className="container mx-auto px-4 mb-16 max-w-4xl">
+          <div className="flex items-center justify-between mb-8">
+            <h1 className="text-headline">
+              Posts tagged &ldquo;{selectedTag}&rdquo;
+            </h1>
+            <Link
+              href="/all"
+              className="flex items-center gap-2 text-sm px-3 py-1.5 rounded-full bg-surface-1 text-secondary-500 hover:bg-primary hover:text-white transition-colors"
+            >
+              <X className="w-4 h-4" />
+              Clear filter
+            </Link>
+          </div>
+
+          {filteredPosts.length === 0 ? (
+            <p className="text-secondary-500">No posts found with this tag.</p>
+          ) : (
+            <div className="grid gap-4">
+              {filteredPosts.map((post: PostWithAsset) => (
+                <ClickableCard key={post.slug} href={`/blog/${post.slug}`} className="card p-5 group">
+                  <div className="flex items-start gap-3 mb-2">
+                    {post.language === "ga" && (
+                      <span className="text-xs px-2 py-1 rounded-full bg-tertiary/10 text-tertiary font-medium flex-shrink-0">
+                        Gaeilge
+                      </span>
+                    )}
+                    {post.source === "Substack" && post.source_url && (
+                      <Link
+                        href={post.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-shrink-0 text-secondary hover:text-primary transition-colors"
+                      >
+                        <SubstackIcon className="w-4 h-4" />
+                      </Link>
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                    <Link href={`/blog/${post.slug}`} className="hover:underline">
+                      {post.title}
+                    </Link>
+                  </h3>
+                  {post.description && (
+                    <p className="text-secondary-500 text-sm mb-3 line-clamp-2">
+                      {post.description}
+                    </p>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag: string) => (
+                      <TagLink key={tag} tag={tag} />
+                    ))}
+                  </div>
+                </ClickableCard>
+              ))}
+            </div>
+          )}
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  // Default view: grouped by major tag
+  const postsByTag = await getPostsByMajorTag();
+  const tags: MajorTag[] = ["Thoughts", "Translations", "Tinkering"];
 
   return (
     <>
-      <main className="container mx-auto px-4 mb-16 w-2/3">
-        <div className="flex flex-col-reverse gap-8 md:flex-row">
-          <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0">
-            {Object.keys(groupedBlogs).map((tag) => (
-              <div key={tag} className="mt-2">
-                <h2 className="text-xl sm:text-xl md:text-xl font-bold text-left mb-4 mt-4">
-                  {tag}:
-                </h2>
-                <div className="grid grid-cols-1 gap-4">
-                  {groupedBlogs[tag].map((blog: any) => (
-                    <div key={blog.title}>
-                      <div
-                        className="flex-grow pl-2 text-left"
-                        style={{
-                          hyphens: "auto",
-                          wordWrap: "break-word",
-                          overflowWrap: "break-word",
-                          WebkitHyphens: "auto", // For Safari
-                          msHyphens: "auto", // For Internet Explorer
-                        }}
-                        lang={blog.language} // Specify the language for better hyphenation (if applicable)
-                      >
-                        {blog.language === "ga" && (
-                          <span className="text-sm font-normal mr-2">[GA]</span>
-                        )}
-                        {blog.source === "Substack" && (
-                          <Link href={blog.substackUrl} target="_blank" rel="noopener noreferrer" className="mr-2">
-                            <SubstackIcon className="w-4 h-4 inline-block" />
-                          </Link>
-                        )}
-                        <Link href={`/blog/${blog.slug}`} className="cursor:pointer hover:underline">
-                          {blog.title}
+      <main className="container mx-auto px-4 mb-16 max-w-4xl">
+        <h1 className="text-headline mb-8">All Posts</h1>
+
+        <div className="space-y-12">
+          {tags.map((tag) => (
+            <section key={tag}>
+              <h2 className="text-xl font-semibold mb-6 flex items-center gap-3">
+                <span className="w-1.5 h-6 bg-primary rounded-full" />
+                {tag}
+              </h2>
+              <div className="grid gap-4">
+                {(postsByTag[tag] || []).map((post: PostWithAsset) => (
+                  <ClickableCard key={post.slug} href={`/blog/${post.slug}`} className="card p-5 group">
+                    <div className="flex items-start gap-3 mb-2">
+                      {post.language === "ga" && (
+                        <span className="text-xs px-2 py-1 rounded-full bg-tertiary/10 text-tertiary font-medium flex-shrink-0">
+                          Gaeilge
+                        </span>
+                      )}
+                      {post.source === "Substack" && post.source_url && (
+                        <Link
+                          href={post.source_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-shrink-0 text-secondary hover:text-primary transition-colors"
+                        >
+                          <SubstackIcon className="w-4 h-4" />
                         </Link>
-                      </div>
-                      <p>
-                        {blog.tags.map((tag: string) => `• ${tag}`).join(" ")}
-                      </p>
+                      )}
                     </div>
-                  ))}
-                </div>
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                      <Link href={`/blog/${post.slug}`} className="hover:underline">
+                        {post.title}
+                      </Link>
+                    </h3>
+                    {post.description && (
+                      <p className="text-secondary-500 text-sm mb-3 line-clamp-2">
+                        {post.description}
+                      </p>
+                    )}
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag: string) => (
+                        <TagLink key={tag} tag={tag} />
+                      ))}
+                    </div>
+                  </ClickableCard>
+                ))}
               </div>
-            ))}
-          </div>
+            </section>
+          ))}
         </div>
       </main>
 

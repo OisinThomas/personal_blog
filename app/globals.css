@@ -28,37 +28,67 @@
 }
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --background-rgb: 246, 246, 246;
-  
-  /* Color system */
-  --primary-color: 59, 130, 246; /* blue-500 */
-  --secondary-color: 107, 114, 128; /* gray-500 */
+  --foreground-rgb: 15, 23, 42;           /* Softer black (slate-900) */
+  --background-rgb: 250, 250, 252;        /* Warmer off-white */
+
+  /* Primary shades (blue) */
+  --primary-50: 239, 246, 255;
+  --primary-100: 219, 234, 254;
+  --primary-500: 59, 130, 246;
+  --primary-600: 37, 99, 235;
+  --primary-color: 59, 130, 246;
+
+  /* Secondary shades (slate) */
+  --secondary-100: 241, 245, 249;
+  --secondary-400: 148, 163, 184;
+  --secondary-500: 100, 116, 139;
+  --secondary-600: 71, 85, 105;
+  --secondary-color: 100, 116, 139;
+
+  /* Tertiary */
   --tertiary-color: 249, 115, 22; /* orange-500 */
-  
+
+  /* Surface colors for layering */
+  --surface-0: 255, 255, 255;
+  --surface-1: 248, 250, 252;
+  --surface-2: 241, 245, 249;
+
   /* UI Colors */
   --card-bg: 255, 255, 255;
-  --card-border: 229, 231, 235;
-  --hover-bg: 243, 244, 246;
+  --card-border: 226, 232, 240;
+  --hover-bg: 241, 245, 249;
 }
 
 .dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-  --background-rgb: 31, 41, 55;
-  
-  /* Color system */
-  --primary-color: 96, 165, 250; /* blue-400 */
-  --secondary-color: 156, 163, 175; /* gray-400 */
+  --foreground-rgb: 248, 250, 252;        /* Soft white (slate-50) */
+  --background-rgb: 15, 23, 42;           /* Deep navy (slate-900) */
+
+  /* Primary shades (blue) */
+  --primary-50: 30, 58, 138;
+  --primary-100: 30, 64, 175;
+  --primary-500: 96, 165, 250;
+  --primary-600: 147, 197, 253;
+  --primary-color: 96, 165, 250;
+
+  /* Secondary shades (slate) */
+  --secondary-100: 51, 65, 85;
+  --secondary-400: 148, 163, 184;
+  --secondary-500: 148, 163, 184;
+  --secondary-600: 203, 213, 225;
+  --secondary-color: 148, 163, 184;
+
+  /* Tertiary */
   --tertiary-color: 251, 146, 60; /* orange-400 */
-  
+
+  /* Surface colors for layering */
+  --surface-0: 15, 23, 42;
+  --surface-1: 30, 41, 59;
+  --surface-2: 51, 65, 85;
+
   /* UI Colors */
-  --card-bg: 31, 41, 55;
-  --card-border: 55, 65, 81;
-  --hover-bg: 55, 65, 81;
+  --card-bg: 30, 41, 59;
+  --card-border: 51, 65, 85;
+  --hover-bg: 51, 65, 85;
 }
 
 /* Apply transition to all elements for smooth theme switching */
@@ -108,6 +138,51 @@ body {
 
 .hover-bg {
   background-color: rgb(var(--hover-bg));
+}
+
+/* Surface colors */
+.bg-surface-0 {
+  background-color: rgb(var(--surface-0));
+}
+
+.bg-surface-1 {
+  background-color: rgb(var(--surface-1));
+}
+
+.bg-surface-2 {
+  background-color: rgb(var(--surface-2));
+}
+
+/* Card styling */
+.card {
+  background-color: rgb(var(--card-bg));
+  border: 1px solid rgb(var(--card-border));
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgb(var(--primary-color) / 0.3);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Focus ring for accessibility */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid rgb(var(--primary-color));
+  outline-offset: 2px;
+}
+
+/* Enhanced shadows */
+.shadow-soft {
+  box-shadow: 0 2px 8px -2px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+}
+
+.shadow-elevated {
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 @layer utilities {

@@ -1,12 +1,14 @@
 import Socials from "./Socials";
-import clsx from "clsx";
 
-export default function Footer(props: any) {
+export default function Footer() {
   return (
-    <footer className={clsx("flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-700 py-8 mt-16", props)}>
-      <div className="text-sm">© Oisín Thomas 2025</div>
-      <Socials/>
+    <footer className="bg-surface-1 border-t border-card-border mt-16">
+      <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="text-sm text-secondary">
+          © Oisín Thomas {new Date().getFullYear()}
+        </div>
+        <Socials />
+      </div>
     </footer>
   );
 }
-

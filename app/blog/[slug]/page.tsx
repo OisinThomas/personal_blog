@@ -1,111 +1,171 @@
-// [slug].tsx
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug, markdownToHtml } from "@/lib/utils";
+import Link from "next/link";
+import { Calendar, Clock } from "lucide-react";
+import { getPostWithNodes, getPostSlugs } from "@/lib/posts/queries";
 import siteMetadata from "@/lib/siteMetaData";
-import { PostBody } from "@/components/PostBody";
 import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
-import Link from "next/link";
+import TagLink from "@/components/TagLink";
+import BlockRenderer from "@/components/blocks/BlockRenderer";
+
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const result = await getPostWithNodes(slug);
 
-  if (!post) {
+  if (!result) {
     return notFound();
   }
+
+  const { post, nodes } = result;
+
+  // Calculate word count from markdown nodes
+  const wordCount = nodes
+    .filter((node) => node.type === 'markdown')
+    .reduce((count, node) => {
+      return count + (node.content?.split(/\s+/).length || 0);
+    }, 0);
+
+  const readingTime = Math.ceil(wordCount / 200);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: post.title,
-    description: post.excerpt,
-    image: [post.image],
-    datePublished: post.publishedAt ? new Date(post.publishedAt).toISOString() : "",
-    dateModified: new Date(post.updatedAt || "").toISOString(),
+    description: post.description,
+    image: post.featured_image
+      ? [`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${post.featured_image.bucket}/${post.featured_image.storage_path}`]
+      : [],
+    datePublished: post.published_at ? new Date(post.published_at).toISOString() : "",
+    dateModified: new Date(post.updated_at).toISOString(),
     author: [
       {
         "@type": "Person",
-        name: post?.author ? [post.author] : siteMetadata.author,
+        name: post.author || siteMetadata.author,
       },
     ],
   };
 
-  const content = await markdownToHtml(post.content || "");
-
   return (
-      <>
-        <main className="container mx-auto px-4 mb-16">
+    <>
+      <main className="container mx-auto px-4 mb-16">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-            <h1 className="text-4xl font-bold mb-4 text-center flex items-center justify-center">
-              {post.title}
-              {post.source === "Substack" && (
-                <Link href={post.substackUrl} target="_blank" rel="noopener noreferrer" className="ml-4">
-                  <SubstackIcon className="w-6 h-6" />
-                </Link>
-              )}
-            </h1>
-          <div className="flex flex-row justify-center items-center mb-8 self-center">
-            <time className="text-gray-500 text-sm mr-16" dateTime={post.date}>
-              {new Date(post.publishedAt || "").toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "long",
-              })}
-            </time>
-            <div>
-              {post.content?.split(/\s+/).length ?? 0} words
+
+        {/* Article Header */}
+        <header className="max-w-3xl mx-auto mb-12">
+          <h1 className="text-display text-center mb-6 flex items-center justify-center gap-4">
+            {post.title}
+            {post.source === "Substack" && post.source_url && (
+              <Link
+                href={post.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                <SubstackIcon className="w-8 h-8" />
+              </Link>
+            )}
+          </h1>
+
+          {/* Metadata */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-secondary-500 text-sm">
+            {post.published_at && (
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <time dateTime={post.published_at}>
+                  {new Date(post.published_at).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+              </div>
+            )}
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              <span>{readingTime} min read</span>
+            </div>
+            <div className="text-secondary-400">
+              {wordCount.toLocaleString()} words
             </div>
           </div>
-          <article className="prose dark:prose-invert max-w-none">
-            <PostBody content={content} />
-          </article>
-        </main>
-         <Footer/>
-      </>
+
+          {/* Tags */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-2 mt-6">
+              {post.tags.map((tag: string) => (
+                <TagLink
+                  key={tag}
+                  tag={tag}
+                  className="text-xs px-3 py-1 rounded-full bg-surface-1 text-secondary-500 border border-card-border hover:bg-primary hover:text-white hover:border-primary transition-colors"
+                />
+              ))}
+            </div>
+          )}
+        </header>
+
+        {/* Article Content */}
+        <article className="prose dark:prose-invert max-w-3xl mx-auto">
+          <BlockRenderer nodes={nodes} />
+        </article>
+      </main>
+      <Footer />
+    </>
   );
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) {
-    return notFound();
+  const result = await getPostWithNodes(slug);
+
+  if (!result) {
+    return {
+      title: 'Post Not Found',
+    };
   }
 
-  const ogImages = [{ url: siteMetadata.siteUrl + post?.image }];
+  const { post } = result;
 
-  const publishedAt = new Date(post.publishedAt ?? "").toISOString();
-  const authors = post?.author ? [post.author] : siteMetadata.author;
+  const imageUrl = post.featured_image
+    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${post.featured_image.bucket}/${post.featured_image.storage_path}`
+    : undefined;
+
+  const publishedAt = post.published_at
+    ? new Date(post.published_at).toISOString()
+    : undefined;
 
   return {
     title: post.title,
-    description: post.excerpt,
+    description: post.description,
     openGraph: {
       title: post.title,
-      description: post.excerpt,
-      url: siteMetadata.siteUrl + "/blog/" + post.slug,
+      description: post.description || undefined,
+      url: `${siteMetadata.siteUrl}/blog/${post.slug}`,
       publishedTime: publishedAt,
-      modifiedTime: publishedAt,
+      modifiedTime: new Date(post.updated_at).toISOString(),
       type: "article",
-      images: [post.image || ''],
-      authors: authors.length > 0 ? authors : [siteMetadata.author],
+      images: imageUrl ? [imageUrl] : undefined,
+      authors: [post.author || siteMetadata.author],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.excerpt,
-      images: ogImages,
+      description: post.description || undefined,
+      images: imageUrl ? [imageUrl] : undefined,
     },
   };
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  try {
+    const slugs = await getPostSlugs();
+    return slugs.map((slug) => ({ slug }));
+  } catch {
+    // Return empty array if Supabase isn't configured yet
+    return [];
+  }
 }
