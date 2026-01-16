@@ -103,6 +103,17 @@ body {
   background: rgb(var(--background-rgb));
 }
 
+/* Text selection styling */
+::selection {
+  background-color: rgba(var(--primary-500), 0.3);
+  color: rgb(var(--foreground-rgb));
+}
+
+.dark ::selection {
+  background-color: rgba(var(--primary-500), 0.4);
+  color: rgb(var(--foreground-rgb));
+}
+
 /* Utility classes for the color system */
 .text-primary {
   color: rgb(var(--primary-color));

@@ -20,6 +20,7 @@ export default function VideoBlockEditor({
     videoId?: string;
     autoplay?: boolean;
     loop?: boolean;
+    caption?: string;
   };
 
   const handleProviderChange = (provider: string) => {
@@ -28,6 +29,10 @@ export default function VideoBlockEditor({
 
   const handleOptionChange = (option: 'autoplay' | 'loop', value: boolean) => {
     onMetadataChange({ ...videoMetadata, [option]: value });
+  };
+
+  const handleCaptionChange = (caption: string) => {
+    onMetadataChange({ ...videoMetadata, caption: caption || undefined });
   };
 
   return (
@@ -90,6 +95,19 @@ export default function VideoBlockEditor({
           />
           <span className="text-sm text-gray-900 dark:text-white">Loop</span>
         </label>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-900 dark:text-white mb-1">
+          Caption (optional)
+        </label>
+        <input
+          type="text"
+          value={videoMetadata.caption || ''}
+          onChange={(e) => handleCaptionChange(e.target.value)}
+          placeholder="Add a caption for this video"
+          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
       </div>
 
       {content && videoMetadata.provider === 'youtube' && (

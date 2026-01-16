@@ -101,7 +101,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
                 <TagLink
                   key={tag}
                   tag={tag}
-                  className="text-xs px-3 py-1 rounded-full bg-surface-1 text-secondary-500 border border-card-border hover:bg-primary hover:text-white hover:border-primary transition-colors"
+                  className="text-xs px-3 py-1 rounded-full bg-surface-1 text-secondary-500 border border-card-border hover:bg-blue-500 hover:!text-white hover:border-blue-500 focus:bg-blue-500 focus:!text-white focus:border-blue-500 transition-colors"
                 />
               ))}
             </div>
