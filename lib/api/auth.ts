@@ -1,22 +1,67 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { timingSafeEqual, randomUUID } from 'crypto';
 
 const API_KEY_HEADER = 'X-API-Key';
+
+// Generate new ephemeral token on server start
+const EPHEMERAL_TOKEN = randomUUID();
+let tokenPrinted = false;
+
+/**
+ * Prints the ephemeral token to the console once.
+ */
+function printTokenOnce(): void {
+  if (!tokenPrinted) {
+    console.log('\n🔑 CMS API Token (valid this session only):');
+    console.log(`   ${EPHEMERAL_TOKEN}\n`);
+    tokenPrinted = true;
+  }
+}
+
+/**
+ * Checks if the request originates from localhost.
+ */
+function isLocalhost(request: NextRequest): boolean {
+  const forwarded = request.headers.get('x-forwarded-for');
+  const ip = forwarded?.split(',')[0]?.trim() ||
+             request.headers.get('x-real-ip') ||
+             'unknown';
+
+  const localhostIPs = ['127.0.0.1', '::1', 'localhost', '::ffff:127.0.0.1'];
+  return localhostIPs.includes(ip);
+}
+
+/**
+ * Performs timing-safe string comparison to prevent timing attacks.
+ */
+function timingSafeCompare(a: string, b: string): boolean {
+  const bufA = Buffer.from(a);
+  const bufB = Buffer.from(b);
+  if (bufA.length !== bufB.length) return false;
+  return timingSafeEqual(bufA, bufB);
+}
 
 /**
  * Validates the API key from the request headers.
  * Returns null if valid, or an error response if invalid.
+ *
+ * Security model:
+ * - API only accessible from localhost
+ * - Ephemeral token generated on each server start (printed to console)
  */
 export function validateApiKey(request: NextRequest): NextResponse | null {
-  const apiKey = request.headers.get(API_KEY_HEADER);
-  const expectedKey = process.env.CMS_API_KEY;
+  // Print token on first request
+  printTokenOnce();
 
-  if (!expectedKey) {
-    console.error('CMS_API_KEY environment variable is not set');
+  // Block non-localhost requests
+  if (!isLocalhost(request)) {
     return NextResponse.json(
-      { error: 'Server configuration error' },
-      { status: 500 }
+      { error: 'API only accessible from localhost' },
+      { status: 403 }
     );
   }
+
+  const apiKey = request.headers.get(API_KEY_HEADER);
 
   if (!apiKey) {
     return NextResponse.json(
@@ -25,7 +70,7 @@ export function validateApiKey(request: NextRequest): NextResponse | null {
     );
   }
 
-  if (apiKey !== expectedKey) {
+  if (!timingSafeCompare(apiKey, EPHEMERAL_TOKEN)) {
     return NextResponse.json(
       { error: 'Invalid API key' },
       { status: 403 }

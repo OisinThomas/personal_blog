@@ -4,16 +4,35 @@ A REST API for programmatic management of blog posts, blocks, and assets. Design
 
 ## Authentication
 
-All endpoints require an API key passed via the `X-API-Key` header:
+The CMS API uses an ephemeral token system with localhost restriction for security.
+
+### Security Model
+
+- **Localhost only**: The API only accepts requests from localhost (127.0.0.1, ::1)
+- **Ephemeral token**: A new random token is generated on each server start
+- **No configuration needed**: No environment variables required
+
+### Getting Your Token
+
+1. Start the development server: `npm run dev`
+2. Find the token in the console output:
+   ```
+   🔑 CMS API Token (valid this session only):
+      a1b2c3d4-e5f6-7890-abcd-ef1234567890
+   ```
+
+### Making Requests
 
 ```bash
-curl -H "X-API-Key: your-api-key" https://site.com/api/cms/posts
+# Use the token from console output
+curl -H "X-API-Key: <token-from-console>" http://localhost:3000/api/cms/posts
 ```
 
-Configure the key in `.env.local`:
-```
-CMS_API_KEY=your-secure-random-key
-```
+### Important Notes
+
+- The token changes every time you restart the server
+- Remote requests are blocked (returns 403)
+- For remote/production admin access, use the web admin at `/admin` with Supabase auth
 
 ---
 
@@ -319,14 +338,14 @@ curl -X POST \
   -H "X-API-Key: $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"markdown": "# Hello\n\n```js\nconsole.log(1)\n```"}' \
-  "https://site.com/api/cms/posts/my-post/transform"
+  "http://localhost:3000/api/cms/posts/my-post/transform"
 
 # Apply transformation (saves to database)
 curl -X POST \
   -H "X-API-Key: $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"markdown": "# Hello\n\n```js\nconsole.log(1)\n```"}' \
-  "https://site.com/api/cms/posts/my-post/transform?apply=true"
+  "http://localhost:3000/api/cms/posts/my-post/transform?apply=true"
 ```
 
 ---
@@ -370,17 +389,17 @@ All errors follow this format:
 # 1. Create the post
 curl -X POST -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
   -d '{"slug": "my-new-post", "title": "My New Post", "major_tag": "Thoughts"}' \
-  https://site.com/api/cms/posts
+  http://localhost:3000/api/cms/posts
 
 # 2. Transform and apply markdown content
 curl -X POST -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
   -d '{"markdown": "# Introduction\n\nContent here..."}' \
-  "https://site.com/api/cms/posts/my-new-post/transform?apply=true"
+  "http://localhost:3000/api/cms/posts/my-new-post/transform?apply=true"
 
 # 3. Publish
 curl -X PATCH -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
   -d '{"status": "published", "published_at": "2024-01-15T10:00:00Z"}' \
-  https://site.com/api/cms/posts/my-new-post
+  http://localhost:3000/api/cms/posts/my-new-post
 ```
 
 ### Add Captions to All Media in a Post
@@ -388,12 +407,12 @@ curl -X PATCH -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
 ```bash
 # 1. Get post with nodes
 curl -H "X-API-Key: $KEY" \
-  "https://site.com/api/cms/posts/my-post?include_nodes=true"
+  "http://localhost:3000/api/cms/posts/my-post?include_nodes=true"
 
 # 2. For each image/video node, update with caption
 curl -X PATCH -H "X-API-Key: $KEY" -H "Content-Type: application/json" \
   -d '{"metadata": {"alt": "Diagram", "caption": "Figure 1"}}' \
-  https://site.com/api/cms/posts/my-post/nodes/NODE_ID
+  http://localhost:3000/api/cms/posts/my-post/nodes/NODE_ID
 ```
 
 ### Migrate Content from External Source
