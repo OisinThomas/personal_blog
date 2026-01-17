@@ -57,18 +57,8 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
         {/* Article Header */}
         <header className="max-w-3xl mx-auto mb-12">
-          <h1 className="text-display text-center mb-6 flex items-center justify-center gap-4">
+          <h1 className="text-display text-center mb-6">
             {post.title}
-            {post.source === "Substack" && post.source_url && (
-              <Link
-                href={post.source_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-secondary hover:text-primary transition-colors"
-              >
-                <SubstackIcon className="w-8 h-8" />
-              </Link>
-            )}
           </h1>
 
           {/* Metadata */}
@@ -92,6 +82,16 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
             <div className="text-secondary-400">
               {wordCount.toLocaleString()} words
             </div>
+            {post.source === "Substack" && post.source_url && (
+              <Link
+                href={post.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                <SubstackIcon className="w-5 h-5" />
+              </Link>
+            )}
           </div>
 
           {/* Tags */}
