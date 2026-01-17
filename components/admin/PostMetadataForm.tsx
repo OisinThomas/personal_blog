@@ -1,14 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabase/client';
-import type { PostWithAsset } from '@/lib/supabase/types';
-import { Trash2 } from 'lucide-react';
+import type { PostWithAsset, Asset } from '@/lib/supabase/types';
+import { Trash2, Calendar, X } from 'lucide-react';
+import FeaturedImagePicker from './FeaturedImagePicker';
 
 interface PostMetadataFormProps {
   post: PostWithAsset;
   onDelete: () => void;
+}
+
+// Helper to format ISO date to datetime-local input value
+function toDatetimeLocal(isoString: string | null): string {
+  if (!isoString) return '';
+  const date = new Date(isoString);
+  // Format: YYYY-MM-DDTHH:MM
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+// Helper to convert datetime-local value to ISO string
+function fromDatetimeLocal(localValue: string): string | null {
+  if (!localValue) return null;
+  return new Date(localValue).toISOString();
 }
 
 export default function PostMetadataForm({ post, onDelete }: PostMetadataFormProps) {
@@ -25,13 +45,41 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
     author: post.author,
     source: post.source || '',
     source_url: post.source_url || '',
+    created_at: toDatetimeLocal(post.created_at),
+    published_at: toDatetimeLocal(post.published_at),
+    featured_image_id: post.featured_image_id,
   });
+
+  const [featuredAsset, setFeaturedAsset] = useState<Asset | null>(
+    post.featured_image
+  );
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFeaturedImageSelect = async (assetId: string | null) => {
+    setFormData((prev) => ({ ...prev, featured_image_id: assetId }));
+
+    if (assetId) {
+      // Fetch the asset details to display
+      const supabase = getSupabaseClient();
+      const { data } = await supabase
+        .from('assets')
+        .select('*')
+        .eq('id', assetId)
+        .single();
+      setFeaturedAsset(data);
+    } else {
+      setFeaturedAsset(null);
+    }
+  };
+
+  const clearPublishedAt = () => {
+    setFormData((prev) => ({ ...prev, published_at: '' }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,6 +102,9 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
           author: formData.author,
           source: formData.source || null,
           source_url: formData.source_url || null,
+          created_at: fromDatetimeLocal(formData.created_at) || post.created_at,
+          published_at: fromDatetimeLocal(formData.published_at),
+          featured_image_id: formData.featured_image_id || null,
         })
         .eq('id', post.id);
 
@@ -71,6 +122,10 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
       setSaving(false);
     }
   };
+
+  // Determine if published_at is in the future (scheduled)
+  const publishedAtDate = formData.published_at ? new Date(formData.published_at) : null;
+  const isScheduled = publishedAtDate && publishedAtDate > new Date();
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -107,6 +162,66 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
+
+      {/* Date Pickers */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-900 dark:text-white mb-1">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              Created At
+            </span>
+          </label>
+          <input
+            type="datetime-local"
+            name="created_at"
+            value={formData.created_at}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-900 dark:text-white mb-1">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              Published At
+              {isScheduled && (
+                <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 px-2 py-0.5 rounded-full">
+                  Scheduled
+                </span>
+              )}
+            </span>
+          </label>
+          <div className="flex gap-2">
+            <input
+              type="datetime-local"
+              name="published_at"
+              value={formData.published_at}
+              onChange={handleChange}
+              className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {formData.published_at && (
+              <button
+                type="button"
+                onClick={clearPublishedAt}
+                className="px-3 py-2 text-gray-500 hover:text-red-600 border border-gray-300 dark:border-gray-600 rounded-md transition-colors"
+                title="Clear published date"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            Leave empty for unpublished drafts. Set future date to schedule.
+          </p>
+        </div>
+      </div>
+
+      {/* Featured Image */}
+      <FeaturedImagePicker
+        currentAsset={featuredAsset}
+        onSelect={handleFeaturedImageSelect}
+      />
 
       <div className="grid grid-cols-3 gap-4">
         <div>

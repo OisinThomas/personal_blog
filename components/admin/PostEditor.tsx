@@ -140,11 +140,15 @@ export default function PostEditor({ post, initialNodes }: PostEditorProps) {
 
   const publishPost = async () => {
     const supabase = getSupabaseClient();
+
+    // Use existing published_at if set, otherwise default to now
+    const publishedAt = post.published_at || new Date().toISOString();
+
     const { error } = await supabase
       .from('posts')
       .update({
         status: 'published',
-        published_at: new Date().toISOString(),
+        published_at: publishedAt,
       })
       .eq('id', post.id);
 
@@ -194,7 +198,7 @@ export default function PostEditor({ post, initialNodes }: PostEditorProps) {
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{post.title}</h1>
           <div className="flex items-center gap-2 mt-1">
-            <StatusBadge status={post.status} />
+            <StatusBadge status={post.status} publishedAt={post.published_at} />
             {post.language === 'ga' && (
               <span className="text-xs text-gray-500 dark:text-gray-400">[Irish]</span>
             )}
@@ -320,20 +324,25 @@ export default function PostEditor({ post, initialNodes }: PostEditorProps) {
   );
 }
 
-function StatusBadge({ status }: { status: string }) {
+function StatusBadge({ status, publishedAt }: { status: string; publishedAt: string | null }) {
+  const isScheduled = publishedAt && new Date(publishedAt) > new Date();
+
   const styles = {
     published: 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400',
+    scheduled: 'bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-400',
     draft: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400',
     archived: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400',
   };
 
+  const displayStatus = isScheduled ? 'scheduled' : status;
+
   return (
     <span
       className={`px-2 py-1 text-xs font-medium rounded-full ${
-        styles[status as keyof typeof styles] || styles.draft
+        styles[displayStatus as keyof typeof styles] || styles.draft
       }`}
     >
-      {status}
+      {displayStatus}
     </span>
   );
 }

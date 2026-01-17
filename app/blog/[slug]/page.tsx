@@ -20,6 +20,13 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
   const { post, nodes } = result;
 
+  // Hide unpublished or scheduled posts from public access
+  const isPublished = post.status === 'published';
+  const isScheduled = post.published_at && new Date(post.published_at) > new Date();
+  if (!isPublished || isScheduled) {
+    return notFound();
+  }
+
   // Calculate word count from markdown nodes
   const wordCount = nodes
     .filter((node) => node.type === 'markdown')
@@ -129,6 +136,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const { post } = result;
+
+  // Hide unpublished or scheduled posts from public access
+  const isPublished = post.status === 'published';
+  const isScheduled = post.published_at && new Date(post.published_at) > new Date();
+  if (!isPublished || isScheduled) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
 
   const imageUrl = post.featured_image
     ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${post.featured_image.bucket}/${post.featured_image.storage_path}`

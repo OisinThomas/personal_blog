@@ -18,6 +18,10 @@ export async function getAllPosts(options?: {
 
   if (options?.status) {
     query = query.eq('status', options.status);
+    // For published posts, only show posts with published_at in the past
+    if (options.status === 'published') {
+      query = query.lte('published_at', new Date().toISOString());
+    }
   }
 
   if (options?.majorTag) {
@@ -117,7 +121,8 @@ export async function getPostSlugs(): Promise<string[]> {
   const { data, error } = await supabase
     .from('posts')
     .select('slug')
-    .eq('status', 'published');
+    .eq('status', 'published')
+    .lte('published_at', new Date().toISOString());
 
   if (error) {
     console.error('Error fetching post slugs:', error);
@@ -155,6 +160,7 @@ export async function searchPosts(query: string): Promise<PostWithAsset[]> {
       featured_image:assets!featured_image_id(*)
     `)
     .eq('status', 'published')
+    .lte('published_at', new Date().toISOString())
     .or(`title.ilike.%${query}%,description.ilike.%${query}%`)
     .order('published_at', { ascending: false });
 
@@ -176,6 +182,7 @@ export async function getPublishedPostsByTag(tag: string): Promise<PostWithAsset
       featured_image:assets!featured_image_id(*)
     `)
     .eq('status', 'published')
+    .lte('published_at', new Date().toISOString())
     .contains('tags', [tag])
     .order('published_at', { ascending: false });
 
