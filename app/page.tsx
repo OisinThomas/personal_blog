@@ -21,13 +21,12 @@ export default async function Home() {
             I'm <span className="text-primary">Oisín Thomas</span>
           </h1>
           <p className="text-lg text-secondary-600 mb-6 max-w-2xl">
-            Co-founder of{" "}
-            <Link className="text-primary hover:underline" href="https://www.weeve.ie">
-              Weeve
-            </Link>{" "}
-            and AI Solutions Architect at{" "}
+            Head of AI at{" "}
             <Link className="text-primary hover:underline" href="https://www.examfly.com">
               Examfly
+            </Link>{" "}
+            <Link className="text-primary hover:underline" href="https://www.weeve.ie">
+              Weeve
             </Link>
           </p>
           <p className="text-secondary-500 mb-6">
