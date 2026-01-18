@@ -17,7 +17,7 @@ export default function About() {
             >
               Examfly
             </Link>{" "}
-            and co-founder and CTO at{" "}
+            and formerly co-founder/CTO of {" "}
             <Link
               href={"https://www.weeve.ie"}
               className="text-blue-600 dark:text-blue-400 hover:underline"

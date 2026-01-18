@@ -7,7 +7,7 @@ export async function GET() {
 > A personal blog covering AI, education, technology, and Irish translation. Features thoughts, technical tinkering, and translations including published works like Winnie-the-Pooh in Irish.
 
 ## About the Author
-Oisín Thomas is Head of AI at Examfly and Co-founder at Weeve. Trinity College Dublin graduate with 1st Class Honours in Computer Science, Linguistics, and Irish.
+Oisín Thomas is Head of AI at Examfly and formerly Co-founder at Weeve. Trinity College Dublin graduate with 1st Class Honours in Computer Science, Linguistics, and Irish.
 
 ## Content Categories
 Posts are organized into three major categories:

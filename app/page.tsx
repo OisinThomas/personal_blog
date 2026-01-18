@@ -24,7 +24,7 @@ export default async function Home() {
             Head of AI at{" "}
             <Link className="text-primary hover:underline" href="https://www.examfly.com">
               Examfly
-            </Link>{" "} and Co-founder at{" "}
+            </Link>{" "} and formerly Co-founder of{" "}
             <Link className="text-primary hover:underline" href="https://www.weeve.ie">
               Weeve
             </Link>
