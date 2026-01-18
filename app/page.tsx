@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
 import TagLink from "@/components/TagLink";
 import ClickableCard from "@/components/ClickableCard";
+import { Rss } from "lucide-react";
 import { getPublishedPosts, getPostsByMajorTag } from "@/lib/posts/queries";
 import type { PostWithAsset } from "@/lib/supabase/types";
 
@@ -77,12 +78,34 @@ export default async function Home() {
                             GA
                           </span>
                         )}
-                        <span className="text-sm text-secondary-600 group-hover:text-primary transition-colors line-clamp-2">
+                        <span className="text-sm text-secondary-600 group-hover:text-primary group-hover:underline transition-colors line-clamp-2">
                           {post.title.split(":")[0]}
                         </span>
                       </div>
                     </Link>
                   ))}
+                </div>
+
+                {/* RSS and Substack links */}
+                <div className="flex items-center justify-center gap-4 pt-4 mt-4 border-t border-card-border">
+                  <Link
+                    href="/rss.xml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full hover:bg-hover-bg transition-colors text-secondary-500 hover:text-primary"
+                    title="RSS Feed"
+                  >
+                    <Rss className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="https://caideiseach.substack.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full hover:bg-hover-bg transition-colors"
+                    title="Substack"
+                  >
+                    <SubstackIcon className="w-5 h-5" />
+                  </Link>
                 </div>
               </div>
             </div>
