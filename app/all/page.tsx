@@ -2,8 +2,9 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
 import TagLink from "@/components/TagLink";
+import TagFilter from "@/components/TagFilter";
 import ClickableCard from "@/components/ClickableCard";
-import { getPostsByMajorTag, getPublishedPostsByTag } from "@/lib/posts/queries";
+import { getPostsByMajorTag, getPublishedPostsByTag, getAllUniqueTags } from "@/lib/posts/queries";
 import type { PostWithAsset, MajorTag } from "@/lib/supabase/types";
 import { X } from "lucide-react";
 
@@ -16,6 +17,9 @@ export default async function AllPosts({
 }) {
   const params = await searchParams;
   const selectedTag = params.tag;
+
+  // Fetch all unique tags for the filter
+  const allTags = await getAllUniqueTags();
 
   // If filtering by tag, fetch filtered posts
   if (selectedTag) {
@@ -36,6 +40,8 @@ export default async function AllPosts({
               Clear filter
             </Link>
           </div>
+
+          <TagFilter tags={allTags} selectedTag={selectedTag} />
 
           {filteredPosts.length === 0 ? (
             <p className="text-secondary-500">No posts found with this tag.</p>
@@ -87,22 +93,24 @@ export default async function AllPosts({
 
   // Default view: grouped by major tag
   const postsByTag = await getPostsByMajorTag();
-  const tags: MajorTag[] = ["Thoughts", "Translations", "Tinkering"];
+  const majorTags: MajorTag[] = ["Thoughts", "Translations", "Tinkering"];
 
   return (
     <>
       <main className="container mx-auto px-4 mb-16 max-w-4xl">
         <h1 className="text-headline mb-8">All Posts</h1>
 
+        <TagFilter tags={allTags} />
+
         <div className="space-y-12">
-          {tags.map((tag) => (
-            <section key={tag}>
+          {majorTags.map((majorTag) => (
+            <section key={majorTag}>
               <h2 className="text-xl font-semibold mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-6 bg-primary rounded-full" />
-                {tag}
+                {majorTag}
               </h2>
               <div className="grid gap-4">
-                {(postsByTag[tag] || []).map((post: PostWithAsset) => (
+                {(postsByTag[majorTag] || []).map((post: PostWithAsset) => (
                   <ClickableCard key={post.slug} href={`/blog/${post.slug}`} className="card p-5 group">
                     <div className="flex items-start gap-3 mb-2">
                       {post.language === "ga" && (

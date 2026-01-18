@@ -193,3 +193,26 @@ export async function getPublishedPostsByTag(tag: string): Promise<PostWithAsset
 
   return data as PostWithAsset[];
 }
+
+export async function getAllUniqueTags(): Promise<string[]> {
+  const supabase = createStaticClient();
+
+  const { data, error } = await supabase
+    .from('posts')
+    .select('tags')
+    .eq('status', 'published')
+    .lte('published_at', new Date().toISOString());
+
+  if (error) {
+    console.error('Error fetching unique tags:', error);
+    throw error;
+  }
+
+  // Flatten all tags and get unique values, sorted alphabetically
+  const allTags = data.flatMap((post: { tags: string[] }) => post.tags);
+  const uniqueTags = [...new Set(allTags)].sort((a, b) =>
+    a.toLowerCase().localeCompare(b.toLowerCase())
+  );
+
+  return uniqueTags;
+}
