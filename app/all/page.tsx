@@ -27,7 +27,7 @@ export default async function AllPosts({
 
     return (
       <>
-        <main className="container mx-auto px-4 mb-16 max-w-4xl">
+        <main className="container mx-auto px-4 mb-16 max-w-3xl">
           <div className="flex items-center justify-between mb-8">
             <h1 className="text-headline">
               Posts tagged &ldquo;{selectedTag}&rdquo;
@@ -97,7 +97,7 @@ export default async function AllPosts({
 
   return (
     <>
-      <main className="container mx-auto px-4 mb-16 max-w-4xl">
+      <main className="container mx-auto px-4 mb-16 max-w-3xl">
         <h1 className="text-headline mb-8">All Posts</h1>
 
         <TagFilter tags={allTags} />

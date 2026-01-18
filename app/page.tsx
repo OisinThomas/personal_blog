@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <>
-      <main className="container mx-auto px-4 mb-16 max-w-5xl">
+      <main className="container mx-auto px-4 mb-16 max-w-3xl">
         {/* Hero Section */}
         <section className="py-8 mb-12">
           <h1 className="text-headline mb-4">

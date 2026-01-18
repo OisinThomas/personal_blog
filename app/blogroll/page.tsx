@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div>
-      <main className="container mx-auto px-4 mb-16 w-2/3">
+      <main className="container mx-auto px-4 mb-16 max-w-3xl">
         <div className="flex flex-col md:flex-row justify-around items-center p-4">
           <div className="relative h-[140px] w-full md:w-auto flex items-center justify-center mb-4 md:mb-0 md:mr-20">
             <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-lg md:text-xl fadeInOut w-[1ch]">

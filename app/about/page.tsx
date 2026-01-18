@@ -5,7 +5,7 @@ import SubstackIcon from "@/components/icons/SubstackIcon";
 export default function About() {
   return (
     <div className="h-fit">
-      <main className="container mx-auto px-4 w-2/3">
+      <main className="container mx-auto px-4 max-w-3xl">
         <div className="text-xl mb-8">
           <p>I'm Oisín Thomas!</p>
           <br />
