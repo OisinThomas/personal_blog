@@ -16,7 +16,6 @@ interface MarkdownBlockEditorProps {
 }
 
 const MIN_HEIGHT = 200;
-const MAX_HEIGHT = 800;
 const LINE_HEIGHT = 22; // Approximate line height in pixels
 const PADDING = 80; // Toolbar + padding
 
@@ -24,11 +23,12 @@ export default function MarkdownBlockEditor({
   content,
   onChange,
 }: MarkdownBlockEditorProps) {
-  // Calculate height based on content
+  // Calculate height based on content (with 2 extra lines of breathing room)
   const calculatedHeight = useMemo(() => {
     const lineCount = (content.match(/\n/g) || []).length + 1;
-    const contentHeight = lineCount * LINE_HEIGHT + PADDING;
-    return Math.max(MIN_HEIGHT, Math.min(MAX_HEIGHT, contentHeight));
+    const extraLines = 2;
+    const contentHeight = (lineCount + extraLines) * LINE_HEIGHT + PADDING;
+    return Math.max(MIN_HEIGHT, contentHeight);
   }, [content]);
 
   return (
