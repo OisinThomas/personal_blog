@@ -40,6 +40,11 @@ export const metadata = {
     title: siteMetadata.title,
     images: [siteMetadata.socialBanner],
   },
+  alternates: {
+    types: {
+      'application/rss+xml': `${siteMetadata.siteUrl}/rss.xml`,
+    },
+  },
 };
 
 export default function RootLayout({
