@@ -91,9 +91,10 @@
   --hover-bg: 51, 65, 85;
 }
 
-/* Apply transition to all elements for smooth theme switching */
+/* Apply transition to backgrounds/borders for smooth theme switching */
+/* Note: color is excluded to prevent text flickering during theme switch */
 * {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: background-color, border-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

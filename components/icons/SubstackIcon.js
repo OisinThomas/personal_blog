@@ -7,7 +7,7 @@ const SubstackIcon = ({ className }) => (
     alt="Substack Icon"
     width={24}
     height={24}
-    className={className}
+    className={`transition-opacity hover:opacity-70 ${className || ''}`}
   />
 );
 
