@@ -20,6 +20,8 @@ Posts are organized into three major categories:
 - [All Posts](${siteMetadata.siteUrl}/all): Browse all posts with tag filtering
 - [About](${siteMetadata.siteUrl}/about): Author biography and background
 - [RSS Feed](${siteMetadata.siteUrl}/rss.xml): RSS 2.0 feed
+- [Sitemap](${siteMetadata.siteUrl}/sitemap.xml): XML sitemap for search engines
+- [Robots.txt](${siteMetadata.siteUrl}/robots.txt): Crawler instructions
 
 ## Optional
 - [Blogroll](${siteMetadata.siteUrl}/blogroll): Curated list of favorite blogs
