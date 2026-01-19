@@ -56,6 +56,8 @@ const Header = () => {
         <button
           className="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none"
           onClick={toggleMenu}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

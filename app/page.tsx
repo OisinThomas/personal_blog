@@ -34,9 +34,7 @@ export default async function Home() {
             Here is a smorgasbord of{" "}
             <Link className="text-primary hover:underline" href="#thoughts">thoughts</Link>,{" "}
             <Link className="text-primary hover:underline" href="#tinkering">tinkerings</Link>, and{" "}
-            <Link className="text-primary hover:underline" href="#translations">translations</Link>—
-            or you can check them all out{" "}
-            <Link className="text-primary hover:underline" href="/all">here</Link>.
+            <Link className="text-primary hover:underline" href="#translations">translations</Link>.
           </p>
           <p className="text-sm text-secondary-400 flex items-center gap-2">
             <SubstackIcon className="w-4 h-4" />

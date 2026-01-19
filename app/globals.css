@@ -29,7 +29,7 @@
 
 :root {
   --foreground-rgb: 15, 23, 42;           /* Softer black (slate-900) */
-  --background-rgb: 250, 250, 252;        /* Warmer off-white */
+  --background-rgb: 241, 245, 249;        /* Darker off-white (slate-100) for better contrast */
 
   /* Primary shades (blue) */
   --primary-50: 239, 246, 255;
@@ -49,14 +49,14 @@
   --tertiary-color: 249, 115, 22; /* orange-500 */
 
   /* Surface colors for layering */
-  --surface-0: 255, 255, 255;
-  --surface-1: 248, 250, 252;
-  --surface-2: 241, 245, 249;
+  --surface-0: 248, 250, 252;
+  --surface-1: 241, 245, 249;
+  --surface-2: 226, 232, 240;
 
   /* UI Colors */
-  --card-bg: 255, 255, 255;
-  --card-border: 226, 232, 240;
-  --hover-bg: 241, 245, 249;
+  --card-bg: 248, 250, 252;
+  --card-border: 203, 213, 225;
+  --hover-bg: 226, 232, 240;
 }
 
 .dark {
