@@ -26,9 +26,7 @@ export default async function Home() {
             <Link className="text-primary hover:underline" href="https://www.examfly.com">
               Examfly
             </Link>{" "} and formerly Co-founder of{" "}
-            <Link className="text-primary hover:underline" href="https://www.weeve.ie">
-              Weeve
-            </Link>
+            Weeve
           </p>
           <p className="text-secondary-500 mb-6">
             Here is a smorgasbord of{" "}

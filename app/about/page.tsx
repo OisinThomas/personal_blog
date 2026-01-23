@@ -18,12 +18,7 @@ export default function About() {
               Examfly
             </Link>{" "}
             and formerly co-founder/CTO of {" "}
-            <Link
-              href={"https://www.weeve.ie"}
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              Weeve
-            </Link>
+            Weeve
             . I primarily focus on RnD and building the AI engine
             behind the products. Education, language and technology are my
             passions. My central raison d'être is to build tools that <Link href={"/blog/reducing-the-activation-energy-for-greatness"}
@@ -44,12 +39,7 @@ export default function About() {
             </Link>{" "}
             as well as creating book pipelines, an app and a chrome extension as
             a co-founder of the NDRC backed ed-tech startup,{" "}
-            <Link
-              href={"https://www.weeve.ie"}
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              Weeve
-            </Link>
+            Weeve
             .{" "}
           </p>
           <br />
