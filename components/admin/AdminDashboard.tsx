@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { signOut } from '@/lib/supabase/auth';
 import { useRouter } from 'next/navigation';
-import { FileText, Image as ImageIcon, Edit3, LogOut, Plus } from 'lucide-react';
+import { FileText, Image as ImageIcon, Edit3, LogOut, Plus, Download } from 'lucide-react';
+import { useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 
 interface AdminDashboardProps {
@@ -25,11 +26,32 @@ interface AdminDashboardProps {
 
 export default function AdminDashboard({ user, stats, recentPosts }: AdminDashboardProps) {
   const router = useRouter();
+  const [exporting, setExporting] = useState(false);
 
   const handleSignOut = async () => {
     await signOut();
     router.push('/admin/login');
     router.refresh();
+  };
+
+  const handleExport = async () => {
+    setExporting(true);
+    try {
+      const res = await fetch('/api/cms/export/markdown');
+      if (!res.ok) throw new Error('Export failed');
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = res.headers.get('Content-Disposition')?.match(/filename="(.+)"/)?.[1] ?? 'blog-export.zip';
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Export failed:', err);
+      alert('Export failed. Please try again.');
+    } finally {
+      setExporting(false);
+    }
   };
 
   return (
@@ -76,13 +98,23 @@ export default function AdminDashboard({ user, stats, recentPosts }: AdminDashbo
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Quick Actions */}
         <div className="mb-8">
-          <Link
-            href="/admin/posts/new"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
-          >
-            <Plus className="w-4 h-4" />
-            New Post
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin/posts/new"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              New Post
+            </Link>
+            <button
+              onClick={handleExport}
+              disabled={exporting}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 disabled:opacity-50 text-white font-medium rounded-md transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              {exporting ? 'Exporting...' : 'Export All'}
+            </button>
+          </div>
         </div>
 
         {/* Stats Grid */}
