@@ -10,9 +10,10 @@ interface ExpandableImageProps {
   width: number;
   height: number;
   caption?: string;
+  captionHtml?: string;
 }
 
-export default function ExpandableImage({ src, alt, width, height, caption }: ExpandableImageProps) {
+export default function ExpandableImage({ src, alt, width, height, caption, captionHtml }: ExpandableImageProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -61,10 +62,17 @@ export default function ExpandableImage({ src, alt, width, height, caption }: Ex
             </svg>
           </button>
         </div>
-        {caption && (
-          <figcaption className="mt-3 text-center text-sm text-secondary-500">
-            {caption}
-          </figcaption>
+        {(caption || captionHtml) && (
+          captionHtml ? (
+            <figcaption
+              className="mt-1.5 text-center text-sm text-secondary-500 [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a]:underline [&_p]:m-0"
+              dangerouslySetInnerHTML={{ __html: captionHtml }}
+            />
+          ) : (
+            <figcaption className="mt-1.5 text-center text-sm text-secondary-500">
+              {caption}
+            </figcaption>
+          )
         )}
       </figure>
 
@@ -95,8 +103,15 @@ export default function ExpandableImage({ src, alt, width, height, caption }: Ex
               sizes="100vw"
             />
           </div>
-          {caption && (
-            <p className="absolute bottom-4 left-0 right-0 text-white/80 text-center text-sm">{caption}</p>
+          {(caption || captionHtml) && (
+            captionHtml ? (
+              <div
+                className="absolute bottom-4 left-0 right-0 text-white/80 text-center text-sm [&_a]:text-blue-300 [&_a]:underline [&_p]:m-0"
+                dangerouslySetInnerHTML={{ __html: captionHtml }}
+              />
+            ) : (
+              <p className="absolute bottom-4 left-0 right-0 text-white/80 text-center text-sm">{caption}</p>
+            )
           )}
         </div>,
         document.body

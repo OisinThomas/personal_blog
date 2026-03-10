@@ -6,7 +6,6 @@ import siteMetadata from "@/lib/siteMetaData";
 import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
 import TagLink from "@/components/TagLink";
-import BlockRenderer from "@/components/blocks/BlockRenderer";
 import LexicalContentRenderer, { detectBilingualNodes } from "@/components/blocks/LexicalContentRenderer";
 import LanguageWrapper from "@/components/LanguageWrapper";
 import type { Footnote } from "@/lib/supabase/types";
@@ -46,7 +45,7 @@ export default async function Post({
     return notFound();
   }
 
-  const { post, nodes } = result;
+  const { post } = result;
 
   const isPublished = post.status === 'published';
   const isScheduled = post.published_at && new Date(post.published_at) > new Date();
@@ -55,17 +54,9 @@ export default async function Post({
   }
 
   // Calculate word count
-  let wordCount: number;
-  if (post.editor_state) {
-    // Count words from Lexical JSON
-    wordCount = countWordsInLexicalState(post.editor_state);
-  } else {
-    wordCount = nodes
-      .filter((node) => node.type === 'markdown')
-      .reduce((count, node) => {
-        return count + (node.content?.split(/\s+/).length || 0);
-      }, 0);
-  }
+  const wordCount = post.editor_state
+    ? countWordsInLexicalState(post.editor_state)
+    : 0;
 
   const readingTime = Math.ceil(wordCount / 200);
 
@@ -159,16 +150,12 @@ export default async function Post({
 
         {/* Article Content */}
         <article className="prose dark:prose-invert max-w-3xl mx-auto">
-          {post.editor_state ? (
-            <LanguageWrapper
-              hasBilingual={detectBilingualNodes(post.editor_state)}
-              postLanguage={post.language}
-            >
-              <LexicalContentRenderer editorState={post.editor_state} />
-            </LanguageWrapper>
-          ) : (
-            <BlockRenderer nodes={nodes} />
-          )}
+          <LanguageWrapper
+            hasBilingual={post.editor_state ? detectBilingualNodes(post.editor_state) : false}
+            postLanguage={post.language}
+          >
+            {post.editor_state && <LexicalContentRenderer editorState={post.editor_state} />}
+          </LanguageWrapper>
         </article>
 
         {/* Footnotes */}

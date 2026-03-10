@@ -295,13 +295,17 @@ function RenderQuote({ node }: { node: LexicalNode }) {
 function RenderImage({ node }: { node: ImageNodeData }) {
   if (!node.src) return null;
 
+  const caption = node.caption || undefined;
+  const captionHtml = caption ? markdownToHtmlSync(caption) : undefined;
+
   return (
     <ExpandableImage
       src={node.src}
       alt={node.alt || ''}
       width={node.width || 800}
       height={node.height || 600}
-      caption={node.caption || undefined}
+      caption={caption}
+      captionHtml={captionHtml}
     />
   );
 }
