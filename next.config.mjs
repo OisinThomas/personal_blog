@@ -7,6 +7,10 @@ const nextConfig = {
         hostname: 'xgnfxghqiwsjhdhqmbus.supabase.co',
         pathname: '/storage/v1/object/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
   },
   async rewrites() {
