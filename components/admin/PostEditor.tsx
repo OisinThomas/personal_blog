@@ -9,6 +9,7 @@ import PostMetadataForm from './PostMetadataForm';
 import FootnoteEditor from './FootnoteEditor';
 import LexicalEditor from './lexical/LexicalEditor';
 import { Save, Eye, Settings, ChevronDown, ChevronUp, Superscript } from 'lucide-react';
+import NewsletterSendPanel from './NewsletterSendPanel';
 import { EditingLanguageProvider } from '@/lib/EditingLanguageContext';
 import type { LexicalEditor as LexicalEditorType } from 'lexical';
 import { INSERT_FOOTNOTE_REF_COMMAND } from '@/lib/lexical/commands';
@@ -235,6 +236,11 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
           editorRef={lexicalEditorRef}
           onInsertFootnote={handleInsertFootnote}
         />
+      </div>
+
+      {/* Newsletter Send Panel */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <NewsletterSendPanel postId={post.id} postStatus={post.status} postLanguage={post.language ?? 'en'} />
       </div>
 
       {/* Collapsible Footnotes Panel */}

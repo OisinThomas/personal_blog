@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { Plus, Edit2, Trash2, Eye, EyeOff } from 'lucide-react';
+import { Plus, Edit2, Eye } from 'lucide-react';
 import type { Post } from '@/lib/supabase/types';
+import ExportButton from '@/components/admin/ExportButton';
 
 export default async function AdminPostsPage({
   searchParams,
@@ -55,13 +56,16 @@ export default async function AdminPostsPage({
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">All Posts</h1>
-          <Link
-            href="/admin/posts/new"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
-          >
-            <Plus className="w-4 h-4" />
-            New Post
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin/posts/new"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              New Post
+            </Link>
+            <ExportButton />
+          </div>
         </div>
 
         {/* Posts Table */}

@@ -123,6 +123,60 @@ export interface InteractiveComponent {
   created_at: string;
 }
 
+// Newsletter types
+export type SubscriberStatus = 'pending' | 'confirmed' | 'unsubscribed';
+export type EmailSendStatus = 'pending' | 'sending' | 'sent' | 'failed';
+
+export interface Channel {
+  id: string;
+  slug: string;
+  name: string;
+  description: string | null;
+  position: number;
+  created_at: string;
+}
+
+export interface Subscriber {
+  id: string;
+  email: string;
+  status: SubscriberStatus;
+  confirmation_token: string | null;
+  unsubscribe_token: string | null;
+  confirmed_at: string | null;
+  unsubscribed_at: string | null;
+  created_at: string;
+}
+
+export interface SubscriberChannel {
+  subscriber_id: string;
+  channel_id: string;
+}
+
+export interface PostChannel {
+  post_id: string;
+  channel_id: string;
+}
+
+export interface EmailSend {
+  id: string;
+  post_id: string;
+  subscriber_count: number;
+  status: EmailSendStatus;
+  started_at: string | null;
+  completed_at: string | null;
+  error_message: string | null;
+  created_at: string;
+}
+
+export interface EmailOpen {
+  id: string;
+  email_send_id: string;
+  subscriber_id: string;
+  opened_at: string;
+  user_agent: string | null;
+  ip_address: string | null;
+}
+
 // Input types for creating/updating
 export interface CreatePostInput {
   slug: string;

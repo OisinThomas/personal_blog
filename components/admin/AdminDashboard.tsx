@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { signOut } from '@/lib/supabase/auth';
 import { useRouter } from 'next/navigation';
-import { FileText, Image as ImageIcon, Edit3, LogOut, Plus, Download } from 'lucide-react';
+import { FileText, Image as ImageIcon, Edit3, LogOut, Plus, Download, Mail } from 'lucide-react';
 import { useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 
@@ -13,6 +13,7 @@ interface AdminDashboardProps {
     publishedPosts: number;
     draftPosts: number;
     totalAssets: number;
+    confirmedSubscribers: number;
   };
   recentPosts: Array<{
     id: string;
@@ -75,6 +76,18 @@ export default function AdminDashboard({ user, stats, recentPosts }: AdminDashbo
                 >
                   Assets
                 </Link>
+                <Link
+                  href="/admin/subscribers"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Subscribers
+                </Link>
+                <Link
+                  href="/admin/emails"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Emails
+                </Link>
               </nav>
             </div>
 
@@ -118,7 +131,7 @@ export default function AdminDashboard({ user, stats, recentPosts }: AdminDashbo
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
@@ -154,6 +167,18 @@ export default function AdminDashboard({ user, stats, recentPosts }: AdminDashbo
               </div>
             </div>
           </div>
+
+          <Link href="/admin/subscribers" className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-purple-300 dark:hover:border-purple-700 transition-colors">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
+                <Mail className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Subscribers</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.confirmedSubscribers}</p>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Recent Posts */}

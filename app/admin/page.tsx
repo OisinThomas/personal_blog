@@ -11,16 +11,18 @@ export default async function AdminPage() {
   }
 
   // Fetch dashboard stats
-  const [postsResult, draftsResult, assetsResult] = await Promise.all([
+  const [postsResult, draftsResult, assetsResult, subscribersResult] = await Promise.all([
     supabase.from('posts').select('id', { count: 'exact', head: true }).eq('status', 'published'),
     supabase.from('posts').select('id', { count: 'exact', head: true }).eq('status', 'draft'),
     supabase.from('assets').select('id', { count: 'exact', head: true }),
+    supabase.from('subscribers').select('id', { count: 'exact', head: true }).eq('status', 'confirmed'),
   ]);
 
   const stats = {
     publishedPosts: postsResult.count ?? 0,
     draftPosts: draftsResult.count ?? 0,
     totalAssets: assetsResult.count ?? 0,
+    confirmedSubscribers: subscribersResult.count ?? 0,
   };
 
   // Fetch recent posts (by published date)

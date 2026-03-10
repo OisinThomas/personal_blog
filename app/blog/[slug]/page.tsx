@@ -10,6 +10,7 @@ import LexicalContentRenderer, { detectBilingualNodes } from "@/components/block
 import LanguageWrapper from "@/components/LanguageWrapper";
 import type { Footnote } from "@/lib/supabase/types";
 import { verifyPreviewToken } from "@/lib/preview";
+import SubscribeBanner from "@/components/SubscribeBanner";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -179,6 +180,11 @@ export default async function Post({
             </ol>
           </section>
         )}
+
+        {/* Subscribe CTA */}
+        <div className="max-w-3xl mx-auto mt-12">
+          <SubscribeBanner />
+        </div>
       </main>
       <Footer />
     </>

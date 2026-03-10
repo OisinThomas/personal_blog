@@ -6,6 +6,7 @@ import ClickableCard from "@/components/ClickableCard";
 import { Rss } from "lucide-react";
 import { getPublishedPosts, getPostsByMajorTag } from "@/lib/posts/queries";
 import type { PostWithAsset } from "@/lib/supabase/types";
+import SubscribeForm from "@/components/SubscribeForm";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -37,10 +38,14 @@ export default async function Home() {
           <p className="text-sm text-secondary-400 flex items-center gap-2">
             <SubstackIcon className="w-4 h-4" />
             <span>
-              You can also read my{" "}
+              You can read my{" "}
               <Link className="text-primary hover:underline" href="https://caideiseach.substack.com/">
                 Substack
-              </Link>
+              </Link>{" "}
+              here or{" "}
+              <a className="text-primary hover:underline cursor-pointer" href="#subscribe">
+                subscribe
+              </a>
             </span>
           </p>
         </section>
@@ -103,6 +108,10 @@ export default async function Home() {
                     <SubstackIcon className="w-5 h-5" />
                   </Link>
                 </div>
+              </div>
+
+              <div className="mt-4">
+                <SubscribeForm />
               </div>
             </div>
           </aside>

@@ -57,11 +57,30 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Email Subscriptions</h2>
+          <p>If you subscribe to our newsletter, we collect:</p>
+          <ul className="list-disc pl-6 mb-4">
+            <li>Your email address</li>
+            <li>Your channel preferences (e.g. English, Irish, or all posts)</li>
+            <li>Email open tracking via a 1x1 pixel (to measure engagement)</li>
+          </ul>
+          <p>
+            We use <strong>Resend</strong> to deliver emails. Your email is stored in our database and
+            is never shared with third parties. You can unsubscribe at any time using the link
+            in every email, and your data will be marked as unsubscribed.
+          </p>
+        </section>
+
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Your Choices</h2>
           <p>
-            You can change your cookie preferences at any time using the cookie icon 
-            in the bottom left corner of any page. If you reject cookies, we won't 
+            You can change your cookie preferences at any time using the cookie icon
+            in the bottom left corner of any page. If you reject cookies, we won't
             track any analytics data for your visit.
+          </p>
+          <p className="mt-2">
+            For email subscriptions, every email contains an unsubscribe link. You can also
+            use the one-click unsubscribe feature supported by most email clients.
           </p>
         </section>
 
