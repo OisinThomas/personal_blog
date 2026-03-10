@@ -40,14 +40,14 @@ export default function ExpandableImage({ src, alt, width, height, caption, capt
 
   return (
     <>
-      <figure className="my-8 group">
+      <figure className="my-4 group">
         <div className="relative overflow-hidden rounded-xl">
           <Image
             src={src}
             alt={alt}
             width={width || 800}
             height={height || 600}
-            className="block w-full h-auto"
+            className="block w-full h-auto !mt-0 !mb-1"
           />
           <button
             onClick={openModal}
@@ -65,11 +65,11 @@ export default function ExpandableImage({ src, alt, width, height, caption, capt
         {(caption || captionHtml) && (
           captionHtml ? (
             <figcaption
-              className="mt-1.5 text-center text-sm text-secondary-500 [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a]:underline [&_p]:m-0"
+              className="mt-0.5 text-center text-sm text-secondary-500 [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a]:underline [&_p]:m-0"
               dangerouslySetInnerHTML={{ __html: captionHtml }}
             />
           ) : (
-            <figcaption className="mt-1.5 text-center text-sm text-secondary-500">
+            <figcaption className="mt-0.5 text-center text-sm text-secondary-500">
               {caption}
             </figcaption>
           )
@@ -78,7 +78,7 @@ export default function ExpandableImage({ src, alt, width, height, caption, capt
 
       {mounted && isExpanded && createPortal(
         <div
-          className="fixed top-0 left-0 w-screen h-screen z-[9999] bg-black flex items-center justify-center cursor-zoom-out"
+          className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center cursor-zoom-out"
           onClick={closeModal}
           role="dialog"
           aria-modal="true"
@@ -94,23 +94,23 @@ export default function ExpandableImage({ src, alt, width, height, caption, capt
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
-          <div className="relative w-screen h-screen" onClick={(e) => e.stopPropagation()}>
+          <div className="relative flex-1 w-full" onClick={(e) => e.stopPropagation()}>
             <Image
               src={src}
               alt={alt}
               fill
-              className="object-contain"
+              className="object-contain p-4"
               sizes="100vw"
             />
           </div>
           {(caption || captionHtml) && (
             captionHtml ? (
               <div
-                className="absolute bottom-4 left-0 right-0 text-white/80 text-center text-sm [&_a]:text-blue-300 [&_a]:underline [&_p]:m-0"
+                className="flex-shrink-0 pb-4 px-4 text-white/80 text-center text-sm [&_a]:text-blue-300 [&_a]:underline [&_p]:m-0"
                 dangerouslySetInnerHTML={{ __html: captionHtml }}
               />
             ) : (
-              <p className="absolute bottom-4 left-0 right-0 text-white/80 text-center text-sm">{caption}</p>
+              <p className="flex-shrink-0 pb-4 px-4 text-white/80 text-center text-sm">{caption}</p>
             )
           )}
         </div>,
