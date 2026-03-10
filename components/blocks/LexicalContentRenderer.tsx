@@ -2,6 +2,7 @@ import Image from 'next/image';
 import CodeBlock from './CodeBlock';
 import VideoBlock from './VideoBlock';
 import EmbedBlock from './EmbedBlock';
+import ExpandableImage from './ExpandableImage';
 import BilingualBlockRenderer from './BilingualBlockRenderer';
 import { markdownToHtmlSync } from '@/lib/utils';
 
@@ -295,20 +296,13 @@ function RenderImage({ node }: { node: ImageNodeData }) {
   if (!node.src) return null;
 
   return (
-    <figure className="my-8">
-      <Image
-        src={node.src}
-        alt={node.alt || ''}
-        width={node.width || 800}
-        height={node.height || 600}
-        className="w-full h-auto rounded-lg"
-      />
-      {node.caption && (
-        <figcaption className="mt-3 text-center text-sm text-gray-500 dark:text-gray-400">
-          {node.caption}
-        </figcaption>
-      )}
-    </figure>
+    <ExpandableImage
+      src={node.src}
+      alt={node.alt || ''}
+      width={node.width || 800}
+      height={node.height || 600}
+      caption={node.caption || undefined}
+    />
   );
 }
 
