@@ -70,6 +70,14 @@ const config: Config = {
         roll: "roll 20s linear infinite"
       },
     },
+    typography: {
+      DEFAULT: {
+        css: {
+          'blockquote p:first-of-type::before': { content: 'none' },
+          'blockquote p:last-of-type::after': { content: 'none' },
+        },
+      },
+    },
   },
   plugins: [typography],
 };
