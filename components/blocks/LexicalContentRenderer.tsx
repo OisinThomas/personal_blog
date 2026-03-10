@@ -113,7 +113,7 @@ export default function LexicalContentRenderer({ editorState }: LexicalContentRe
   if (!root?.children) return null;
 
   return (
-    <div className="space-y-1">
+    <div className="space-y-4">
       {root.children.map((node, index) => (
         <RenderNode key={index} node={node} />
       ))}
@@ -200,10 +200,10 @@ function getAlignmentStyle(format: unknown): React.CSSProperties | undefined {
 function RenderParagraph({ node }: { node: LexicalNode }) {
   // Empty paragraphs become spacing
   if (!node.children || node.children.length === 0) {
-    return <p className="mb-4">&nbsp;</p>;
+    return <p>&nbsp;</p>;
   }
   return (
-    <p className="mb-4" style={getAlignmentStyle(node.format)}>
+    <p style={getAlignmentStyle(node.format)}>
       <RenderChildren node={node} />
     </p>
   );
@@ -212,12 +212,12 @@ function RenderParagraph({ node }: { node: LexicalNode }) {
 function RenderHeading({ node }: { node: HeadingNode }) {
   const Tag = node.tag;
   const headingClasses: Record<string, string> = {
-    h1: 'text-3xl font-bold mt-8 mb-4',
-    h2: 'text-2xl font-bold mt-6 mb-3',
-    h3: 'text-xl font-bold mt-5 mb-2',
-    h4: 'text-lg font-bold mt-4 mb-2',
-    h5: 'text-base font-bold mt-3 mb-1',
-    h6: 'text-sm font-bold mt-3 mb-1',
+    h1: 'text-3xl font-bold mt-10 mb-4',
+    h2: 'text-2xl font-bold mt-10 mb-4',
+    h3: 'text-xl font-bold mt-8 mb-3',
+    h4: 'text-lg font-bold mt-6 mb-3',
+    h5: 'text-base font-bold mt-5 mb-2',
+    h6: 'text-sm font-bold mt-5 mb-2',
   };
   return (
     <Tag className={headingClasses[node.tag]} style={getAlignmentStyle(node.format)}>
