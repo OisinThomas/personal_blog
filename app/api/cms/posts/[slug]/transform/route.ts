@@ -4,6 +4,7 @@ import { getPostBySlug, getPostWithNodes } from '@/lib/posts/queries';
 import { replacePostNodes } from '@/lib/posts/mutations';
 import { transformMarkdown, TransformedBlock } from '@/lib/api/markdown-transform';
 import { uploadImageFromUrl } from '@/lib/api/image-upload';
+import { validateString } from '@/lib/api/validation';
 import type { CreateNodeInput } from '@/lib/api/types';
 
 interface RouteParams {
@@ -97,11 +98,10 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     }
 
     const body = await request.json();
-    const { markdown } = body;
 
-    if (!markdown || typeof markdown !== 'string') {
-      return errorResponse('markdown field is required and must be a string', 400);
-    }
+    const mdValidation = validateString(body.markdown, 'markdown', { minLength: 1 });
+    if (!mdValidation.valid) return errorResponse(mdValidation.error, 400);
+    const markdown = mdValidation.data;
 
     // Transform markdown to blocks
     const { blocks, summary } = transformMarkdown(markdown);

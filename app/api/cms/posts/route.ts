@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { validateApiKey, jsonResponse, errorResponse } from '@/lib/api/auth';
 import { getAllPosts } from '@/lib/posts/queries';
 import { createPost } from '@/lib/posts/mutations';
-import type { ListPostsQuery, CreatePostRequest, MajorTag, PostStatus } from '@/lib/api/types';
+import { validateListPostsQuery, validateCreatePostInput } from '@/lib/api/validation';
 
 /**
  * GET /api/cms/posts
@@ -20,27 +20,15 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
 
-    const options: ListPostsQuery = {};
+    const validation = validateListPostsQuery(searchParams);
+    if (!validation.valid) return errorResponse(validation.error, 400);
 
-    const status = searchParams.get('status') as PostStatus | null;
-    if (status) {
-      options.status = status;
-    }
-
-    const majorTag = searchParams.get('major_tag') as MajorTag | null;
-    if (majorTag) {
-      options.major_tag = majorTag;
-    }
-
-    const limit = searchParams.get('limit');
-    if (limit) {
-      options.limit = parseInt(limit, 10);
-    }
+    const { status, major_tag, limit } = validation.data;
 
     const posts = await getAllPosts({
-      status: options.status,
-      majorTag: options.major_tag,
-      limit: options.limit,
+      status,
+      majorTag: major_tag,
+      limit,
     });
 
     return jsonResponse({ data: posts });
@@ -61,20 +49,12 @@ export async function POST(request: NextRequest) {
   if (authError) return authError;
 
   try {
-    const body: CreatePostRequest = await request.json();
+    const body = await request.json();
 
-    // Validate required fields
-    if (!body.slug) {
-      return errorResponse('slug is required', 400);
-    }
-    if (!body.title) {
-      return errorResponse('title is required', 400);
-    }
-    if (!body.major_tag) {
-      return errorResponse('major_tag is required', 400);
-    }
+    const validation = validateCreatePostInput(body);
+    if (!validation.valid) return errorResponse(validation.error, 400);
 
-    const post = await createPost(body);
+    const post = await createPost(validation.data);
 
     return jsonResponse({ data: post }, 201);
   } catch (error: unknown) {

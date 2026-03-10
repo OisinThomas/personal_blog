@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { withApiAuth, errorResponse, jsonResponse } from '@/lib/api/auth';
 import { markdownToLexicalJson } from '@/lib/lexical/markdown-to-lexical';
 import { processRemoteImages } from '@/lib/api/image-upload';
+import { validateEditorState } from '@/lib/api/validation';
 
 interface ContentBody {
   content_markdown?: string;
@@ -84,7 +85,10 @@ export const PATCH = withApiAuth(
         editorState = await processRemoteImages(editorState);
       }
     } else {
-      editorState = rawEditorState!;
+      // Validate the editor state structure
+      const esValidation = validateEditorState(rawEditorState);
+      if (!esValidation.valid) return errorResponse(esValidation.error, 400);
+      editorState = esValidation.data;
       if (auto_upload_images === true) {
         editorState = await processRemoteImages(editorState);
       }

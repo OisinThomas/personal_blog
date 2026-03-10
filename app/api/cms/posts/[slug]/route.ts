@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 import { validateApiKey, jsonResponse, errorResponse } from '@/lib/api/auth';
 import { getPostBySlug, getPostWithNodes } from '@/lib/posts/queries';
 import { updatePostBySlug, deletePost } from '@/lib/posts/mutations';
-import type { UpdatePostRequest } from '@/lib/api/types';
+import { validateUpdatePostInput } from '@/lib/api/validation';
 
 interface RouteParams {
   params: Promise<{
@@ -63,7 +63,10 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 
   try {
     const { slug } = await params;
-    const body: UpdatePostRequest = await request.json();
+    const body = await request.json();
+
+    const validation = validateUpdatePostInput(body);
+    if (!validation.valid) return errorResponse(validation.error, 400);
 
     // Check post exists first
     const existing = await getPostBySlug(slug);
@@ -71,7 +74,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
       return errorResponse('Post not found', 404);
     }
 
-    const post = await updatePostBySlug(slug, body);
+    const post = await updatePostBySlug(slug, validation.data);
 
     return jsonResponse({ data: post });
   } catch (error) {

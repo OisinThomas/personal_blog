@@ -3,7 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { validateApiKey, jsonResponse, errorResponse } from '@/lib/api/auth';
 import { getPostBySlug } from '@/lib/posts/queries';
 import { updateNode, deleteNode } from '@/lib/posts/mutations';
-import type { UpdateNodeRequest, NodeWithAsset } from '@/lib/api/types';
+import { validateUpdateNodeInput } from '@/lib/api/validation';
+import type { NodeWithAsset } from '@/lib/api/types';
 
 interface RouteParams {
   params: Promise<{
@@ -83,7 +84,10 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 
   try {
     const { slug, nodeId } = await params;
-    const body: UpdateNodeRequest = await request.json();
+    const body = await request.json();
+
+    const validation = validateUpdateNodeInput(body);
+    if (!validation.valid) return errorResponse(validation.error, 400);
 
     // Verify post exists
     const post = await getPostBySlug(slug);
@@ -102,7 +106,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 
     const node = await updateNode({
       id: nodeId,
-      ...body,
+      ...validation.data,
     });
 
     return jsonResponse({ data: node });
