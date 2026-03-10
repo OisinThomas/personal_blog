@@ -161,8 +161,8 @@ function renderBilingual(node: LexicalNode, lang: string): string {
 
   // Render only the post's primary language
   const text = content[lang] || content.en || Object.values(content)[0] || '';
-  // Bilingual content is stored as markdown — do a basic conversion
-  return `<div style="margin:0 0 16px;font-size:16px;line-height:1.7;">${basicMarkdownToHtml(text)}</div>`;
+  // Bilingual content is stored as markdown — convert to email-safe HTML
+  return `<div style="margin:0 0 16px;font-size:16px;line-height:1.7;">${markdownToEmailHtml(text)}</div>`;
 }
 
 function renderTable(node: LexicalNode): string {
@@ -230,22 +230,69 @@ function escapeHtml(text: string): string {
     .replace(/"/g, '&quot;');
 }
 
-/** Basic markdown to HTML for bilingual content (bold, italic, links, paragraphs) */
-function basicMarkdownToHtml(md: string): string {
-  return md
-    .split('\n\n')
-    .map((para) => {
-      let html = para.trim();
+/** Converts markdown to inline-styled HTML for email (blockquotes, headings, bold, italic, links, paragraphs) */
+function markdownToEmailHtml(md: string): string {
+  const blocks = md.split('\n\n');
+  return blocks
+    .map((block) => {
+      let html = block.trim();
       if (!html) return '';
-      // Bold
-      html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-      // Italic
-      html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-      // Links
-      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, `<a href="$2" style="color:${BRAND_COLOR};text-decoration:underline;">$1</a>`);
-      // Line breaks
+
+      // Blockquote (lines starting with >)
+      if (html.startsWith('>')) {
+        const quoteContent = html
+          .split('\n')
+          .map((line) => line.replace(/^>\s?/, ''))
+          .join('<br />');
+        const styledContent = applyInlineFormatting(quoteContent);
+        return `<blockquote style="margin:16px 0;padding:12px 16px;border-left:4px solid ${BORDER_COLOR};color:${MUTED_COLOR};font-style:italic;">${styledContent}</blockquote>`;
+      }
+
+      // Headings
+      const headingMatch = html.match(/^(#{1,6})\s+(.+)/);
+      if (headingMatch) {
+        const level = headingMatch[1].length;
+        const sizes: Record<number, string> = { 1: '28px', 2: '24px', 3: '20px', 4: '18px', 5: '16px', 6: '14px' };
+        const size = sizes[level] || '16px';
+        const content = applyInlineFormatting(headingMatch[2]);
+        return `<h${level} style="margin:24px 0 12px;font-size:${size};font-weight:700;color:${TEXT_COLOR};">${content}</h${level}>`;
+      }
+
+      // Unordered list
+      if (html.match(/^[-*]\s/m)) {
+        const items = html.split('\n')
+          .filter((line) => line.match(/^[-*]\s/))
+          .map((line) => `<li style="margin-bottom:4px;">${applyInlineFormatting(line.replace(/^[-*]\s+/, ''))}</li>`)
+          .join('');
+        return `<ul style="margin:0 0 16px;padding-left:24px;list-style-type:disc;">${items}</ul>`;
+      }
+
+      // Ordered list
+      if (html.match(/^\d+\.\s/m)) {
+        const items = html.split('\n')
+          .filter((line) => line.match(/^\d+\.\s/))
+          .map((line) => `<li style="margin-bottom:4px;">${applyInlineFormatting(line.replace(/^\d+\.\s+/, ''))}</li>`)
+          .join('');
+        return `<ol style="margin:0 0 16px;padding-left:24px;list-style-type:decimal;">${items}</ol>`;
+      }
+
+      // Regular paragraph
+      html = applyInlineFormatting(html);
       html = html.replace(/\n/g, '<br />');
       return `<p style="margin:0 0 16px;font-size:16px;line-height:1.7;">${html}</p>`;
     })
     .join('');
+}
+
+function applyInlineFormatting(text: string): string {
+  let html = text;
+  // Bold
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Italic
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Inline code
+  html = html.replace(/`([^`]+)`/g, `<code style="background-color:${CODE_BG};padding:2px 6px;border-radius:4px;font-size:14px;font-family:monospace;">$1</code>`);
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, `<a href="$2" style="color:${BRAND_COLOR};text-decoration:underline;">$1</a>`);
+  return html;
 }

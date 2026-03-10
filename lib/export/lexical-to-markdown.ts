@@ -377,20 +377,25 @@ function renderBilingual(node: BilingualNode): string {
   const langs = node.languages || [];
   if (langs.length === 0) return '';
 
-  // Check if content is short (< 200 chars per language)
+  const hasBlockMarkdown = /^(>|#{1,6}\s|[-*]\s|\d+\.\s|```)/m;
+
+  // Check if content is short and has no block-level markdown
   const allShort = langs.every(
     (lang) => (node.content[lang] || '').length < 200
   );
+  const anyBlockLevel = langs.some(
+    (lang) => hasBlockMarkdown.test(node.content[lang] || '')
+  );
 
-  if (allShort) {
-    // Render as markdown table
+  if (allShort && !anyBlockLevel) {
+    // Render as markdown table (only for simple inline content)
     const headerRow = `| ${langs.map((l) => l.toUpperCase()).join(' | ')} |`;
     const separator = `| ${langs.map(() => '---').join(' | ')} |`;
     const contentRow = `| ${langs.map((l) => node.content[l] || '').join(' | ')} |`;
     return [headerRow, separator, contentRow].join('\n');
   }
 
-  // Render as sections
+  // Render as sections — preserves all markdown including blockquotes, lists, etc.
   return langs
     .map((lang) => `**${lang.toUpperCase()}:**\n\n${node.content[lang] || ''}`)
     .join('\n\n');
