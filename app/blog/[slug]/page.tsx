@@ -1,18 +1,46 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Calendar, Clock } from "lucide-react";
-import { getPostWithNodes, getPostSlugs } from "@/lib/posts/queries";
+import { getPostWithNodes, getPostSlugs, getPostWithNodesPreview } from "@/lib/posts/queries";
 import siteMetadata from "@/lib/siteMetaData";
 import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
 import TagLink from "@/components/TagLink";
 import BlockRenderer from "@/components/blocks/BlockRenderer";
+import LexicalContentRenderer, { detectBilingualNodes } from "@/components/blocks/LexicalContentRenderer";
+import LanguageWrapper from "@/components/LanguageWrapper";
+import type { Footnote } from "@/lib/supabase/types";
+import { verifyPreviewToken } from "@/lib/preview";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Post({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
+}) {
   const { slug } = await params;
-  const result = await getPostWithNodes(slug);
+  const { preview } = await searchParams;
+
+  // If a preview token is provided, verify it and use the service role client
+  let result;
+  let isPreview = false;
+
+  if (preview) {
+    // First fetch with service role to get the post (bypasses RLS)
+    const previewResult = await getPostWithNodesPreview(slug);
+    if (previewResult && verifyPreviewToken(previewResult.post.id, preview)) {
+      result = previewResult;
+      isPreview = true;
+    }
+  }
+
+  // Normal fetch for published posts
+  if (!result) {
+    result = await getPostWithNodes(slug);
+  }
 
   if (!result) {
     return notFound();
@@ -20,21 +48,28 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
   const { post, nodes } = result;
 
-  // Hide unpublished or scheduled posts from public access
   const isPublished = post.status === 'published';
   const isScheduled = post.published_at && new Date(post.published_at) > new Date();
-  if (!isPublished || isScheduled) {
+  if (!isPreview && (!isPublished || isScheduled)) {
     return notFound();
   }
 
-  // Calculate word count from markdown nodes
-  const wordCount = nodes
-    .filter((node) => node.type === 'markdown')
-    .reduce((count, node) => {
-      return count + (node.content?.split(/\s+/).length || 0);
-    }, 0);
+  // Calculate word count
+  let wordCount: number;
+  if (post.editor_state) {
+    // Count words from Lexical JSON
+    wordCount = countWordsInLexicalState(post.editor_state);
+  } else {
+    wordCount = nodes
+      .filter((node) => node.type === 'markdown')
+      .reduce((count, node) => {
+        return count + (node.content?.split(/\s+/).length || 0);
+      }, 0);
+  }
 
   const readingTime = Math.ceil(wordCount / 200);
+
+  const footnotes: Footnote[] = post.footnotes ?? [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -61,6 +96,13 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* Preview Banner */}
+        {isPreview && !isPublished && (
+          <div className="max-w-3xl mx-auto mb-6 px-4 py-2 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg text-sm text-yellow-700 dark:text-yellow-400 text-center">
+            Preview mode — this post is not published
+          </div>
+        )}
 
         {/* Article Header */}
         <header className="max-w-3xl mx-auto mb-12">
@@ -117,17 +159,62 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
         {/* Article Content */}
         <article className="prose dark:prose-invert max-w-3xl mx-auto">
-          <BlockRenderer nodes={nodes} />
+          {post.editor_state ? (
+            <LanguageWrapper
+              hasBilingual={detectBilingualNodes(post.editor_state)}
+              postLanguage={post.language}
+            >
+              <LexicalContentRenderer editorState={post.editor_state} />
+            </LanguageWrapper>
+          ) : (
+            <BlockRenderer nodes={nodes} />
+          )}
         </article>
+
+        {/* Footnotes */}
+        {footnotes.length > 0 && (
+          <section className="max-w-3xl mx-auto mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
+              Footnotes
+            </h2>
+            <ol className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              {footnotes.map((fn) => (
+                <li key={fn.id} id={`fn-${fn.id}`} className="flex gap-2">
+                  <a
+                    href={`#fnref-${fn.id}`}
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-medium flex-shrink-0"
+                  >
+                    [{fn.label}]
+                  </a>
+                  <span>{fn.content}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
       </main>
       <Footer />
     </>
   );
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
+}) {
   const { slug } = await params;
-  const result = await getPostWithNodes(slug);
+  const { preview } = await searchParams;
+
+  let result;
+  if (preview) {
+    result = await getPostWithNodesPreview(slug);
+  }
+  if (!result) {
+    result = await getPostWithNodes(slug);
+  }
 
   if (!result) {
     return {
@@ -137,12 +224,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const { post } = result;
 
-  // Hide unpublished or scheduled posts from public access
+  // Don't block metadata for preview — just check for actual 404
   const isPublished = post.status === 'published';
   const isScheduled = post.published_at && new Date(post.published_at) > new Date();
   if (!isPublished || isScheduled) {
+    // Return basic metadata for unpublished posts (preview mode)
     return {
-      title: 'Post Not Found',
+      title: post.title,
+      robots: { index: false, follow: false },
     };
   }
 
@@ -184,4 +273,35 @@ export async function generateStaticParams() {
     // Return empty array if Supabase isn't configured yet
     return [];
   }
+}
+
+interface LexicalWordCountNode {
+  type?: string;
+  text?: string;
+  code?: string;
+  content?: Record<string, string>;
+  children?: LexicalWordCountNode[];
+  root?: LexicalWordCountNode;
+}
+
+function countWordsInLexicalState(editorState: Record<string, unknown>): number {
+  let count = 0;
+  function walk(node: LexicalWordCountNode) {
+    if (node.type === 'text' && typeof node.text === 'string') {
+      count += node.text.split(/\s+/).filter(Boolean).length;
+    }
+    if (node.type === 'codeblock' && typeof node.code === 'string') {
+      count += node.code.split(/\s+/).filter(Boolean).length;
+    }
+    if (node.type === 'bilingual' && node.content) {
+      const content = node.content.en || Object.values(node.content)[0] || '';
+      count += content.split(/\s+/).filter(Boolean).length;
+    }
+    if (Array.isArray(node.children)) {
+      node.children.forEach(walk);
+    }
+  }
+  const state = editorState as unknown as LexicalWordCountNode;
+  walk(state.root || state);
+  return count;
 }

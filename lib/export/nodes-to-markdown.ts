@@ -14,7 +14,7 @@ function getAssetUrl(bucket: string, storagePath: string): string {
   return `${SUPABASE_URL}/storage/v1/object/public/${bucket}/${storagePath}`;
 }
 
-function nodeToMarkdown(node: NodeWithAsset): string {
+function nodeToMarkdown(node: NodeWithAsset, assetUrlMap?: Map<string, string>): string {
   switch (node.type) {
     case 'markdown':
       return node.content ?? '';
@@ -22,9 +22,12 @@ function nodeToMarkdown(node: NodeWithAsset): string {
     case 'image': {
       const meta = node.metadata as ImageNodeMetadata;
       const alt = meta.alt ?? node.asset?.alt_text ?? '';
-      const url = node.asset
+      let url = node.asset
         ? getAssetUrl(node.asset.bucket, node.asset.storage_path)
         : node.content ?? '';
+      if (assetUrlMap && assetUrlMap.has(url)) {
+        url = assetUrlMap.get(url)!;
+      }
       const caption = meta.caption ?? node.asset?.caption;
       let result = `![${alt}](${url})`;
       if (caption) {
@@ -79,7 +82,7 @@ function nodeToMarkdown(node: NodeWithAsset): string {
   }
 }
 
-function buildFrontmatter(post: PostWithAsset): string {
+export function buildFrontmatter(post: PostWithAsset): string {
   const fields: Record<string, unknown> = {
     title: post.title,
     slug: post.slug,
@@ -111,8 +114,12 @@ function buildFrontmatter(post: PostWithAsset): string {
   return lines.join('\n');
 }
 
-export function postToMarkdown(post: PostWithAsset, nodes: NodeWithAsset[]): string {
+export function postToMarkdown(
+  post: PostWithAsset,
+  nodes: NodeWithAsset[],
+  assetUrlMap?: Map<string, string>
+): string {
   const frontmatter = buildFrontmatter(post);
-  const body = nodes.map(nodeToMarkdown).join('\n\n');
+  const body = nodes.map((n) => nodeToMarkdown(n, assetUrlMap)).join('\n\n');
   return `${frontmatter}\n\n${body}\n`;
 }

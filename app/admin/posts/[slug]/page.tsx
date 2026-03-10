@@ -2,7 +2,8 @@ import { redirect, notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import PostEditor from '@/components/admin/PostEditor';
-import type { PostWithAsset, NodeWithAsset } from '@/lib/supabase/types';
+import type { PostWithAsset } from '@/lib/supabase/types';
+import { generatePreviewToken } from '@/lib/preview';
 
 export default async function EditPostPage({
   params,
@@ -17,7 +18,7 @@ export default async function EditPostPage({
     redirect('/admin/login');
   }
 
-  // Fetch post with nodes
+  // Fetch post with featured image
   const { data: post, error: postError } = await supabase
     .from('posts')
     .select(`
@@ -31,24 +32,11 @@ export default async function EditPostPage({
     notFound();
   }
 
-  // TypeScript needs this cast because Supabase's select with joins returns complex types
   const typedPost = post as unknown as PostWithAsset;
-
-  const { data: nodes, error: nodesError } = await supabase
-    .from('nodes')
-    .select(`
-      *,
-      asset:assets(*)
-    `)
-    .eq('post_id', typedPost.id)
-    .order('position', { ascending: true });
-
-  if (nodesError) {
-    console.error('Error fetching nodes:', nodesError);
-  }
+  const previewToken = generatePreviewToken(typedPost.id);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,8 +57,8 @@ export default async function EditPostPage({
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <PostEditor post={typedPost} initialNodes={(nodes || []) as NodeWithAsset[]} />
+      <main>
+        <PostEditor post={typedPost} previewToken={previewToken} />
       </main>
     </div>
   );

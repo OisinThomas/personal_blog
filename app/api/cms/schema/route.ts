@@ -6,7 +6,15 @@ const OPENAPI_SCHEMA = {
   info: {
     title: 'Blog CMS API',
     version: '1.0.0',
-    description: 'Programmatic API for managing blog posts, blocks, and assets. Designed for AI-assisted content management.',
+    description: `Programmatic API for managing blog posts, blocks, and assets. Designed for AI-assisted content management.
+
+## Workflow Guide
+
+1. **POST /posts** — Create post metadata (slug, title, major_tag, etc.)
+2. **POST /assets/upload** — Upload images (optional, can be auto-uploaded)
+3. **PATCH /posts/{slug}/content** — Set markdown content (auto-uploads remote images by default)
+
+The content endpoint accepts either raw markdown (converted to Lexical JSON) or a Lexical editor_state directly.`,
   },
   servers: [
     {
@@ -347,6 +355,81 @@ const OPENAPI_SCHEMA = {
         },
       },
     },
+    '/posts/{slug}/content': {
+      patch: {
+        summary: 'Set post content from markdown or Lexical editor state',
+        description: 'Accepts either content_markdown (converted to Lexical JSON) or editor_state (Lexical JSON directly). When using content_markdown, remote images are auto-uploaded by default.',
+        parameters: [
+          { name: 'slug', in: 'path', required: true, schema: { type: 'string' } },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  content_markdown: {
+                    type: 'string',
+                    description: 'Markdown content to convert to Lexical JSON. Mutually exclusive with editor_state.',
+                  },
+                  editor_state: {
+                    type: 'object',
+                    description: 'Lexical editor state JSON. Mutually exclusive with content_markdown.',
+                  },
+                  auto_upload_images: {
+                    type: 'boolean',
+                    description: 'Auto-download and upload remote images. Default true for markdown mode, false for editor_state mode.',
+                  },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          200: {
+            description: 'Content saved',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    message: { type: 'string' },
+                    slug: { type: 'string' },
+                    post: {
+                      type: 'object',
+                      properties: {
+                        id: { type: 'string', format: 'uuid' },
+                        title: { type: 'string' },
+                        status: { type: 'string' },
+                      },
+                    },
+                    word_count: { type: 'integer' },
+                    editor_state: { type: 'object' },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    '/export/markdown': {
+      get: {
+        summary: 'Export all posts as markdown ZIP',
+        description: 'Downloads a ZIP containing all posts as markdown files with YAML frontmatter. Images are bundled in an assets/ folder with relative paths. Supports both Supabase session auth and API key auth.',
+        responses: {
+          200: {
+            description: 'ZIP file containing markdown exports and assets',
+            content: {
+              'application/zip': {
+                schema: { type: 'string', format: 'binary' },
+              },
+            },
+          },
+        },
+      },
+    },
     '/assets/upload': {
       post: {
         summary: 'Upload an asset',
@@ -439,6 +522,19 @@ const OPENAPI_SCHEMA = {
           featured_image_id: { type: 'string', format: 'uuid', nullable: true },
           source: { type: 'string', nullable: true },
           source_url: { type: 'string', nullable: true },
+          editor_state: { type: 'object', nullable: true, description: 'Lexical editor state JSON' },
+          footnotes: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                id: { type: 'string' },
+                label: { type: 'string' },
+                content: { type: 'string' },
+              },
+            },
+            description: 'Footnotes associated with the post',
+          },
         },
       },
       PostWithAsset: {

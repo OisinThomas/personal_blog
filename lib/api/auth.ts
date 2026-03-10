@@ -47,7 +47,9 @@ function timingSafeCompare(a: string, b: string): boolean {
  *
  * Security model:
  * - API only accessible from localhost
- * - Ephemeral token generated on each server start (printed to console)
+ * - Supports X-API-Key header (ephemeral token)
+ * - Supports Authorization: Bearer <token> header (ephemeral or CMS_API_TOKEN env var)
+ * - CMS_API_TOKEN env var provides a stable token for programmatic access
  */
 export function validateApiKey(request: NextRequest): NextResponse | null {
   // Print token on first request
@@ -62,22 +64,32 @@ export function validateApiKey(request: NextRequest): NextResponse | null {
   }
 
   const apiKey = request.headers.get(API_KEY_HEADER);
+  const authHeader = request.headers.get('Authorization');
+  const bearerToken = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  const token = apiKey || bearerToken;
 
-  if (!apiKey) {
+  if (!token) {
     return NextResponse.json(
-      { error: 'Missing API key. Include X-API-Key header.' },
+      { error: 'Missing API key. Include X-API-Key or Authorization: Bearer <token> header.' },
       { status: 401 }
     );
   }
 
-  if (!timingSafeCompare(apiKey, EPHEMERAL_TOKEN)) {
-    return NextResponse.json(
-      { error: 'Invalid API key' },
-      { status: 403 }
-    );
+  // Check against ephemeral token
+  if (timingSafeCompare(token, EPHEMERAL_TOKEN)) {
+    return null; // Valid
   }
 
-  return null; // Valid
+  // Check against stable CMS_API_TOKEN env var
+  const cmsApiToken = process.env.CMS_API_TOKEN;
+  if (cmsApiToken && timingSafeCompare(token, cmsApiToken)) {
+    return null; // Valid
+  }
+
+  return NextResponse.json(
+    { error: 'Invalid API key' },
+    { status: 403 }
+  );
 }
 
 /**

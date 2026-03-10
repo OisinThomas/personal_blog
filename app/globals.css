@@ -219,3 +219,54 @@ body {
 .fadeInOutDelayed {
   animation: fadeInOut 4s 2s infinite ease-out; /* 2s delay before starting */
 }
+
+/* Lexical Editor Styles */
+.lexical-callout {
+  @apply my-4 p-4 rounded-lg border-l-4;
+}
+
+.lexical-callout-info {
+  @apply bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-700;
+}
+
+.lexical-callout-warning {
+  @apply bg-yellow-50 dark:bg-yellow-900/20 border-yellow-300 dark:border-yellow-700;
+}
+
+.lexical-callout-success {
+  @apply bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-700;
+}
+
+.lexical-callout-error {
+  @apply bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700;
+}
+
+.lexical-callout-note {
+  @apply bg-gray-50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600;
+}
+
+.lexical-toggle-container {
+  @apply my-4 border border-gray-200 dark:border-gray-700 rounded-lg;
+}
+
+.lexical-toggle-title {
+  @apply px-4 py-3 cursor-pointer font-medium hover:bg-gray-50 dark:hover:bg-gray-800/50;
+}
+
+.lexical-toggle-content {
+  @apply px-4 py-3 border-t border-gray-200 dark:border-gray-700;
+}
+
+[data-lexical-decorator="true"] {
+  outline: none;
+}
+
+.lexical-image-wrapper,
+.lexical-codeblock-wrapper,
+.lexical-video-wrapper,
+.lexical-embed-wrapper,
+.lexical-table-wrapper,
+.lexical-interactive-wrapper,
+.lexical-bilingual-wrapper {
+  outline: none;
+}

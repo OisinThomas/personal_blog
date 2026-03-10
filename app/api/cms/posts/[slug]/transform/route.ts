@@ -1,67 +1,15 @@
 import { NextRequest } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
 import { validateApiKey, jsonResponse, errorResponse } from '@/lib/api/auth';
 import { getPostBySlug, getPostWithNodes } from '@/lib/posts/queries';
 import { replacePostNodes } from '@/lib/posts/mutations';
-import { transformMarkdown, downloadImage, TransformedBlock } from '@/lib/api/markdown-transform';
-import type { CreateNodeInput, Asset } from '@/lib/api/types';
+import { transformMarkdown, TransformedBlock } from '@/lib/api/markdown-transform';
+import { uploadImageFromUrl } from '@/lib/api/image-upload';
+import type { CreateNodeInput } from '@/lib/api/types';
 
 interface RouteParams {
   params: Promise<{
     slug: string;
   }>;
-}
-
-/**
- * Upload an image from URL to Supabase storage
- */
-async function uploadImageFromUrl(
-  url: string,
-  altText?: string
-): Promise<Asset> {
-  const supabase = await createClient();
-
-  // Download the image
-  const { buffer, contentType, filename } = await downloadImage(url);
-
-  // Generate unique storage path
-  const ext = filename.split('.').pop() || 'jpg';
-  const uniqueFilename = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-  const storagePath = `posts/${uniqueFilename}`;
-
-  // Upload to storage
-  const { error: uploadError } = await supabase.storage
-    .from('blog-assets')
-    .upload(storagePath, buffer, {
-      contentType,
-      upsert: false,
-    });
-
-  if (uploadError) {
-    throw new Error(`Storage upload failed: ${uploadError.message}`);
-  }
-
-  // Create asset record
-  const { data: asset, error: assetError } = await supabase
-    .from('assets')
-    .insert({
-      storage_path: storagePath,
-      bucket: 'blog-assets',
-      filename,
-      mime_type: contentType,
-      file_size: buffer.byteLength,
-      alt_text: altText || null,
-    })
-    .select()
-    .single();
-
-  if (assetError) {
-    // Try to clean up uploaded file
-    await supabase.storage.from('blog-assets').remove([storagePath]);
-    throw new Error(`Asset record creation failed: ${assetError.message}`);
-  }
-
-  return asset as Asset;
 }
 
 /**

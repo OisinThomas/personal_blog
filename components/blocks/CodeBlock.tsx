@@ -1,3 +1,7 @@
+'use client';
+
+import { Highlight, themes } from 'prism-react-renderer';
+
 interface CodeBlockProps {
   content: string;
   metadata?: {
@@ -12,10 +16,8 @@ export default function CodeBlock({ content, metadata }: CodeBlockProps) {
   const filename = metadata?.filename;
   const showLineNumbers = metadata?.showLineNumbers ?? false;
 
-  const lines = content.split('\n');
-
   return (
-    <div className="my-8 overflow-hidden rounded-xl border border-card-border shadow-soft">
+    <div className="not-prose my-8 overflow-hidden rounded-xl border border-card-border shadow-soft">
       {filename && (
         <div className="bg-surface-2 text-secondary-500 px-4 py-2 text-sm border-b border-card-border flex items-center justify-between">
           <span>{filename}</span>
@@ -33,20 +35,29 @@ export default function CodeBlock({ content, metadata }: CodeBlockProps) {
           </span>
         </div>
       )}
-      <pre className="bg-slate-900 text-slate-100 p-4 overflow-x-auto">
-        <code className={`language-${language}`}>
-          {showLineNumbers
-            ? lines.map((line, i) => (
-                <div key={i} className="table-row">
-                  <span className="table-cell text-slate-500 pr-4 select-none text-right w-8 text-sm">
-                    {i + 1}
-                  </span>
-                  <span className="table-cell">{line}</span>
+      <Highlight theme={themes.nightOwl} code={content} language={language}>
+        {({ style, tokens, getLineProps, getTokenProps }) => (
+          <pre
+            className="p-4 overflow-x-auto text-sm leading-relaxed"
+            style={{ ...style, margin: 0 }}
+          >
+            <code>
+              {tokens.map((line, i) => (
+                <div key={i} {...getLineProps({ line })}>
+                  {showLineNumbers && (
+                    <span className="inline-block w-8 pr-4 text-right select-none opacity-40">
+                      {i + 1}
+                    </span>
+                  )}
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token })} />
+                  ))}
                 </div>
-              ))
-            : content}
-        </code>
-      </pre>
+              ))}
+            </code>
+          </pre>
+        )}
+      </Highlight>
     </div>
   );
 }

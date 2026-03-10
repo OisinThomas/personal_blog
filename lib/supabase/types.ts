@@ -20,6 +20,12 @@ export interface Asset {
   created_at: string;
 }
 
+export interface Footnote {
+  id: string;
+  label: string;
+  content: string;
+}
+
 export interface Post {
   id: string;
   slug: string;
@@ -37,6 +43,8 @@ export interface Post {
   featured_image_id: string | null;
   source: string | null;
   source_url: string | null;
+  editor_state: Record<string, unknown> | null;
+  footnotes: Footnote[];
 }
 
 export interface PostWithAsset extends Post {

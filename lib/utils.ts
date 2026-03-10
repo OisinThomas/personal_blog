@@ -18,6 +18,17 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   return result.toString();
 }
 
+export function markdownToHtmlSync(markdown: string): string {
+  const result = remark()
+    .use(remarkParse)
+    .use(remarkCallout)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
+    .processSync(markdown);
+  return result.toString();
+}
+
 export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs));
 }

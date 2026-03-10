@@ -1,4 +1,4 @@
-import { createStaticClient } from '@/lib/supabase/server';
+import { createStaticClient, createServiceClient } from '@/lib/supabase/server';
 import type { Post, PostWithAsset, Node, NodeWithAsset, MajorTag } from '@/lib/supabase/types';
 
 export async function getAllPosts(options?: {
@@ -96,6 +96,51 @@ export async function getPostWithNodes(slug: string): Promise<{
   }
 
   // Fetch nodes for this post
+  const { data: nodes, error: nodesError } = await supabase
+    .from('nodes')
+    .select(`
+      *,
+      asset:assets(*)
+    `)
+    .eq('post_id', post.id)
+    .order('position', { ascending: true });
+
+  if (nodesError) {
+    throw nodesError;
+  }
+
+  return {
+    post: post as PostWithAsset,
+    nodes: nodes as NodeWithAsset[],
+  };
+}
+
+/**
+ * Fetch a post using the service role client (bypasses RLS).
+ * Used for preview mode so draft posts can be read.
+ */
+export async function getPostWithNodesPreview(slug: string): Promise<{
+  post: PostWithAsset;
+  nodes: NodeWithAsset[];
+} | null> {
+  const supabase = createServiceClient();
+
+  const { data: post, error: postError } = await supabase
+    .from('posts')
+    .select(`
+      *,
+      featured_image:assets!featured_image_id(*)
+    `)
+    .eq('slug', slug)
+    .single();
+
+  if (postError) {
+    if (postError.code === 'PGRST116') {
+      return null;
+    }
+    throw postError;
+  }
+
   const { data: nodes, error: nodesError } = await supabase
     .from('nodes')
     .select(`
