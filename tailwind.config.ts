@@ -69,12 +69,12 @@ const config: Config = {
         fadeInOutDelayed: 'fadeInOut 6s 3s infinite',
         roll: "roll 20s linear infinite"
       },
-    },
-    typography: {
-      DEFAULT: {
-        css: {
-          'blockquote p:first-of-type::before': { content: 'none' },
-          'blockquote p:last-of-type::after': { content: 'none' },
+      typography: {
+        DEFAULT: {
+          css: {
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:last-of-type::after': { content: 'none' },
+          },
         },
       },
     },
