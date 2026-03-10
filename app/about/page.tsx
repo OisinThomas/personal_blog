@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Socials from "@/components/Socials";
 import SubstackIcon from "@/components/icons/SubstackIcon";
+import Footer from "@/components/Footer";
 
 export default function About() {
   return (
@@ -63,6 +64,7 @@ export default function About() {
           <Socials />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
