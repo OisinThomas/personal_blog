@@ -6,6 +6,7 @@ import {
   $createTextNode,
   $createLineBreakNode,
   $isElementNode,
+  $setSelection,
 } from 'lexical';
 import { $createHeadingNode, type HeadingTagType, $createQuoteNode } from '@lexical/rich-text';
 import { $createListNode, $createListItemNode } from '@lexical/list';
@@ -19,6 +20,8 @@ import { $createCalloutNode, type CalloutVariant } from '@/lib/lexical/nodes/Cal
 import { $createToggleContainerNode } from '@/lib/lexical/nodes/ToggleContainerNode';
 import { $createToggleTitleNode } from '@/lib/lexical/nodes/ToggleTitleNode';
 import { $createToggleContentNode } from '@/lib/lexical/nodes/ToggleContentNode';
+import { $createSuggestionMarkNode } from '@/lib/lexical/nodes/SuggestionMarkNode';
+import { $createSuggestionBlockNode } from '@/lib/lexical/nodes/SuggestionBlockNode';
 import { lexicalToMarkdown } from '@/lib/export/lexical-to-markdown';
 import { markdownToLexicalJson } from '@/lib/lexical/markdown-to-lexical';
 import type { PostWithAsset } from '@/lib/supabase/types';
@@ -461,6 +464,136 @@ function generateSection(ctx: ToolExecutorContext, args: { markdown: string; aft
   });
 }
 
+// ─── Serialization helper ────────────────────────────────────────────────────
+
+/** Recursively serialize a node and all its children (mirrors Lexical's internal exportNodeToJSON) */
+function $serializeNode(node: LexicalNode): Record<string, unknown> {
+  const json = node.exportJSON() as Record<string, unknown>;
+  if ($isElementNode(node)) {
+    const children = node.getChildren();
+    json.children = children.map((child) => $serializeNode(child));
+  }
+  return json;
+}
+
+// ─── Suggestion tools ────────────────────────────────────────────────────────
+
+function suggestTextReplacement(
+  ctx: ToolExecutorContext,
+  args: { nodeKey: string; originalText: string; suggestedText: string }
+): Promise<string> {
+  return new Promise((resolve) => {
+    ctx.editor.update(() => {
+      const node = $getNodeByKey(args.nodeKey);
+      if (!node) { resolve(`Error: No node found with key "${args.nodeKey}"`); return; }
+      if (!$isElementNode(node)) { resolve(`Error: Node type "${node.getType()}" is not an element`); return; }
+
+      // Walk text children to find the originalText span
+      const children = node.getChildren();
+      let found = false;
+
+      for (const child of children) {
+        if (child.getType() !== 'text') continue;
+        const textContent = child.getTextContent();
+        const idx = textContent.indexOf(args.originalText);
+        if (idx === -1) continue;
+
+        // We found the text. Now split the text node if needed and wrap in suggestion mark.
+        const textNode = child as import('lexical').TextNode;
+        const format = textNode.getFormat();
+
+        // Split: [before][originalText][after]
+        const before = textContent.slice(0, idx);
+        const after = textContent.slice(idx + args.originalText.length);
+
+        const suggestionMark = $createSuggestionMarkNode({
+          suggestionId: `sg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+          suggestedText: args.suggestedText,
+          author: 'ai',
+        });
+
+        const originalTextNode = $createTextNode(args.originalText);
+        originalTextNode.setFormat(format);
+        suggestionMark.append(originalTextNode);
+
+        // Build replacement sequence
+        if (before) {
+          const beforeNode = $createTextNode(before);
+          beforeNode.setFormat(format);
+          child.insertBefore(beforeNode);
+        }
+        child.insertBefore(suggestionMark);
+        if (after) {
+          const afterNode = $createTextNode(after);
+          afterNode.setFormat(format);
+          child.insertBefore(afterNode);
+        }
+        child.remove();
+
+        found = true;
+        break;
+      }
+
+      if (!found) {
+        resolve(`Error: Could not find text "${args.originalText.slice(0, 50)}..." in node ${args.nodeKey}`);
+        return;
+      }
+      resolve(`Created inline suggestion: "${args.originalText.slice(0, 30)}..." → "${args.suggestedText.slice(0, 30)}..."`);
+    });
+  });
+}
+
+function suggestBlockReplacement(
+  ctx: ToolExecutorContext,
+  args: { nodeKey: string; suggestedMarkdown: string }
+): Promise<string> {
+  return new Promise((resolve) => {
+    ctx.editor.update(() => {
+      const node = $getNodeByKey(args.nodeKey);
+      if (!node) { resolve(`Error: No node found with key "${args.nodeKey}"`); return; }
+
+      const originalJSON = JSON.stringify($serializeNode(node));
+      const suggestionNode = $createSuggestionBlockNode({
+        suggestionId: `sg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        suggestionType: 'block-replacement',
+        originalBlockJSON: originalJSON,
+        suggestedMarkdown: args.suggestedMarkdown,
+        author: 'ai',
+      });
+
+      node.replace(suggestionNode);
+      $setSelection(null);
+      resolve(`Created block replacement suggestion for ${args.nodeKey}`);
+    });
+  });
+}
+
+function suggestDeletion(
+  ctx: ToolExecutorContext,
+  args: { nodeKey: string; reason?: string }
+): Promise<string> {
+  return new Promise((resolve) => {
+    ctx.editor.update(() => {
+      const node = $getNodeByKey(args.nodeKey);
+      if (!node) { resolve(`Error: No node found with key "${args.nodeKey}"`); return; }
+
+      const originalJSON = JSON.stringify($serializeNode(node));
+      const suggestionNode = $createSuggestionBlockNode({
+        suggestionId: `sg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        suggestionType: 'block-deletion',
+        originalBlockJSON: originalJSON,
+        suggestedMarkdown: '',
+        reason: args.reason,
+        author: 'ai',
+      });
+
+      node.replace(suggestionNode);
+      $setSelection(null);
+      resolve(`Created deletion suggestion for ${args.nodeKey}${args.reason ? `: ${args.reason}` : ''}`);
+    });
+  });
+}
+
 // ─── Source tools ────────────────────────────────────────────────────────────
 
 function getSourceContent(ctx: ToolExecutorContext, args: { sourceName: string }): string {
@@ -515,6 +648,9 @@ export async function executeToolCall(
     case 'create_table': return createTable(ctx, args as { headers: string[]; rows: string[][]; afterNodeKey?: string });
     case 'create_toggle': return createToggle(ctx, args as { title: string; content: string; afterNodeKey?: string });
     case 'generate_section': return generateSection(ctx, args as { markdown: string; afterNodeKey?: string });
+    case 'suggest_text_replacement': return suggestTextReplacement(ctx, args as { nodeKey: string; originalText: string; suggestedText: string });
+    case 'suggest_block_replacement': return suggestBlockReplacement(ctx, args as { nodeKey: string; suggestedMarkdown: string });
+    case 'suggest_deletion': return suggestDeletion(ctx, args as { nodeKey: string; reason?: string });
     case 'get_source_content': return getSourceContent(ctx, args as { sourceName: string });
     case 'list_sources': return listSources(ctx);
     default: return `Error: Unknown tool "${toolName}"`;
