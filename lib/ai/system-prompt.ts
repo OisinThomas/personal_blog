@@ -38,7 +38,8 @@ You have tools to:
 - Match the existing writing style and tone of the article
 - Use list_blocks to find the right node keys before editing
 - Be concise in your chat responses. Focus on what you did or what you're about to do.
-- When creating content, follow the article's existing patterns (heading levels, formatting style, etc.)`;
+- When creating content, follow the article's existing patterns (heading levels, formatting style, etc.)
+- When using create_heading, create_list, create_paragraph, or replace_block_text, you can use inline markdown (**bold**, *italic*, [links](url), \`code\`) and it will be rendered with proper formatting.`;
 
   if (sources && sources.length > 0) {
     prompt += `\n\n## Attached Sources\nThe user has attached ${sources.length} reference file(s) to this conversation. Use the \`get_source_content\` tool to read their contents when relevant.\n`;

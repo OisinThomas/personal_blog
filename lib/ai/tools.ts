@@ -68,10 +68,10 @@ const deleteBlockTool = tool({
 // ─── Phase 4: Content creation tools ─────────────────────────────────────────
 
 const createHeadingTool = tool({
-  description: 'Create a heading block.',
+  description: 'Create a heading block. Supports inline markdown formatting.',
   inputSchema: z.object({
     level: z.number().min(1).max(6).describe('Heading level (1-6)'),
-    text: z.string().describe('Heading text'),
+    text: z.string().describe('Heading text (supports **bold**, *italic*, [link](url), `code`)'),
     afterNodeKey: z.string().optional().describe('Insert after this node key. If omitted, appends to end.'),
   }),
 });
@@ -104,10 +104,10 @@ const createCalloutTool = tool({
 });
 
 const createListTool = tool({
-  description: 'Create a list block.',
+  description: 'Create a list block. Each item supports inline markdown formatting.',
   inputSchema: z.object({
     listType: z.enum(['bullet', 'number']).describe('List type'),
-    items: z.array(z.string()).describe('List items (each item is a string)'),
+    items: z.array(z.string()).describe('List items (each supports **bold**, *italic*, [link](url), `code`)'),
     afterNodeKey: z.string().optional().describe('Insert after this node key. If omitted, appends to end.'),
   }),
 });
