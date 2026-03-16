@@ -8,11 +8,14 @@ import type { PostWithAsset, Footnote } from '@/lib/supabase/types';
 import PostMetadataForm from './PostMetadataForm';
 import FootnoteEditor from './FootnoteEditor';
 import LexicalEditor from './lexical/LexicalEditor';
-import { Save, Eye, Settings, ChevronDown, ChevronUp, Superscript } from 'lucide-react';
+import { Save, Eye, Settings, ChevronDown, ChevronUp, Superscript, Sparkles } from 'lucide-react';
 import NewsletterSendPanel from './NewsletterSendPanel';
+import AIChatPanel, { type AIChatPanelHandle } from './ai/AIChatPanel';
 import { EditingLanguageProvider } from '@/lib/EditingLanguageContext';
 import type { LexicalEditor as LexicalEditorType } from 'lexical';
+import { $getNodeByKey, $isElementNode, $getRoot, $setSelection, type LexicalNode } from 'lexical';
 import { INSERT_FOOTNOTE_REF_COMMAND } from '@/lib/lexical/commands';
+import { $createSuggestionBlockNode } from '@/lib/lexical/nodes/SuggestionBlockNode';
 
 interface PostEditorProps {
   post: PostWithAsset;
@@ -35,6 +38,7 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
   const [footnotes, setFootnotes] = useState<Footnote[]>(post.footnotes ?? []);
   const editorStateRef = useRef<Record<string, unknown> | null>(post.editor_state ?? null);
   const lexicalEditorRef = useRef<LexicalEditorType | null>(null);
+  const aiChatRef = useRef<AIChatPanelHandle>(null);
   const footnotesRef = useRef(footnotes);
   footnotesRef.current = footnotes;
 
@@ -151,6 +155,65 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
     editor.dispatchCommand(INSERT_FOOTNOTE_REF_COMMAND, { footnoteId: newId, label: newLabel });
   }, []);
 
+  // AI block action: call /api/ai/action and create a suggestion from the result
+  const handleAIBlockAction = useCallback(async (action: string, nodeKey: string, nodeText: string) => {
+    const editor = lexicalEditorRef.current;
+    if (!editor) return;
+
+    const res = await fetch('/api/ai/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action,
+        text: nodeText,
+        context: `Article: "${post.title}"`,
+        language: post.language ?? 'en',
+      }),
+    });
+
+    if (!res.ok) return;
+    const { result } = await res.json();
+    if (!result) return;
+
+    // Create a suggestion instead of applying directly
+    editor.update(() => {
+      const node = $getNodeByKey(nodeKey);
+      if (!node || !$isElementNode(node)) return;
+
+      // Recursively serialize node + children (exportJSON alone doesn't include children)
+      const serializeNode = (n: LexicalNode): Record<string, unknown> => {
+        const json = n.exportJSON() as Record<string, unknown>;
+        if ($isElementNode(n)) {
+          json.children = n.getChildren().map((c) => serializeNode(c));
+        }
+        return json;
+      };
+      const originalJSON = JSON.stringify(serializeNode(node));
+      const suggestionNode = $createSuggestionBlockNode({
+        suggestionId: `sg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        suggestionType: 'block-replacement',
+        originalBlockJSON: originalJSON,
+        suggestedMarkdown: result,
+        author: 'ai',
+      });
+
+      node.replace(suggestionNode);
+
+      // Move selection to root to avoid "selection lost" warning
+      const root = $getRoot();
+      const firstChild = root.getFirstChild();
+      if (firstChild) {
+        firstChild.selectStart();
+      } else {
+        $setSelection(null);
+      }
+    });
+  }, [post.title, post.language]);
+
+  const handleOpenAIChat = useCallback((prompt: string) => {
+    aiChatRef.current?.openAndSend(prompt);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Sticky Top Bar */}
@@ -235,6 +298,9 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
           onSave={handleSave}
           editorRef={lexicalEditorRef}
           onInsertFootnote={handleInsertFootnote}
+          postLanguage={post.language ?? 'en'}
+          onAIBlockAction={handleAIBlockAction}
+          onOpenAIChat={handleOpenAIChat}
         />
       </div>
 
@@ -258,6 +324,9 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
           </div>
         )}
       </div>
+
+      {/* AI Chat Panel */}
+      <AIChatPanel ref={aiChatRef} editorRef={lexicalEditorRef} post={post} />
     </div>
   );
 }

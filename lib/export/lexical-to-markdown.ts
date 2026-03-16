@@ -80,6 +80,18 @@ interface InteractiveNode extends LexicalNode {
   componentSlug: string;
 }
 
+interface SuggestionMarkNode extends LexicalNode {
+  type: 'suggestion-mark';
+  suggestedText: string;
+}
+
+interface SuggestionBlockNode extends LexicalNode {
+  type: 'suggestion-block';
+  suggestionType: 'block-replacement' | 'block-deletion';
+  originalBlockJSON: string;
+  suggestedMarkdown: string;
+}
+
 interface FootnoteRefNode extends LexicalNode {
   type: 'footnote-ref';
   footnoteId: string;
@@ -153,6 +165,11 @@ function nodeToMarkdown(
       return renderBilingual(node as BilingualNode);
     case 'interactive':
       return `<!-- interactive: ${(node as InteractiveNode).componentSlug} -->`;
+    case 'suggestion-block': {
+      const sb = node as SuggestionBlockNode;
+      if (sb.suggestionType === 'block-deletion') return null; // AI sees it as deleted
+      return sb.suggestedMarkdown; // AI sees the suggested replacement
+    }
     case 'linebreak':
       return '\n';
     default:
@@ -182,6 +199,9 @@ function renderInline(
       return renderLink(node as LinkNode, options);
     case 'footnote-ref':
       return `[^${(node as FootnoteRefNode).label}]`;
+    case 'suggestion-mark':
+      // AI sees the suggested text (change applied)
+      return (node as SuggestionMarkNode).suggestedText;
     case 'linebreak':
       return '\n';
     default:

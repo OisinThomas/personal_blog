@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 import { withApiAuth, errorResponse, jsonResponse } from '@/lib/api/auth';
 import { markdownToLexicalJson } from '@/lib/lexical/markdown-to-lexical';
 import { processRemoteImages } from '@/lib/api/image-upload';
@@ -61,7 +61,7 @@ export const PATCH = withApiAuth(
       return errorResponse('content_markdown or editor_state is required', 400);
     }
 
-    const supabase = await createClient();
+    const supabase = createServiceClient();
 
     // Find the post
     const { data: post, error: fetchError } = await supabase

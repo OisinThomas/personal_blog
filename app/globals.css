@@ -267,6 +267,47 @@ body {
 .lexical-embed-wrapper,
 .lexical-table-wrapper,
 .lexical-interactive-wrapper,
-.lexical-bilingual-wrapper {
+.lexical-bilingual-wrapper,
+.lexical-suggestion-block-wrapper {
   outline: none;
+}
+
+/* Suggestion Mark (inline) */
+.lexical-suggestion-mark {
+  @apply relative cursor-pointer rounded-sm;
+  background-color: rgb(220 252 231 / 0.5); /* green-100 */
+  border-bottom: 2px solid rgb(16 185 129); /* emerald-500 */
+  padding: 0 1px;
+}
+
+.dark .lexical-suggestion-mark {
+  background-color: rgb(6 78 59 / 0.3); /* emerald-900 */
+  border-bottom-color: rgb(52 211 153); /* emerald-400 */
+}
+
+.lexical-suggestion-mark:hover {
+  background-color: rgb(187 247 208 / 0.7); /* green-200 */
+}
+
+.dark .lexical-suggestion-mark:hover {
+  background-color: rgb(6 78 59 / 0.5);
+}
+
+/* Suggestion mark: original text gets strikethrough */
+.lexical-suggestion-mark > span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Suggestion mark: show suggested text as ::after pseudo-element */
+.lexical-suggestion-mark::after {
+  content: attr(data-suggested-text);
+  @apply ml-1 not-italic no-underline;
+  text-decoration: none;
+  color: rgb(16 185 129); /* emerald-500 */
+  opacity: 1;
+}
+
+.dark .lexical-suggestion-mark::after {
+  color: rgb(52 211 153); /* emerald-400 */
 }

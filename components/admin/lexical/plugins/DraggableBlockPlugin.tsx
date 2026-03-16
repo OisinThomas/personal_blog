@@ -7,10 +7,16 @@ import {
   $getNodeByKey,
   $getNearestNodeFromDOMNode,
 } from 'lexical';
-import { GripVertical } from 'lucide-react';
+import { GripVertical, Sparkles } from 'lucide-react';
 
 const DRAG_DATA_FORMAT = 'application/x-lexical-drag-block';
 const GUTTER_LEFT = 40; // how far left of the editor the handle zone extends
+
+interface AIButtonInfo {
+  nodeKey: string;
+  nodeText: string;
+  position: { x: number; y: number };
+}
 
 function getContentEditableElement(anchorElem: HTMLElement): HTMLElement | null {
   return anchorElem.querySelector('[contenteditable="true"]');
@@ -44,8 +50,10 @@ function getTopLevelBlockElement(
 
 export default function DraggableBlockPlugin({
   anchorElem,
+  onAIButtonClick,
 }: {
   anchorElem: HTMLElement | null;
+  onAIButtonClick?: (info: AIButtonInfo) => void;
 }) {
   const [editor] = useLexicalComposerContext();
   const [mounted, setMounted] = useState(false);
@@ -56,6 +64,7 @@ export default function DraggableBlockPlugin({
   const [dragging, setDragging] = useState(false);
   const dragTargetRef = useRef<HTMLElement | null>(null);
   const dragNodeKeyRef = useRef<string | null>(null);
+  const dragNodeTextRef = useRef<string>('');
   const handleRef = useRef<HTMLDivElement>(null);
   const dropLineRef = useRef<HTMLDivElement>(null);
 
@@ -116,14 +125,17 @@ export default function DraggableBlockPlugin({
               topNode = topNode.getParent()!;
             }
             dragNodeKeyRef.current = topNode.getKey();
+            dragNodeTextRef.current = topNode.getTextContent();
           } else {
             dragNodeKeyRef.current = null;
+            dragNodeTextRef.current = '';
           }
         });
       } else {
         setHandlePosition(null);
         dragTargetRef.current = null;
         dragNodeKeyRef.current = null;
+        dragNodeTextRef.current = '';
       }
     };
 
@@ -131,7 +143,7 @@ export default function DraggableBlockPlugin({
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [anchorElem, dragging, getContentEditable]);
+  }, [anchorElem, dragging, editor, getContentEditable]);
 
   const handleDragStart = (e: React.DragEvent) => {
     if (!dragTargetRef.current || !dragNodeKeyRef.current) return;
@@ -234,6 +246,17 @@ export default function DraggableBlockPlugin({
     };
   }, [anchorElem, editor, getContentEditable]);
 
+  const handleAIClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!onAIButtonClick || !dragNodeKeyRef.current) return;
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    onAIButtonClick({
+      nodeKey: dragNodeKeyRef.current,
+      nodeText: dragNodeTextRef.current,
+      position: { x: rect.left, y: rect.bottom + 4 },
+    });
+  }, [onAIButtonClick]);
+
   if (!mounted) return null;
 
   return createPortal(
@@ -241,13 +264,30 @@ export default function DraggableBlockPlugin({
       {handlePosition && (
         <div
           ref={handleRef}
-          draggable
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          className="fixed z-40 cursor-grab active:cursor-grabbing p-1 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors shadow-sm"
-          style={{ top: handlePosition.top, left: handlePosition.left }}
+          className="fixed z-40 flex items-center gap-0.5"
+          style={{
+            top: handlePosition.top,
+            left: onAIButtonClick ? handlePosition.left - 24 : handlePosition.left,
+          }}
         >
-          <GripVertical className="w-4 h-4" />
+          {onAIButtonClick && (
+            <button
+              type="button"
+              onClick={handleAIClick}
+              className="p-1 rounded cursor-pointer bg-gray-100 dark:bg-gray-800 hover:bg-purple-100 dark:hover:bg-purple-900/40 text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors shadow-sm"
+              title="AI actions"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+            </button>
+          )}
+          <div
+            draggable
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            className="p-1 rounded cursor-grab active:cursor-grabbing bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors shadow-sm"
+          >
+            <GripVertical className="w-4 h-4" />
+          </div>
         </div>
       )}
       <div

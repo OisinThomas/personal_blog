@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateApiKey, jsonResponse, errorResponse } from '@/lib/api/auth';
 import { getAllPosts } from '@/lib/posts/queries';
-import { createPost } from '@/lib/posts/mutations';
 import { validateListPostsQuery, validateCreatePostInput } from '@/lib/api/validation';
+import { createServiceClient } from '@/lib/supabase/server';
 
 /**
  * GET /api/cms/posts
@@ -54,7 +54,14 @@ export async function POST(request: NextRequest) {
     const validation = validateCreatePostInput(body);
     if (!validation.valid) return errorResponse(validation.error, 400);
 
-    const post = await createPost(validation.data);
+    const supabase = createServiceClient();
+    const { data: post, error } = await supabase
+      .from('posts')
+      .insert(validation.data)
+      .select()
+      .single();
+
+    if (error) throw error;
 
     return jsonResponse({ data: post }, 201);
   } catch (error: unknown) {
