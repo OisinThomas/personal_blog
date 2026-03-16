@@ -10,9 +10,12 @@ import FootnoteEditor from './FootnoteEditor';
 import LexicalEditor from './lexical/LexicalEditor';
 import { Save, Eye, Settings, ChevronDown, ChevronUp, Superscript } from 'lucide-react';
 import NewsletterSendPanel from './NewsletterSendPanel';
+import AIChatPanel, { type AIChatPanelHandle } from './ai/AIChatPanel';
 import { EditingLanguageProvider } from '@/lib/EditingLanguageContext';
 import type { LexicalEditor as LexicalEditorType } from 'lexical';
+import { $getNodeByKey, $isElementNode, $createTextNode } from 'lexical';
 import { INSERT_FOOTNOTE_REF_COMMAND } from '@/lib/lexical/commands';
+import { markdownToLexicalJson } from '@/lib/lexical/markdown-to-lexical';
 
 interface PostEditorProps {
   post: PostWithAsset;
@@ -35,6 +38,7 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
   const [footnotes, setFootnotes] = useState<Footnote[]>(post.footnotes ?? []);
   const editorStateRef = useRef<Record<string, unknown> | null>(post.editor_state ?? null);
   const lexicalEditorRef = useRef<LexicalEditorType | null>(null);
+  const aiChatRef = useRef<AIChatPanelHandle>(null);
   const footnotesRef = useRef(footnotes);
   footnotesRef.current = footnotes;
 
@@ -151,6 +155,51 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
     editor.dispatchCommand(INSERT_FOOTNOTE_REF_COMMAND, { footnoteId: newId, label: newLabel });
   }, []);
 
+  // AI block action: call /api/ai/action and replace block text with result
+  const handleAIBlockAction = useCallback(async (action: string, nodeKey: string, nodeText: string) => {
+    const editor = lexicalEditorRef.current;
+    if (!editor) return;
+
+    const res = await fetch('/api/ai/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action,
+        text: nodeText,
+        context: `Article: "${post.title}"`,
+        language: post.language ?? 'en',
+      }),
+    });
+
+    if (!res.ok) return;
+    const { result } = await res.json();
+    if (!result) return;
+
+    editor.update(() => {
+      const node = $getNodeByKey(nodeKey);
+      if (!node || !$isElementNode(node)) return;
+
+      // Parse the result as markdown and replace node children
+      const parsed = markdownToLexicalJson(result);
+      const root = (parsed as { root: { children: Array<Record<string, unknown>> } }).root;
+
+      // If it parsed into a single paragraph, replace inline children
+      if (root.children.length === 1 && (root.children[0].type as string) === node.getType()) {
+        // Same node type: replace children
+        node.clear();
+        node.append($createTextNode(result));
+      } else {
+        // Just set the text directly
+        node.clear();
+        node.append($createTextNode(result));
+      }
+    });
+  }, [post.title, post.language]);
+
+  const handleOpenAIChat = useCallback((prompt: string) => {
+    aiChatRef.current?.openAndSend(prompt);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Sticky Top Bar */}
@@ -235,6 +284,9 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
           onSave={handleSave}
           editorRef={lexicalEditorRef}
           onInsertFootnote={handleInsertFootnote}
+          postLanguage={post.language ?? 'en'}
+          onAIBlockAction={handleAIBlockAction}
+          onOpenAIChat={handleOpenAIChat}
         />
       </div>
 
@@ -258,6 +310,9 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
           </div>
         )}
       </div>
+
+      {/* AI Chat Panel */}
+      <AIChatPanel ref={aiChatRef} editorRef={lexicalEditorRef} post={post} />
     </div>
   );
 }

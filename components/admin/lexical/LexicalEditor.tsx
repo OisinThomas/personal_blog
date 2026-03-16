@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
@@ -21,6 +22,7 @@ import ImagePlugin from './plugins/ImagePlugin';
 import AutoSavePlugin from './plugins/AutoSavePlugin';
 import FootnotePlugin from './plugins/FootnotePlugin';
 import TrailingParagraphPlugin from './plugins/TrailingParagraphPlugin';
+import AIBlockMenu from '@/components/admin/ai/AIBlockMenu';
 import { useEffect } from 'react';
 import type { LexicalEditor as LexicalEditorType } from 'lexical';
 
@@ -30,6 +32,9 @@ interface LexicalEditorProps {
   onSave: (editorState: Record<string, unknown>) => Promise<void>;
   editorRef?: React.MutableRefObject<LexicalEditorType | null>;
   onInsertFootnote?: () => { id: string; label: string } | null;
+  postLanguage?: string;
+  onAIBlockAction?: (action: string, nodeKey: string, nodeText: string) => Promise<void>;
+  onOpenAIChat?: (prompt: string) => void;
 }
 
 function EditorRefPlugin({ editorRef }: { editorRef?: React.MutableRefObject<LexicalEditorType | null> }) {
@@ -48,15 +53,30 @@ export default function LexicalEditor({
   onSave,
   editorRef,
   onInsertFootnote,
+  postLanguage = 'en',
+  onAIBlockAction,
+  onOpenAIChat,
 }: LexicalEditorProps) {
   const contentEditableRef = useRef<HTMLDivElement>(null);
   const [anchorElem, setAnchorElem] = useState<HTMLElement | null>(null);
+  const [aiMenuState, setAiMenuState] = useState<{
+    nodeKey: string;
+    nodeText: string;
+    position: { x: number; y: number };
+  } | null>(null);
 
   const onRef = useCallback((elem: HTMLDivElement | null) => {
     if (elem !== null) {
       setAnchorElem(elem);
     }
   }, []);
+
+  const handleAIButtonClick = useCallback(
+    (info: { nodeKey: string; nodeText: string; position: { x: number; y: number } }) => {
+      setAiMenuState(info);
+    },
+    []
+  );
 
   const initialConfig = {
     namespace: 'BlogEditor',
@@ -94,12 +114,29 @@ export default function LexicalEditor({
         <HorizontalRulePlugin />
         <SlashCommandPlugin onInsertFootnote={onInsertFootnote} />
         <FloatingToolbarPlugin />
-        <DraggableBlockPlugin anchorElem={anchorElem} />
+        <DraggableBlockPlugin
+          anchorElem={anchorElem}
+          onAIButtonClick={onAIBlockAction && onOpenAIChat ? handleAIButtonClick : undefined}
+        />
         <ImagePlugin />
         <FootnotePlugin />
         <TrailingParagraphPlugin />
         <AutoSavePlugin onSave={onSave} />
         <EditorRefPlugin editorRef={editorRef} />
+        {aiMenuState && onAIBlockAction && onOpenAIChat &&
+          createPortal(
+            <AIBlockMenu
+              position={aiMenuState.position}
+              nodeKey={aiMenuState.nodeKey}
+              nodeText={aiMenuState.nodeText}
+              postLanguage={postLanguage}
+              onAction={onAIBlockAction}
+              onOpenInChat={onOpenAIChat}
+              onClose={() => setAiMenuState(null)}
+            />,
+            document.body
+          )
+        }
       </div>
     </LexicalComposer>
   );
