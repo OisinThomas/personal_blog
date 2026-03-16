@@ -22,6 +22,8 @@ import ImagePlugin from './plugins/ImagePlugin';
 import AutoSavePlugin from './plugins/AutoSavePlugin';
 import FootnotePlugin from './plugins/FootnotePlugin';
 import TrailingParagraphPlugin from './plugins/TrailingParagraphPlugin';
+import SuggestionPlugin from './plugins/SuggestionPlugin';
+import SuggestionPanel from '@/components/admin/suggestions/SuggestionPanel';
 import AIBlockMenu from '@/components/admin/ai/AIBlockMenu';
 import { useEffect } from 'react';
 import type { LexicalEditor as LexicalEditorType } from 'lexical';
@@ -121,6 +123,7 @@ export default function LexicalEditor({
         <ImagePlugin />
         <FootnotePlugin />
         <TrailingParagraphPlugin />
+        <SuggestionPlugin />
         <AutoSavePlugin onSave={onSave} />
         <EditorRefPlugin editorRef={editorRef} />
         {aiMenuState && onAIBlockAction && onOpenAIChat &&
@@ -138,6 +141,7 @@ export default function LexicalEditor({
           )
         }
       </div>
+      <SuggestionPanel />
     </LexicalComposer>
   );
 }

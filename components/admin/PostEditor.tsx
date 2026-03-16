@@ -8,14 +8,14 @@ import type { PostWithAsset, Footnote } from '@/lib/supabase/types';
 import PostMetadataForm from './PostMetadataForm';
 import FootnoteEditor from './FootnoteEditor';
 import LexicalEditor from './lexical/LexicalEditor';
-import { Save, Eye, Settings, ChevronDown, ChevronUp, Superscript } from 'lucide-react';
+import { Save, Eye, Settings, ChevronDown, ChevronUp, Superscript, Sparkles } from 'lucide-react';
 import NewsletterSendPanel from './NewsletterSendPanel';
 import AIChatPanel, { type AIChatPanelHandle } from './ai/AIChatPanel';
 import { EditingLanguageProvider } from '@/lib/EditingLanguageContext';
 import type { LexicalEditor as LexicalEditorType } from 'lexical';
-import { $getNodeByKey, $isElementNode, $createTextNode } from 'lexical';
+import { $getNodeByKey, $isElementNode, $getRoot, $setSelection, type LexicalNode } from 'lexical';
 import { INSERT_FOOTNOTE_REF_COMMAND } from '@/lib/lexical/commands';
-import { markdownToLexicalJson } from '@/lib/lexical/markdown-to-lexical';
+import { $createSuggestionBlockNode } from '@/lib/lexical/nodes/SuggestionBlockNode';
 
 interface PostEditorProps {
   post: PostWithAsset;
@@ -155,7 +155,7 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
     editor.dispatchCommand(INSERT_FOOTNOTE_REF_COMMAND, { footnoteId: newId, label: newLabel });
   }, []);
 
-  // AI block action: call /api/ai/action and replace block text with result
+  // AI block action: call /api/ai/action and create a suggestion from the result
   const handleAIBlockAction = useCallback(async (action: string, nodeKey: string, nodeText: string) => {
     const editor = lexicalEditorRef.current;
     if (!editor) return;
@@ -175,23 +175,37 @@ function PostEditorInner({ post, previewToken }: PostEditorProps) {
     const { result } = await res.json();
     if (!result) return;
 
+    // Create a suggestion instead of applying directly
     editor.update(() => {
       const node = $getNodeByKey(nodeKey);
       if (!node || !$isElementNode(node)) return;
 
-      // Parse the result as markdown and replace node children
-      const parsed = markdownToLexicalJson(result);
-      const root = (parsed as { root: { children: Array<Record<string, unknown>> } }).root;
+      // Recursively serialize node + children (exportJSON alone doesn't include children)
+      const serializeNode = (n: LexicalNode): Record<string, unknown> => {
+        const json = n.exportJSON() as Record<string, unknown>;
+        if ($isElementNode(n)) {
+          json.children = n.getChildren().map((c) => serializeNode(c));
+        }
+        return json;
+      };
+      const originalJSON = JSON.stringify(serializeNode(node));
+      const suggestionNode = $createSuggestionBlockNode({
+        suggestionId: `sg-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        suggestionType: 'block-replacement',
+        originalBlockJSON: originalJSON,
+        suggestedMarkdown: result,
+        author: 'ai',
+      });
 
-      // If it parsed into a single paragraph, replace inline children
-      if (root.children.length === 1 && (root.children[0].type as string) === node.getType()) {
-        // Same node type: replace children
-        node.clear();
-        node.append($createTextNode(result));
+      node.replace(suggestionNode);
+
+      // Move selection to root to avoid "selection lost" warning
+      const root = $getRoot();
+      const firstChild = root.getFirstChild();
+      if (firstChild) {
+        firstChild.selectStart();
       } else {
-        // Just set the text directly
-        node.clear();
-        node.append($createTextNode(result));
+        $setSelection(null);
       }
     });
   }, [post.title, post.language]);

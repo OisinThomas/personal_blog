@@ -15,6 +15,8 @@ import { ToggleContainerNode } from './nodes/ToggleContainerNode';
 import { ToggleTitleNode } from './nodes/ToggleTitleNode';
 import { ToggleContentNode } from './nodes/ToggleContentNode';
 import { FootnoteRefNode } from './nodes/FootnoteRefNode';
+import { SuggestionMarkNode } from './nodes/SuggestionMarkNode';
+import { SuggestionBlockNode } from './nodes/SuggestionBlockNode';
 import type { InitialConfigType } from '@lexical/react/LexicalComposer';
 
 export const EDITOR_NODES = [
@@ -38,6 +40,8 @@ export const EDITOR_NODES = [
   ToggleTitleNode,
   ToggleContentNode,
   FootnoteRefNode,
+  SuggestionMarkNode,
+  SuggestionBlockNode,
 ];
 
 export const EDITOR_THEME: InitialConfigType['theme'] = {

@@ -104,6 +104,18 @@ interface FootnoteRefNodeData extends LexicalNode {
   label: string;
 }
 
+interface SuggestionMarkNodeData extends LexicalNode {
+  type: 'suggestion-mark';
+  suggestedText: string;
+}
+
+interface SuggestionBlockNodeData extends LexicalNode {
+  type: 'suggestion-block';
+  suggestionType: 'block-replacement' | 'block-deletion';
+  originalBlockJSON: string;
+  suggestedMarkdown: string;
+}
+
 interface LexicalContentRendererProps {
   editorState: Record<string, unknown>;
 }
@@ -163,6 +175,12 @@ function RenderNode({ node }: { node: LexicalNode }) {
       return <RenderInteractive node={node as InteractiveNodeData} />;
     case 'footnote-ref':
       return <RenderFootnoteRef node={node as FootnoteRefNodeData} />;
+    case 'suggestion-mark':
+      // Public view: show original text only (children)
+      return <RenderChildren node={node} />;
+    case 'suggestion-block':
+      // Public view: render original block content
+      return <RenderSuggestionBlockOriginal node={node as SuggestionBlockNodeData} />;
     case 'linebreak':
       return <br />;
     default:
@@ -437,6 +455,16 @@ function RenderFootnoteRef({ node }: { node: FootnoteRefNodeData }) {
       </a>
     </sup>
   );
+}
+
+function RenderSuggestionBlockOriginal({ node }: { node: SuggestionBlockNodeData }) {
+  // Deserialize the original block JSON and render it as if the suggestion doesn't exist
+  try {
+    const originalNode = JSON.parse(node.originalBlockJSON) as LexicalNode;
+    return <RenderNode node={originalNode} />;
+  } catch {
+    return null;
+  }
 }
 
 function RenderInteractive({ node }: { node: InteractiveNodeData }) {
