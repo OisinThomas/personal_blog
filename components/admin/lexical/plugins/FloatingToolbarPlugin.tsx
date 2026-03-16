@@ -47,8 +47,19 @@ export default function FloatingToolbarPlugin() {
   const updateToolbar = useCallback(() => {
     const selection = $getSelection();
 
-    if (!$isRangeSelection(selection) || selection.isCollapsed()) {
+    if (!$isRangeSelection(selection)) {
       setIsVisible(false);
+      return;
+    }
+
+    // Check if cursor is inside a link (even with collapsed selection)
+    const anchorNode = selection.anchor.getNode();
+    const anchorParent = anchorNode.getParent();
+    const cursorInLink = $isLinkNode(anchorParent) || $isLinkNode(anchorNode);
+
+    if (selection.isCollapsed() && !cursorInLink) {
+      setIsVisible(false);
+      setShowLinkInput(false);
       return;
     }
 
@@ -64,13 +75,23 @@ export default function FloatingToolbarPlugin() {
       const parent = node.getParent();
       return $isLinkNode(parent) || $isLinkNode(node);
     });
-    setIsLink(isEveryLink);
+    setIsLink(isEveryLink || cursorInLink);
+
+    // If collapsed cursor inside a link, auto-open the link input; otherwise reset it
+    if (selection.isCollapsed() && cursorInLink) {
+      const linkNode = $isLinkNode(anchorParent) ? anchorParent : anchorNode;
+      if ($isLinkNode(linkNode)) {
+        setLinkUrl(linkNode.getURL());
+        setShowLinkInput(true);
+      }
+    } else if (!cursorInLink) {
+      setShowLinkInput(false);
+    }
 
     // Check element format (alignment)
-    const anchorNode = selection.anchor.getNode();
     const element = $isElementNode(anchorNode)
       ? anchorNode
-      : anchorNode.getParent();
+      : anchorParent;
     if (element && $isElementNode(element)) {
       setElementFormat(element.getFormatType());
     }
@@ -123,21 +144,19 @@ export default function FloatingToolbarPlugin() {
   };
 
   const toggleLink = () => {
-    if (isLink) {
-      editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-    } else {
-      editor.getEditorState().read(() => {
-        const selection = $getSelection();
-        if ($isRangeSelection(selection)) {
-          const node = selection.getNodes()[0];
-          const parent = node.getParent();
-          if ($isLinkNode(parent)) {
-            setLinkUrl(parent.getURL());
-          }
+    editor.getEditorState().read(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        const node = selection.getNodes()[0];
+        const parent = node.getParent();
+        if ($isLinkNode(parent)) {
+          setLinkUrl(parent.getURL());
+        } else {
+          setLinkUrl('');
         }
-      });
-      setShowLinkInput(true);
-    }
+      }
+    });
+    setShowLinkInput(true);
   };
 
   if (!isVisible) return null;
