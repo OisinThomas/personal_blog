@@ -186,6 +186,21 @@ function appendChildrenFromJson(parent: ElementNodeType, children?: Array<Record
   }
 }
 
+/** Parse a markdown string for inline formatting and append the resulting nodes to `parent`. */
+function appendInlineMarkdown(parent: ElementNodeType, text: string): void {
+  const parsed = markdownToLexicalJson(text);
+  const root = (parsed as { root: { children: Array<Record<string, unknown>> } }).root;
+  if (root.children.length > 0) {
+    const first = root.children[0];
+    if ((first.type as string) === 'paragraph' && first.children) {
+      appendChildrenFromJson(parent, first.children as Array<Record<string, unknown>>);
+      return;
+    }
+  }
+  // Fallback to plain text if parsing fails
+  parent.append($createTextNode(text));
+}
+
 function parseMdToNodes(markdown: string): LexicalNode[] {
   const parsed = markdownToLexicalJson(markdown);
   const root = (parsed as { root: { children: Array<Record<string, unknown>> } }).root;
@@ -262,9 +277,14 @@ function replaceBlockText(ctx: ToolExecutorContext, args: { nodeKey: string; new
         node.clear();
         appendChildrenFromJson(node, pJson.children as Array<Record<string, unknown>>);
       } else {
-        // Fallback: just set plain text
+        // Multi-paragraph result: use inline children from the first paragraph
+        const firstPara = root.children.find((c) => (c.type as string) === 'paragraph');
         node.clear();
-        node.append($createTextNode(args.newText));
+        if (firstPara && firstPara.children) {
+          appendChildrenFromJson(node, firstPara.children as Array<Record<string, unknown>>);
+        } else {
+          appendInlineMarkdown(node, args.newText);
+        }
       }
       resolve(`Replaced text in block ${args.nodeKey}`);
     });
@@ -329,7 +349,7 @@ function createHeading(ctx: ToolExecutorContext, args: { level: number; text: st
   return new Promise((resolve) => {
     ctx.editor.update(() => {
       const heading = $createHeadingNode(`h${args.level}` as HeadingTagType);
-      heading.append($createTextNode(args.text));
+      appendInlineMarkdown(heading, args.text);
       insertNodeAt(heading, args.afterNodeKey);
       resolve(`Created h${args.level}: "${args.text}" (key: ${heading.getKey()})`);
     });
@@ -375,7 +395,7 @@ function createList(ctx: ToolExecutorContext, args: { listType: string; items: s
       const list = $createListNode(args.listType as 'bullet' | 'number');
       for (const item of args.items) {
         const li = $createListItemNode();
-        li.append($createTextNode(item));
+        appendInlineMarkdown(li, item);
         list.append(li);
       }
       insertNodeAt(list, args.afterNodeKey);
