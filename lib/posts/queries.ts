@@ -5,6 +5,7 @@ export async function getAllPosts(options?: {
   status?: 'published' | 'draft' | 'archived';
   majorTag?: MajorTag;
   limit?: number;
+  includeTranslations?: boolean;
 }): Promise<PostWithAsset[]> {
   const supabase = createStaticClient();
 
@@ -22,6 +23,11 @@ export async function getAllPosts(options?: {
     if (options.status === 'published') {
       query = query.lte('published_at', new Date().toISOString());
     }
+  }
+
+  // By default, exclude translations from feed listings
+  if (options?.includeTranslations !== true) {
+    query = query.is('translation_of', null);
   }
 
   if (options?.majorTag) {
@@ -260,4 +266,32 @@ export async function getAllUniqueTags(): Promise<string[]> {
   );
 
   return uniqueTags;
+}
+
+/**
+ * Get all translations of a given post (posts where translation_of = postId).
+ * Also finds sibling translations if the post itself is a translation.
+ */
+export async function getTranslationsOf(postId: string, translationOf: string | null): Promise<PostWithAsset[]> {
+  const supabase = createStaticClient();
+
+  // The "original" post id — either this post (if it's the original) or its parent
+  const originalId = translationOf ?? postId;
+
+  // Fetch all posts that are translations of the original, plus the original itself if we're on a translation
+  const { data, error } = await supabase
+    .from('posts')
+    .select(`
+      *,
+      featured_image:assets!featured_image_id(*)
+    `)
+    .or(`translation_of.eq.${originalId},id.eq.${originalId}`)
+    .neq('id', postId);
+
+  if (error) {
+    console.error('Error fetching translations:', error);
+    return [];
+  }
+
+  return data as PostWithAsset[];
 }

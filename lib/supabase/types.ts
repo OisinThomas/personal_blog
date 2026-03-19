@@ -45,6 +45,7 @@ export interface Post {
   source_url: string | null;
   editor_state: Record<string, unknown> | null;
   footnotes: Footnote[];
+  translation_of: string | null;
 }
 
 export interface PostWithAsset extends Post {

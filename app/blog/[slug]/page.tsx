@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Calendar, Clock } from "lucide-react";
-import { getPostWithNodes, getPostSlugs, getPostWithNodesPreview } from "@/lib/posts/queries";
+import { getPostWithNodes, getPostSlugs, getPostWithNodesPreview, getTranslationsOf } from "@/lib/posts/queries";
 import siteMetadata from "@/lib/siteMetaData";
 import Footer from "@/components/Footer";
 import SubstackIcon from "@/components/icons/SubstackIcon";
@@ -53,6 +53,9 @@ export default async function Post({
   if (!isPreview && (!isPublished || isScheduled)) {
     return notFound();
   }
+
+  // Fetch translations (other language versions of this post)
+  const translations = await getTranslationsOf(post.id, post.translation_of);
 
   // Calculate word count
   const wordCount = post.editor_state
@@ -134,6 +137,21 @@ export default async function Post({
               </Link>
             )}
           </div>
+
+          {/* Translation cross-links */}
+          {translations.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm">
+              {translations.map((translation) => (
+                <Link
+                  key={translation.id}
+                  href={`/blog/${translation.slug}`}
+                  className="text-blue-600 dark:text-blue-400 hover:underline transition-colors"
+                >
+                  {translation.language === 'ga' ? 'Léigh as Gaeilge →' : 'Read in English →'}
+                </Link>
+              ))}
+            </div>
+          )}
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (

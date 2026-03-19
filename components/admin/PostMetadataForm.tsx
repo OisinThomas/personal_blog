@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabase/client';
-import type { PostWithAsset, Asset } from '@/lib/supabase/types';
+import type { PostWithAsset, Asset, Post } from '@/lib/supabase/types';
 import { Trash2, Calendar, X } from 'lucide-react';
 import FeaturedImagePicker from './FeaturedImagePicker';
 
@@ -48,7 +48,23 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
     created_at: toDatetimeLocal(post.created_at),
     published_at: toDatetimeLocal(post.published_at),
     featured_image_id: post.featured_image_id,
+    translation_of: post.translation_of || '',
   });
+
+  const [allPosts, setAllPosts] = useState<Pick<Post, 'id' | 'title' | 'slug' | 'language'>[]>([]);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const supabase = getSupabaseClient();
+      const { data } = await supabase
+        .from('posts')
+        .select('id, title, slug, language')
+        .neq('id', post.id)
+        .order('title');
+      if (data) setAllPosts(data);
+    }
+    fetchPosts();
+  }, [post.id]);
 
   const [featuredAsset, setFeaturedAsset] = useState<Asset | null>(
     post.featured_image
@@ -105,6 +121,7 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
           created_at: fromDatetimeLocal(formData.created_at) || post.created_at,
           published_at: fromDatetimeLocal(formData.published_at),
           featured_image_id: formData.featured_image_id || null,
+          translation_of: formData.translation_of || null,
         })
         .eq('id', post.id);
 
@@ -305,6 +322,27 @@ export default function PostMetadataForm({ post, onDelete }: PostMetadataFormPro
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
+      </div>
+
+      {/* Translation link */}
+      <div>
+        <label className="block text-sm font-medium text-gray-900 dark:text-white mb-1">Translation of</label>
+        <select
+          name="translation_of"
+          value={formData.translation_of}
+          onChange={handleChange}
+          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">None (original post)</option>
+          {allPosts.map((p) => (
+            <option key={p.id} value={p.id}>
+              {p.title} ({p.language.toUpperCase()}) — /{p.slug}
+            </option>
+          ))}
+        </select>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          If this post is a translation of another post, select the original here.
+        </p>
       </div>
 
       <div className="flex justify-between pt-4">
