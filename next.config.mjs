@@ -29,6 +29,15 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/2022/11/28/:slug',
+        destination: '/blog/na-rudai-is-mian-leat-mian-a-bheith-ionat-a-dheanamh',
+        permanent: true,
+      },
+    ];
+  },
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 };
