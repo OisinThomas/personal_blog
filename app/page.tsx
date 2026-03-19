@@ -181,7 +181,7 @@ function PostSections({ postsByTag }: { postsByTag: Record<string, PostWithAsset
             {title}
           </h2>
           <div className="grid gap-4">
-            {posts.map((post) => (
+            {posts.slice(0, 5).map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
           </div>
