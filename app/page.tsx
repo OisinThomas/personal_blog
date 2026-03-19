@@ -164,21 +164,29 @@ function PostCard({ post }: { post: PostWithAsset }) {
 
 function PostSections({ postsByTag }: { postsByTag: Record<string, PostWithAsset[]> }) {
   const sections = [
-    { id: "thoughts", title: "Thoughts", posts: postsByTag["Thoughts"] || [] },
-    { id: "tinkering", title: "Tinkerings", posts: postsByTag["Tinkering"] || [] },
-    { id: "translations", title: "Translations", posts: postsByTag["Translations"] || [] },
+    { id: "thoughts", title: "Thoughts", category: "Thoughts", posts: postsByTag["Thoughts"] || [] },
+    { id: "tinkering", title: "Tinkerings", category: "Tinkering", posts: postsByTag["Tinkering"] || [] },
+    { id: "translations", title: "Translations", category: "Translations", posts: postsByTag["Translations"] || [] },
   ];
 
   return (
     <div className="flex-1 space-y-12">
-      {sections.map(({ id, title, posts }) => (
+      {sections.map(({ id, title, category, posts }) => (
         <section key={id}>
           <h2
             id={id}
-            className="text-xl font-semibold mb-6 flex items-center gap-3"
+            className="text-xl font-semibold mb-6 flex items-center justify-between"
           >
-            <span className="w-1.5 h-6 bg-primary rounded-full" />
-            {title}
+            <span className="flex items-center gap-3">
+              <span className="w-1.5 h-6 bg-primary rounded-full" />
+              {title}
+            </span>
+            <Link
+              href={`/all?category=${encodeURIComponent(category)}`}
+              className="text-sm font-normal text-primary hover:underline"
+            >
+              View All
+            </Link>
           </h2>
           <div className="grid gap-4">
             {posts.slice(0, 5).map((post) => (
@@ -188,25 +196,6 @@ function PostSections({ postsByTag }: { postsByTag: Record<string, PostWithAsset
         </section>
       ))}
 
-      <Link
-        href="/all"
-        className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-      >
-        View All Posts
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          />
-        </svg>
-      </Link>
     </div>
   );
 }

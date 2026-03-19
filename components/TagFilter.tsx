@@ -23,7 +23,7 @@ export default function TagFilter({ tags, selectedTag }: TagFilterProps) {
               className={
                 isActive
                   ? "text-xs px-2 py-1 rounded-full bg-primary text-white transition-colors"
-                  : "text-xs px-2 py-1 rounded-full bg-surface-1 text-secondary-500 hover:bg-blue-500 hover:!text-white transition-colors"
+                  : "text-xs px-2 py-1 rounded-full bg-surface-1 text-secondary-500 hover:text-primary hover:bg-surface-2 transition-colors"
               }
             >
               {tag}

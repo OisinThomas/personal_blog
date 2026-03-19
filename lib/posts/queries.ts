@@ -183,8 +183,8 @@ export async function getPostSlugs(): Promise<string[]> {
   return data.map((post: { slug: string }) => post.slug);
 }
 
-export async function getPostsByMajorTag(): Promise<Record<MajorTag, PostWithAsset[]>> {
-  const posts = await getPublishedPosts();
+export async function getPostsByMajorTag(options?: { includeTranslations?: boolean }): Promise<Record<MajorTag, PostWithAsset[]>> {
+  const posts = await getAllPosts({ status: 'published', includeTranslations: options?.includeTranslations });
 
   const grouped: Record<MajorTag, PostWithAsset[]> = {
     'Thoughts': [],
