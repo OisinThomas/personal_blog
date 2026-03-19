@@ -40,8 +40,7 @@ export default function About() {
             </Link>{" "}
             as well as creating book pipelines, an app and a chrome extension as
             a co-founder of the NDRC backed ed-tech startup,{" "}
-            Weeve
-            .{" "}
+            Weeve.
           </p>
           <br />
           <p>
