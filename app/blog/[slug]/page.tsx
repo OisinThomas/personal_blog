@@ -181,7 +181,7 @@ export default async function Post({
         {footnotes.length > 0 && (
           <section className="max-w-3xl mx-auto mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
             <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
-              Footnotes
+              {post.language === "ga" ? "Nótaí" : "Footnotes"}
             </h2>
             <ol className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
               {footnotes.map((fn) => (
