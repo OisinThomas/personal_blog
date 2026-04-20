@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Socials from './Socials';
+
 import SubscribeModal from './SubscribeModal';
 
 export default function Footer() {
@@ -20,9 +20,8 @@ export default function Footer() {
               Subscribe
             </button>
           </div>
-          <Socials />
           <div className="text-xs text-secondary-400">
-            © Oisín Thomas {new Date().getFullYear()}
+            © caidéiseach {new Date().getFullYear()}
           </div>
         </div>
       </div>

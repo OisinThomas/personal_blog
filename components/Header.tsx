@@ -30,7 +30,7 @@ const Header = () => {
           href="/"
           className='mb-4'
         >
-          <Image src="/profile.png" alt="oisin thomas" width={64} height={64} className='w-16 h-16 rounded-full'/>
+          <Image src="/profile.png" alt="caidéiseach" width={64} height={64} className='w-16 h-16 rounded-full'/>
         </Link>
 
         {/* Desktop Menu */}

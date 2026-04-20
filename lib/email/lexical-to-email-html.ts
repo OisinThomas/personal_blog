@@ -208,7 +208,7 @@ function renderFootnoteRef(node: LexicalNode): string {
 }
 
 function renderViewOnWebsite(postSlug: string): string {
-  const url = `https://oisinthomas.com/blog/${postSlug}`;
+  const url = `https://caideiseach.com/blog/${postSlug}`;
   return `<p style="margin:16px 0;padding:12px 16px;background-color:${CODE_BG};border-radius:4px;text-align:center;font-size:14px;color:${MUTED_COLOR};">
     This content is best viewed on the web. <a href="${escapeHtml(url)}" style="color:${BRAND_COLOR};text-decoration:underline;">View on website</a>
   </p>`;

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSubscriberByToken } from '@/lib/newsletter/queries';
 import { unsubscribeSubscriber } from '@/lib/newsletter/mutations';
 
-const SITE_URL = 'https://oisinthomas.com';
+const SITE_URL = 'https://caideiseach.com';
 
 // GET: clicked from email link
 export async function GET(request: NextRequest) {

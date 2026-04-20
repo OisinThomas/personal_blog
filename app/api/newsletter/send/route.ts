@@ -7,9 +7,9 @@ import { getResendClient } from '@/lib/email/resend';
 import { postNotificationEmailHtml, getEmailHeaders } from '@/lib/email/templates';
 import { lexicalToEmailHtml } from '@/lib/email/lexical-to-email-html';
 
-const SITE_URL = 'https://oisinthomas.com';
-const FROM_EMAIL = 'Oisín Thomas <subscriptions@caideiseach.com>';
-const REPLY_TO = 'oisinthomas99@gmail.com';
+const SITE_URL = 'https://caideiseach.com';
+const FROM_EMAIL = 'caidéiseach <subscriptions@caideiseach.com>';
+const REPLY_TO = 'subscriptions@caideiseach.com';
 
 export async function POST(request: NextRequest) {
   try {

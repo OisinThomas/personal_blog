@@ -25,7 +25,7 @@ CREATE TABLE posts (
   sub_tag TEXT,
   language TEXT NOT NULL DEFAULT 'en' CHECK (language IN ('en', 'ga')),
   tags TEXT[] DEFAULT '{}',
-  author TEXT NOT NULL DEFAULT 'Oisin Thomas',
+  author TEXT NOT NULL DEFAULT 'caidéiseach',
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published', 'archived')),
   published_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -287,7 +287,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://xgnfxghqiwsjhdhqmbus.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon-key>
 SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
 ADMIN_EMAIL=<your-email>
-NEXT_PUBLIC_SITE_URL=https://oisinthomas.com
+NEXT_PUBLIC_SITE_URL=https://caideiseach.com
 ```
 
 ---

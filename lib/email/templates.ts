@@ -1,5 +1,5 @@
-const SITE_URL = 'https://oisinthomas.com';
-const FROM_NAME = 'Oisín Thomas';
+const SITE_URL = 'https://caideiseach.com';
+const FROM_NAME = 'caidéiseach';
 const BRAND_COLOR = '#3b82f6';
 const TEXT_COLOR = '#1e293b';
 const MUTED_COLOR = '#64748b';

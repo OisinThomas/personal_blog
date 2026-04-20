@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS posts (
   sub_tag TEXT,
   language TEXT NOT NULL DEFAULT 'en' CHECK (language IN ('en', 'ga')),
   tags TEXT[] DEFAULT '{}',
-  author TEXT NOT NULL DEFAULT 'Oisin Thomas',
+  author TEXT NOT NULL DEFAULT 'caidéiseach',
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published', 'archived')),
   published_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),

@@ -50,7 +50,7 @@ export default function PostForm({ initialData, postId }: PostFormProps) {
       sub_tag: initialData?.sub_tag || '',
       language: initialData?.language || 'en',
       tags: initialData?.tags || '',
-      author: initialData?.author || 'Oisin Thomas',
+      author: initialData?.author || 'caidéiseach',
       status: initialData?.status || 'draft',
       source: initialData?.source || '',
       source_url: initialData?.source_url || '',

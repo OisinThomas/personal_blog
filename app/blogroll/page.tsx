@@ -4,35 +4,9 @@ export default function Home() {
   return (
     <div>
       <main className="container mx-auto px-4 mb-16 max-w-3xl">
-        <div className="flex flex-col md:flex-row justify-around items-center p-4">
-          <div className="relative h-[140px] w-full md:w-auto flex items-center justify-center mb-4 md:mb-0 md:mr-20">
-            <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-lg md:text-xl fadeInOut w-[1ch]">
-              好奇心旺盛
-            </div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-lg md:text-xl text-center fadeInOutDelayed opacity-0">
-              brimming with curiosity
-            </div>
-          </div>
-          <div className="relative h-full max-w-[75ch] md:w-[30ch] flex text-sm md:text-lg italic wrap items-center justify-center">
-            `Curiouser and curiouser!' cried Alice (she was so much surprised,
-            that for the moment she quite forgot how to speak good English)
-          </div>
-        </div>
-
         <p className="text-xl mb-8">
           Getting lost down a rabbit hole of good content is one of the greatest
-          intellectual experiences.
-        </p>
-
-        <p className="text-xl mb-8">
-          Here is a list of some of my favourites blogs!
-        </p>
-        <p className="text-xl italic mb-8">
-          Also I made a{" "}
-          <Link className="text-blue-600 dark:text-blue-400 hover:underline" href={"/favourite/words"}>
-            list of my favourite words and terms
-          </Link>{" "}
-          that I've come across.
+          intellectual experiences. Here are some of my favourite blogs.
         </p>
         <div className="flex flex-col md:flex-row">
           <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0 text-xl">

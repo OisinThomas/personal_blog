@@ -20,14 +20,10 @@ export default async function Home() {
         {/* Hero Section */}
         <section className="py-8 mb-12">
           <h1 className="text-headline mb-4">
-            I'm <span className="text-primary">Oisín Thomas</span>
+            I'm <span className="text-primary">caidéiseach</span>
           </h1>
           <p className="text-lg text-secondary-600 mb-6 max-w-2xl">
-            Head of AI at{" "}
-            <Link className="text-primary hover:underline" href="https://www.examfly.com">
-              Examfly
-            </Link>{" "} and formerly Co-founder of{" "}
-            Weeve
+            Gaelfuturist, startup builder, and autodidact.
           </p>
           <p className="text-secondary-500 mb-6">
             Here is a smorgasbord of{" "}

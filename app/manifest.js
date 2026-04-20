@@ -1,7 +1,7 @@
 export default function manifest() {
     return {
-      name: 'Oisín Thomas Blog',
-      short_name: 'Oisín Thomas Blog',
+      name: 'caidéiseach',
+      short_name: 'caidéiseach',
       description: 'A Blog brimming with curiosity about languages and technology',
       start_url: '/',
       display: 'standalone',

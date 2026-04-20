@@ -4,8 +4,8 @@ import { createSubscriber, reactivateSubscriber, setSubscriberChannels } from '@
 import { getResendClient } from '@/lib/email/resend';
 import { welcomeEmailHtml } from '@/lib/email/templates';
 
-const SITE_URL = 'https://oisinthomas.com';
-const FROM_EMAIL = 'Oisín Thomas <subscriptions@caideiseach.com>';
+const SITE_URL = 'https://caideiseach.com';
+const FROM_EMAIL = 'caidéiseach <subscriptions@caideiseach.com>';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
